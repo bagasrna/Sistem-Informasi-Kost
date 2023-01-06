@@ -11,7 +11,8 @@
     <div class="md:mx-[100px] mx-[80px]  flex flex-col z-40 font-Poppins">
         <h1 class='font-bold text-[30px] mt-[30px] md:mt-[90px] '>Dashboard</h1>
         <div class="flex flex-row justify-between flex-wrap mt-[20px]">
-            <div class="flex mb-[100px] text-white">
+
+            <div class="flex mb-[100px] transition shadow-xl hover:shadow-2xl hover:-translate-y-3 text-white">
                 <a href="">
                     <div class="md:w-[300px] mb-[50px] w-[250px] bg-blue-500 rounded-xl">
                         <div class=" p-5">
@@ -26,10 +27,10 @@
                 </a>
             </div>
 
-            <div class="flex  mb-[100px] text-white">
-                <a href="">
+            <div class="flex transition shadow-xl hover:shadow-2xl hover:-translate-y-3 mb-[100px] text-white">
+                <a href="" >
                     <div class="md:w-[300px] mb-[50px] w-[250px] bg-yellow-500 rounded-xl">
-                        <div class=" p-5">
+                        <div class="p-5">
                             <p class="text-[24px] md:text-[30px]">3</p>
                             <h1 class="font-bold text-[16px] md:text-[20px]">Akun Penghuni</h1>
                         </div>
@@ -41,7 +42,7 @@
                 </a>
             </div>
 
-            <div class="flex  mb-[100px] text-white">
+            <div class="flex  mb-[100px] transition shadow-xl hover:shadow-2xl hover:-translate-y-3 text-white">
                 <a href="">
                     <div class="md:w-[300px] mb-[50px] w-[250px] bg-red-500 rounded-xl">
                         <div class=" p-5">
@@ -56,7 +57,7 @@
                 </a>
             </div>
 
-            <div class="flex mb-[50px] text-white">
+            <div class="flex mb-[50px] transition shadow-xl hover:shadow-2xl hover:-translate-y-3 text-white">
                 <a href="">
                     <div class="md:w-[300px] mb-[50px] w-[250px] bg-green-500 rounded-xl">
                         <div class=" p-5">

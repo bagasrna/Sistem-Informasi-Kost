@@ -20,3 +20,15 @@ Route::get('/', function () {
 Route::get('dashboard', function () {
     return view('main.dashboard');
 });
+
+Route::get('dashboard/penghuni', function () {
+    return view('main.dataPenghuni');
+});
+
+Route::get('dashboard/tagihan', function () {
+    return view('main.dataTagihan');
+});
+
+Route::get('dashboard/lunas', function () {
+    return view('main.pembayaranLunas');
+});
