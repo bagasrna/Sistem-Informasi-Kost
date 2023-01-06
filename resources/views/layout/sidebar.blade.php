@@ -58,7 +58,7 @@
                         </li>
 
                         <li class="w-max">
-                            <form action="" method="post">
+                            <form action="/logout" method="post">
                                 @csrf
                                 <button type="submit">
                                     <div class="flex bottom-0 pb-[20px] gap-4 py-3">

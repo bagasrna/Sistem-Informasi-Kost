@@ -8,7 +8,7 @@
     @vite('resources/css/app.css')
 </head>
 <body>
-    <form action="">
+    <form action="/login" method="post">
         @csrf
             <div class='border-2 p-5 sm:p-10 rounded-2xl shadow-lg font-Poppins border-[#257B57] w-[300px] sm:w-[500px] my-[100px] flex-col flex items-center h-full mx-auto'>
                 <div class='my-5'>
