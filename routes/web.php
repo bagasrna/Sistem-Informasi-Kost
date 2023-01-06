@@ -37,3 +37,15 @@ Route::group(['middleware' => 'auth'],function (){
         Route::delete('/delete', [PenghuniController::class, 'delete'])->name('delete');
     });
 });
+
+Route::get('dashboard/penghuni', function () {
+    return view('main.dataPenghuni');
+});
+
+Route::get('dashboard/tagihan', function () {
+    return view('main.dataTagihan');
+});
+
+Route::get('dashboard/lunas', function () {
+    return view('main.pembayaranLunas');
+});
