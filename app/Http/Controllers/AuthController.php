@@ -22,10 +22,11 @@ class AuthController extends Controller
 
         if(Auth::attempt($credentials)) {
             $request->session()->regenerate();
+            Alert::success('Berhasil', 'Login Berhasil!');
             return redirect()->intended('/dashboard');
         }
 
-        Alert::error('Login Gagal', 'Silahkan Masukkan Id dan Password lagi');
+        Alert::error('Gagal', 'Username atau password salah!');
         return back();
     }
 
@@ -37,6 +38,6 @@ class AuthController extends Controller
 
         $request->session()->regenerateToken();
 
-        return redirect('/');
+        return redirect(route('login'));
     }
 }

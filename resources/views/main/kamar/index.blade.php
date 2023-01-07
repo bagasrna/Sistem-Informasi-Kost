@@ -13,7 +13,7 @@
 
                 <div class="flex flex-row gap-4 mt-[30px] mb-4">
                     <div class="flex">
-                        <a href="/create"
+                        <a href="/kamar/create"
                             class="w-[80px] text-center bg-[#22C55E] text-[12px] md:text-[14px] hover:bg-green-600 text-white p-3 rounded shadow-sm focus:outline-none ">Tambah
                         </a>
                     </div>

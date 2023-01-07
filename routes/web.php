@@ -18,12 +18,12 @@ Route::group(['middleware' => 'auth'],function (){
     //Kamar
     Route::group(['prefix' => 'kamar', 'name' => 'kamar',],function (){
         Route::get('/', [KamarController::class, 'index'])->name('index');
-        Route::get('/{id}', [KamarController::class, 'show'])->name('show');
         Route::get('/create', [KamarController::class, 'create'])->name('create');
         Route::post('/create', [KamarController::class, 'store'])->name('store');
         Route::get('/update', [KamarController::class, 'edit'])->name('edit');
         Route::put('/update', [KamarController::class, 'store'])->name('update');
         Route::delete('/delete', [KamarController::class, 'delete'])->name('delete');
+        Route::get('/{id}', [KamarController::class, 'show'])->name('show');
     });
 
     //Penghuni

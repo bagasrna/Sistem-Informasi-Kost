@@ -7,6 +7,6 @@
     <title>Sistem Informasi Kos</title>
 </head>
 <body>
-    
+    Ini Create
 </body>
 </html>

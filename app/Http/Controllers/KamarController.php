@@ -18,20 +18,20 @@ class KamarController extends Controller
         ]);
     }
 
+    public function create(){
+        // $kamars = Kamar::join('kamars', 'kamars.id', 'penghunis.id_kamar')
+        //     ->select('kamars.id', 'penghunis.nama')
+        //     ->get();
+        
+        return view('main.kamar.create', [
+            // 'kamars' => $kamars
+        ]);
+    }
+
     public function show($id){
         $kamar = Kamar::find($id);
 
         return view('main.kamar.show');
-    }
-
-    public function create(){
-        $kamars = Kamar::join('kamars', 'kamars.id', 'penghunis.id_kamar')
-            ->select('kamars.id', 'penghunis.nama')
-            ->get();
-        
-        return view('main.kamar.create', [
-            'kamars' => $kamars
-        ]);
     }
 
     public function store(Request $request){
