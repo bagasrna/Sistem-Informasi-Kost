@@ -39,17 +39,17 @@ Route::group(['middleware' => 'auth'],function (){
 });
 
 Route::get('dashboard/penghuni', function () {
-    return view('main.dataPenghuni');
+    return view('main.penghuni.index');
 });
 
 Route::get('dashboard/kamar', function () {
-    return view('main.dataKamar');
+    return view('main.kamar.index');
 });
 
 Route::get('dashboard/tagihan', function () {
-    return view('main.dataTagihan');
+    return view('main.tagihan.index');
 });
 
 Route::get('dashboard/lunas', function () {
-    return view('main.pembayaranLunas');
+    return view('main.pembayaran.index');
 });
