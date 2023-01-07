@@ -47,5 +47,6 @@
         </table>
     </div>
     @include('layout.sidebar')
+    @include('sweetalert::alert')
 </body>
 </html>
