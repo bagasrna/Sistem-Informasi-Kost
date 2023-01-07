@@ -8,7 +8,7 @@
     @vite('resources/css/app.css')
 </head>
 <body>
-    <div class="md:ml-[150px] mx-[80px]  flex flex-col z-40 font-Poppins">
+    <div class="md:ml-[150px] mx-[80px] flex flex-col z-40 font-Poppins">
         <h1 class='font-bold text-[30px] mt-[30px] md:mt-[90px] '>Dashboard</h1>
         <div class="flex flex-row justify-between flex-wrap mt-[20px]">
 

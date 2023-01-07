@@ -38,18 +38,18 @@ Route::group(['middleware' => 'auth'],function (){
     // });
 });
 
-Route::get('dashboard/penghuni', function () {
+Route::get('/penghuni', function () {
     return view('main.penghuni.index');
 });
 
-Route::get('dashboard/kamar', function () {
+Route::get('/kamar', function () {
     return view('main.kamar.index');
 });
 
-Route::get('dashboard/tagihan', function () {
+Route::get('/tagihan', function () {
     return view('main.tagihan.index');
 });
 
-Route::get('dashboard/lunas', function () {
+Route::get('/lunas', function () {
     return view('main.pembayaran.index');
 });
