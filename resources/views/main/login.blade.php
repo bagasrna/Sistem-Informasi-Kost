@@ -9,7 +9,6 @@
 </head>
 <body>
     <form action="/login" method="post">
-    @include('sweetalert::alert')
         @csrf
             <div class='border-2 p-5 sm:p-10 rounded-2xl shadow-lg font-Poppins border-[#257B57] w-[300px] sm:w-[500px] my-[100px] flex-col flex items-center h-full mx-auto'>
                 <div class='my-5'>
@@ -49,5 +48,6 @@
                 </div>
             </div>
         </form>
+        @include('sweetalert::alert')
 </body>
 </html>

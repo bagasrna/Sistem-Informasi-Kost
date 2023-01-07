@@ -3,7 +3,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\KamarController;
-use App\Http\Controllers\PenghuniController;
+// use App\Http\Controllers\PenghuniController;
 use Illuminate\Support\Facades\Route;
 
 //Authentication
@@ -27,19 +27,23 @@ Route::group(['middleware' => 'auth'],function (){
     });
 
     //Penghuni
-    Route::group(['prefix' => 'penghuni', 'name' => 'penghuni',],function (){
-        Route::get('/', [PenghuniController::class, 'index'])->name('index');
-        Route::get('/{id}', [PenghuniController::class, 'show'])->name('show');
-        Route::get('/create', [PenghuniController::class, 'create'])->name('create');
-        Route::post('/create', [PenghuniController::class, 'store'])->name('store');
-        Route::get('/update', [PenghuniController::class, 'edit'])->name('edit');
-        Route::put('/update', [PenghuniController::class, 'update'])->name('update');
-        Route::delete('/delete', [PenghuniController::class, 'delete'])->name('delete');
-    });
+    // Route::group(['prefix' => 'penghuni', 'name' => 'penghuni',],function (){
+    //     Route::get('/', [PenghuniController::class, 'index'])->name('index');
+    //     Route::get('/{id}', [PenghuniController::class, 'show'])->name('show');
+    //     Route::get('/create', [PenghuniController::class, 'create'])->name('create');
+    //     Route::post('/create', [PenghuniController::class, 'store'])->name('store');
+    //     Route::get('/update', [PenghuniController::class, 'edit'])->name('edit');
+    //     Route::put('/update', [PenghuniController::class, 'update'])->name('update');
+    //     Route::delete('/delete', [PenghuniController::class, 'delete'])->name('delete');
+    // });
 });
 
 Route::get('dashboard/penghuni', function () {
     return view('main.dataPenghuni');
+});
+
+Route::get('dashboard/kamar', function () {
+    return view('main.dataKamar');
 });
 
 Route::get('dashboard/tagihan', function () {

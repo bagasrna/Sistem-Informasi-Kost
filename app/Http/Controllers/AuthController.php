@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 Use Illuminate\Support\Facades\Auth;
+Use Alert;
 
 class AuthController extends Controller
 {
@@ -24,17 +25,18 @@ class AuthController extends Controller
             return redirect()->intended('/dashboard');
         }
 
-        return back()->with('message', 'Login gagal!');
+        Alert::error('Login Gagal', 'Silahkan Masukkan Id dan Password lagi');
+        return back();
     }
 
     public function logout(Request $request)
     {
         Auth::logout();
-     
+
         $request->session()->invalidate();
-     
+
         $request->session()->regenerateToken();
-     
+
         return redirect('/');
     }
 }
