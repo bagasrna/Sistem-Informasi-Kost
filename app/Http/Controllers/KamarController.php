@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use App\Models\Kamar;
+Use Alert;
 use App\Models\Penghuni;
 
 class KamarController extends Controller
@@ -63,9 +64,11 @@ class KamarController extends Controller
             $kamar->save();
 
             if (!$request->id){
-                return redirect(route('kamar.create'))->with('message', 'Kamar berhasil ditambahkan!');
+                Alert::success('Berhasil', 'Kamar berhasil ditambahkan!');
+                return redirect(route('kamar.create'));
             } else {
-                return redirect(route('kamar.edit'))->with('message', 'Kamar berhasil diupdate!');
+                Alert::success('Berhasil', 'Kamar berhasil ditambahkan!');
+                return redirect(route('kamar.edit'));
             }
             
         } catch (\Exception $e) {
