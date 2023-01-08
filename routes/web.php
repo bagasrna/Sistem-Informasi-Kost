@@ -7,27 +7,27 @@ use App\Http\Controllers\KamarController;
 use App\Http\Controllers\ArtisanController;
 use Illuminate\Support\Facades\Route;
 
-//Authentication
+#Authentication
 Route::get('/', [AuthController::class, 'index'])->name('login')->middleware('guest');
 Route::post('/login', [AuthController::class, 'authenticate'])->name('login.attempt')->middleware('guest');
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout')->middleware('auth');
 
 Route::group(['middleware' => 'auth'],function (){
-    //Dashboard
+    #Dashboard
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
-    //Kamar
-    Route::group(['prefix' => 'kamar', 'name' => 'kamar',],function (){
+    #Kamar
+    Route::prefix('kamar')->name('kamar.')->group(function(){
         Route::get('/', [KamarController::class, 'index'])->name('index');
         Route::get('/create', [KamarController::class, 'create'])->name('create');
         Route::post('/create', [KamarController::class, 'store'])->name('store');
-        Route::get('/update', [KamarController::class, 'edit'])->name('edit');
+        Route::get('/update/{id}', [KamarController::class, 'edit'])->name('edit');
         Route::put('/update', [KamarController::class, 'store'])->name('update');
         Route::delete('/delete', [KamarController::class, 'delete'])->name('delete');
         Route::get('/{id}', [KamarController::class, 'show'])->name('show');
     });
 
-    //Penghuni
+    #Penghuni
     // Route::group(['prefix' => 'penghuni', 'name' => 'penghuni',],function (){
     //     Route::get('/', [PenghuniController::class, 'index'])->name('index');
     //     Route::get('/{id}', [PenghuniController::class, 'show'])->name('show');
@@ -41,10 +41,6 @@ Route::group(['middleware' => 'auth'],function (){
 
 Route::get('/penghuni', function () {
     return view('main.penghuni.index');
-});
-
-Route::get('/kamar', function () {
-    return view('main.kamar.index');
 });
 
 Route::get('/tagihan', function () {

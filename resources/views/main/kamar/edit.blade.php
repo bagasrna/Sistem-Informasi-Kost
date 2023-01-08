@@ -9,23 +9,27 @@
 </head>
 <body>
     <div class="md:md:ml-[150px] mx-[80px] h-screen z-40 font-Poppins">
-        <h1 class='font-bold text-[30px] mt-[30px] md:mt-[90px]'>Mengubah Kamar</h1>
+        <h1 class='font-bold text-[30px] mt-[30px] md:mt-[90px]'>Update Kamar</h1>
 
         <div class='border-2 rounded-xl mt-[30px] shadow-lg border-gray-500'>
-            <form action="/create" method="POST" class="ml-[30px]">
+            <form action="/kamar/update" method="POST" class="ml-[30px]">
+                @csrf
+                @method('PUT')
+                <input type="hidden" name="id" value="{{ $kamar->id }}">
                 <div class="mt-[30px] flex flex-col">
-                    <label for="lantai" class="font-semibold mb-2">Pilih Lantai :</label>
+                    <label for="lantai" class="font-semibold mb-2">Lantai :</label>
                     <select type="text" required id="lantai" name="lantai" class="w-[200px] pl-3 focus:border-blue-400 text-[14px] border-2 rounded-lg py-3 border-gray-500 outline-none ">
-                        <option value="1" name="lantai">Lantai 1</option>
-                        <option value="2" name="lantai">Lantai 2</option>
+                        <option value="1" name="lantai" {{ $kamar->lantai == 1 ? 'selected' : '' }}>Lantai 1</option>
+                        <option value="2" name="lantai" {{ $kamar->lantai == 2 ? 'selected' : '' }}>Lantai 2</option>
                     </select>
                 </div>
 
                 <div class="mt-[30px] flex flex-col">
-                    <label for="lantai" class="font-semibold mb-2">Masukkan Fasilitas :</label>
+                    <label for="lantai" class="font-semibold mb-2">Fasilitas :</label>
                     <input 
                         type="text" 
                         name="fasilitas"
+                        value="{{ $kamar->fasilitas }}"
                         required
                         id="fasilitas"
                         class="border-2 rounded-lg w-4/5 border-gray-500 pl-3 outline-none focus:border-blue-400 p-2 text-[14px]"
@@ -34,18 +38,19 @@
                 </div>
 
                 <div class="mt-[30px] flex flex-col">
-                    <label for="kapasitas" class="font-semibold mb-2">Masukkan Kapasitas :</label>
+                    <label for="kapasitas" class="font-semibold mb-2">Kapasitas :</label>
                     <select type="text" required id="kapasitas" name="kapasitas" class="w-[200px] pl-3 focus:border-blue-400 text-[14px] border-2 rounded-lg py-3 border-gray-500 outline-none ">
-                        <option value="1" name="kapasitas">1 Orang</option>
-                        <option value="2" name="kapasitas">2 Orang</option>
+                        <option value="1" name="kapasitas" {{ $kamar->kapasitas == 1 ? 'selected' : '' }}>1 Orang</option>
+                        <option value="2" name="kapasitas" {{ $kamar->kapasitas == 2 ? 'selected' : '' }}>2 Orang</option>
                     </select>
                 </div>
 
                 <div class="mt-[30px] flex flex-col">
-                    <label for="tarif" class="font-semibold mb-2">Masukkan Tarif :</label>
+                    <label for="tarif" class="font-semibold mb-2">Tarif :</label>
                     <input 
                         type="number" 
                         name="tarif"
+                        value="{{ $kamar->tarif }}"
                         required
                         id="tarif"
                         class="border-2 rounded-lg w-4/5 border-gray-500 pl-3 outline-none focus:border-blue-400 p-2 text-[14px]"

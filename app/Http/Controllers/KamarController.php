@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Validator;
 use App\Models\Kamar;
 Use Alert;
 use App\Models\Penghuni;
+use Illuminate\Support\Facades\Route;
 
 class KamarController extends Controller
 {
@@ -20,6 +21,7 @@ class KamarController extends Controller
     }
 
     public function create(){
+        // dd(Route::currentRouteName());
         // $kamars = Kamar::join('kamars', 'kamars.id', 'penghunis.id_kamar')
         //     ->select('kamars.id', 'penghunis.nama')
         //     ->get();
@@ -29,10 +31,20 @@ class KamarController extends Controller
         ]);
     }
 
+    public function edit($id){
+        $kamar = Kamar::find($id);
+        
+        return view('main.kamar.edit', [
+            'kamar' => $kamar
+        ]);
+    }
+
     public function show($id){
         $kamar = Kamar::find($id);
 
-        return view('main.kamar.show');
+        return view('main.kamar.show', [
+            'kamar' => $kamar
+        ]);
     }
 
     public function store(Request $request){
@@ -46,7 +58,7 @@ class KamarController extends Controller
         $validator = Validator::make($request->all(), $rules);
 
         if ($validator->fails())
-            return redirect(route('kamar.create'))->with('message', $validator);
+            return back()->withErrors($validator)->withInput();
 
         try {
             if (!$request->id) {
@@ -63,13 +75,8 @@ class KamarController extends Controller
             $kamar->tarif = $request->tarif;
             $kamar->save();
 
-            if (!$request->id){
-                Alert::success('Berhasil', 'Kamar berhasil ditambahkan!');
-                return redirect(route('kamar.create'));
-            } else {
-                Alert::success('Berhasil', 'Kamar berhasil ditambahkan!');
-                return redirect(route('kamar.edit'));
-            }
+            Alert::success('Berhasil', !$request->id ? 'Kamar berhasil ditambahkan!' : 'Kamar berhasil diubah!');
+            return redirect(route('kamar.index'));
             
         } catch (\Exception $e) {
             if (!$request->id){
@@ -84,14 +91,19 @@ class KamarController extends Controller
     {
         try {
             $kamar = Kamar::find($request->id);
-            if (!$kamar)
-                return redirect(route('kamar.index'))->with('message', 'Kamar tidak ditemukan!');
-
+            if (!$kamar) {
+                Alert::error('Gagal', 'Kamar tidak ditemukan!');
+                return redirect(route('kamar.index'));
+            }
+            
             $kamar->delete();
-            return redirect(route('kamar.index'))->with('message', 'Kamar berhasil dihapus!');
+            
+            Alert::success('Berhasil', 'Kamar berhasil dihapus!');
+            return redirect(route('kamar.index'));
 
         } catch (\Exception $e) {
-            return redirect(route('kamar.index'))->with('message', $e->getMessage());
+            Alert::error('Gagal', $e->getMessage());
+            return redirect(route('kamar.index'));
         }
     }
 }

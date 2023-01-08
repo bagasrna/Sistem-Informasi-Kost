@@ -12,13 +12,18 @@
         <h1 class='font-bold text-[30px] mt-[30px] md:mt-[90px]'>Menambahkan Kamar</h1>
 
         <div class='border-2 rounded-xl mt-[30px] shadow-lg border-gray-500'>
-            <form action="/edit" method="POST" class="ml-[30px]">
+            <form action="/kamar/create" method="POST" class="ml-[30px]">
+                @csrf
                 <div class="mt-[30px] flex flex-col">
-                    <label for="lantai" class="font-semibold mb-2">Pilih Lantai :</label>
+                    <label for="lantai" class="font-semibold mb-2">Lantai :</label>
                     <select type="text" required id="lantai" name="lantai" class="w-[200px] pl-3 focus:border-blue-400 text-[14px] border-2 rounded-lg py-3 border-gray-500 outline-none ">
+                        <option value="" name="lantai">Pilih Lantai</option>
                         <option value="1" name="lantai">Lantai 1</option>
                         <option value="2" name="lantai">Lantai 2</option>
                     </select>
+                    @error('lantai')
+                    <div class="invalid-feedback">{{ $errors->first('lantai') }}</div>
+                    @enderror
                 </div>
 
                 <div class="mt-[30px] flex flex-col">
@@ -34,8 +39,9 @@
                 </div>
 
                 <div class="mt-[30px] flex flex-col">
-                    <label for="kapasitas" class="font-semibold mb-2">Masukkan Kapasitas :</label>
+                    <label for="kapasitas" class="font-semibold mb-2">Kapasitas :</label>
                     <select type="text" required id="kapasitas" name="kapasitas" class="w-[200px] pl-3 focus:border-blue-400 text-[14px] border-2 rounded-lg py-3 border-gray-500 outline-none ">
+                        <option value="" name="lantai">Pilih Kapasitas</option>
                         <option value="1" name="kapasitas">1 Orang</option>
                         <option value="2" name="kapasitas">2 Orang</option>
                     </select>
