@@ -11,11 +11,11 @@
     <div class="md:md:ml-[150px] mx-[80px] h-screen z-40 font-Poppins">
         <h1 class='font-bold text-[30px] mt-[30px] md:mt-[90px]'>Menambahkan Kamar</h1>
 
-        <div class='border-2 lg:w-1/2 rounded-lg mt-[30px] shadow-lg border-gray-500'>
-            <form action="/kamar/create" method="post" class="ml-[30px]">
+        <div class='border-2 rounded-xl mt-[30px] shadow-lg border-gray-500'>
+            <form action="/edit" method="POST" class="ml-[30px]">
                 <div class="mt-[30px] flex flex-col">
                     <label for="lantai" class="font-semibold mb-2">Pilih Lantai :</label>
-                    <select type="text" required id="lantai" name="lantai" class="w-[100px] pl-3 focus:border-blue-400 text-[14px] border-2 rounded-lg py-3 border-gray-500 outline-none ">
+                    <select type="text" required id="lantai" name="lantai" class="w-[200px] pl-3 focus:border-blue-400 text-[14px] border-2 rounded-lg py-3 border-gray-500 outline-none ">
                         <option value="1" name="lantai">Lantai 1</option>
                         <option value="2" name="lantai">Lantai 2</option>
                     </select>
@@ -34,24 +34,20 @@
                 </div>
 
                 <div class="mt-[30px] flex flex-col">
-                    <label for="lantai" class="font-semibold mb-2">Masukkan Kapasitas :</label>
-                    <input 
-                        type="number" 
-                        name="fasilitas"
-                        required
-                        id="fasilitas"
-                        class="border-2 rounded-lg w-4/5 border-gray-500 pl-3 outline-none focus:border-blue-400 p-2 text-[14px]"
-                        placeholder="Contoh : 2"
-                        >
+                    <label for="kapasitas" class="font-semibold mb-2">Masukkan Kapasitas :</label>
+                    <select type="text" required id="kapasitas" name="kapasitas" class="w-[200px] pl-3 focus:border-blue-400 text-[14px] border-2 rounded-lg py-3 border-gray-500 outline-none ">
+                        <option value="1" name="kapasitas">1 Orang</option>
+                        <option value="2" name="kapasitas">2 Orang</option>
+                    </select>
                 </div>
 
                 <div class="mt-[30px] flex flex-col">
-                    <label for="lantai" class="font-semibold mb-2">Masukkan Tarif :</label>
+                    <label for="tarif" class="font-semibold mb-2">Masukkan Tarif :</label>
                     <input 
                         type="number" 
-                        name="fasilitas"
+                        name="tarif"
                         required
-                        id="fasilitas"
+                        id="tarif"
                         class="border-2 rounded-lg w-4/5 border-gray-500 pl-3 outline-none focus:border-blue-400 p-2 text-[14px]"
                         placeholder="Contoh : 300000"
                         >
