@@ -53,3 +53,7 @@ Route::get('/tagihan', function () {
 Route::get('/lunas', function () {
     return view('main.pembayaran.index');
 });
+
+Route::get('/createPenghuni', function () {
+    return view('main.penghuni.create');
+});

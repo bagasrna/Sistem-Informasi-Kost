@@ -53,7 +53,7 @@
                         >
                 </div>
 
-                <button type="submit" class="my-[30px] font-semibold text-white shadow-xl transition hover:-translate-y-3 bg-[#22C55E] p-2 rounded-xl">SUBMIT</button>
+                <button type="submit" class="my-[30px] font-semibold text-white shadow-xl transition hover:-translate-y-3 bg-[#22C55E] p-2 px-10 rounded-xl">SUBMIT</button>
             </form>
         </div>
     </div>

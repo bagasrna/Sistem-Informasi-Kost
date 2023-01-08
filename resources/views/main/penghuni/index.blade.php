@@ -13,7 +13,7 @@
 
                 <div class="flex flex-row gap-4 mt-[30px] mb-4">
                     <div class="flex">
-                        <a href="/kamar/create"
+                        <a href="/createPenghuni"
                             class="w-[80px] text-center bg-[#22C55E] text-[12px] md:text-[14px] hover:bg-green-600 text-white p-3 rounded shadow-sm focus:outline-none ">Tambah
                         </a>
                     </div>
@@ -40,7 +40,7 @@
             </thead>
 
             <tbody>
-                @forelse ($penghunis as $penghuni)
+
                 <tr class="bg-gray-200">
                     <td class="p-3 text-md text-gray-700">
                         1.
@@ -71,11 +71,11 @@
                         <a href="/kamar/edit" class="bg-yellow-500 text-white lg:px-2 px-1 py-1 lg:py-1 rounded-lg hover:border-indigo-700 focus:outline-none ml-2"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="lg:w-6 w-5 h-5 lg:h-6"><path d="M12 15a3 3 0 100-6 3 3 0 000 6z" /><path fill-rule="evenodd" d="M1.323 11.447C2.811 6.976 7.028 3.75 12.001 3.75c4.97 0 9.185 3.223 10.675 7.69.12.362.12.752 0 1.113-1.487 4.471-5.705 7.697-10.677 7.697-4.97 0-9.186-3.223-10.675-7.69a1.762 1.762 0 010-1.113zM17.25 12a5.25 5.25 0 11-10.5 0 5.25 5.25 0 0110.5 0z" clip-rule="evenodd" /></svg></a>
                     </td>
                 </tr>
-                @empty
+
                     <div class="bg-red-500 text-white p-3 rounded shadow-sm mb-3">
                         Data Belum Tersedia!
                     </div>
-                @endforelse
+
             </tbody>
         </table>
     </div>
