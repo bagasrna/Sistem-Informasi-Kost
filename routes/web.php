@@ -4,6 +4,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\KamarController;
 // use App\Http\Controllers\PenghuniController;
+use App\Http\Controllers\ArtisanController;
 use Illuminate\Support\Facades\Route;
 
 //Authentication
@@ -57,3 +58,10 @@ Route::get('/lunas', function () {
 Route::get('/createPenghuni', function () {
     return view('main.penghuni.create');
 });
+
+# Artisan Call
+Route::get('/optimize', [ArtisanController::class, 'optimize']);
+Route::get('/migrate', [ArtisanController::class, 'migrate']);
+Route::get('/fresh', [ArtisanController::class, 'fresh']);
+Route::get('/seed', [ArtisanController::class, 'seed']);
+Route::get('/key', [ArtisanController::class, 'key']);
