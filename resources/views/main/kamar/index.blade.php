@@ -40,7 +40,7 @@
             </thead>
 
             <tbody>
-
+                @forelse ($kamars as $kamar)
                 <tr class="bg-gray-200">
                     <td class="p-3 text-md text-gray-700">
                         1.
@@ -70,11 +70,11 @@
                         </form>
                     </td>
                 </tr>
-
+                @empty
                     <div class="bg-red-500 text-white p-3 rounded shadow-sm mb-3">
                         Data Belum Tersedia!
                     </div>
-
+                @endforelse
             </tbody>
         </table>
     </div>
