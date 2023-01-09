@@ -14,6 +14,7 @@ class Penghuni extends Model
         'kode',
         'nama',
         'alamat',
+        'durasi',
         'hp',
         'tgl_registrasi',
         'id_kamar',

@@ -19,6 +19,14 @@ class PenghuniController extends Controller
         ]);
     }
 
+    public function show($id){
+        $penghuni = Penghuni::find($id);
+
+        return view('main.penghuni.show', [
+            'penghuni' => $penghuni
+        ]);
+    }
+
     public function create(){
         $kamars = Kamar::with(['penghunis'])
             ->get();
@@ -28,11 +36,20 @@ class PenghuniController extends Controller
         ]);
     }
 
+    public function edit($id){
+        $penghuni = Penghuni::find($id);
+        
+        return view('main.penghuni.edit', [
+            'penghuni' => $penghuni
+        ]);
+    }
+
     public function store(Request $request){
         $rules = [
             'nama' => 'required',
             'kode' => 'required|unique:penghunis',
             'alamat' => 'required',
+            'durasi' => 'required|numeric',
             'hp' => 'required|numeric|starts_with:62',
             'tgl_registrasi' => 'required|date',
             'id_kamar' => 'required',
@@ -47,6 +64,12 @@ class PenghuniController extends Controller
         try {
             if (!$request->id) {
                 $penghuni = new Penghuni;
+                $kamar = Kamar::with(['penghunis'])
+                    ->find($request->id_kamar);
+                if(count($kamar->penghunis) == $kamar->kapasitas){
+                    Alert::error('Gagal', 'Kapasitas kamar sudah penuh');
+                    return redirect(route('penghuni.create'));
+                }
             } else {
                 $penghuni = Penghuni::find($request->id);
                 if (!$penghuni)
@@ -56,6 +79,7 @@ class PenghuniController extends Controller
             $penghuni->nama = $request->nama;
             $penghuni->kode = $request->kode;
             $penghuni->alamat = $request->alamat;
+            $penghuni->durasi = $request->durasi;
             $penghuni->hp = $request->hp;
             $penghuni->tgl_registrasi = $request->tgl_registrasi;
             $penghuni->id_kamar = $request->id_kamar;
