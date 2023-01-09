@@ -12,10 +12,10 @@
         <h1 class='font-bold text-[30px] mt-[30px] md:mt-[90px]'>Menambahkan Penghuni</h1>
 
         <div class='border-2 rounded-xl mt-[30px] shadow-lg border-gray-500'>
-            <form action="/edit" method="POST" class="ml-[30px]">
-
+            <form action="/penghuni/create" method="POST" class="ml-[30px]" enctype="multipart/form-data">
+                @csrf
                 <div class="mt-[30px] flex flex-col">
-                    <label for="kode" class="font-semibold mb-2">Masukkan ID Penghuni :</label>
+                    <label for="kode" class="font-semibold mb-2">Kode Penghuni :</label>
                     <input 
                         type="text" 
                         name="kode"
@@ -27,7 +27,7 @@
                 </div>
 
                 <div class="mt-[30px] flex flex-col">
-                    <label for="nama" class="font-semibold mb-2">Masukkan Nama :</label>
+                    <label for="nama" class="font-semibold mb-2">Nama :</label>
                     <input 
                         type="text" 
                         name="nama" 
@@ -39,7 +39,7 @@
                 </div>
 
                 <div class="mt-[30px] flex flex-col">
-                    <label for="alamat" class="font-semibold mb-2">Masukkan Alamat :</label>
+                    <label for="alamat" class="font-semibold mb-2">Alamat :</label>
                     <input 
                         type="text" 
                         name="alamat"
@@ -51,24 +51,31 @@
                 </div>
 
                 <div class="mt-[30px] flex flex-col">
-                    <label for="hp" class="font-semibold mb-2">Masukkan Nomer Handphone :</label>
+                    <label for="hp" class="font-semibold mb-2">Nomer Handphone (62):</label>
                     <input 
                         type="text" 
                         name="hp"
                         required
                         id="hp"
                         class="border-2 rounded-lg w-4/5 border-gray-500 pl-3 outline-none focus:border-blue-400 p-2 text-[14px]"
-                        placeholder="Contoh : 08223156729"
+                        placeholder="Contoh : 628223156729"
                         >
+                        @error('hp')
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                        @enderror
                 </div>
 
                 <div class="mt-[30px] flex flex-col">
-                    <label for="kamar" class="font-semibold mb-2">Masukkan Kamar :</label>
-                    <select type="text" required id="kamar" name="kamar" class="w-[200px] pl-3 focus:border-blue-400 text-[14px] border-2 rounded-lg py-3 border-gray-500 outline-none ">
-                        <option value="1" name="kamar">Kamar 1</option>
-                        <option value="2" name="kamar">Kamar 2</option>
-                        <option value="3" name="kamar">Kamar 3</option>
-                        <option value="4" name="kamar">Kamar 4</option>
+                    <label for="kamar" class="font-semibold mb-2">Kamar :</label>
+                    <select type="text" required id="kamar" name="id_kamar" class="w-[200px] pl-3 focus:border-blue-400 text-[14px] border-2 rounded-lg py-3 border-gray-500 outline-none ">
+                        <option value="" name="id_kamar">Pilih Kamar</option>
+                        @foreach ($kamars as $kamar)
+                            <option value="{{ $kamar->id }}" name="id_kamar">
+                                Kamar {{ $kamar->kode }} @foreach ($kamar->penghunis as $penghuni) | {{ $penghuni->nama }} @endforeach
+                            </option>
+                        @endforeach
                     </select>
                 </div>
 
@@ -103,6 +110,11 @@
                         id="ktp"
                         class="w-4/5 outline-none focus:border-blue-400 py-2 text-[14px]"
                         >
+                        @error('ktp')
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                        @enderror
                 </div>
 
                 <button type="submit" class="my-[30px] font-semibold text-white shadow-xl bg-[#22C55E] p-2 px-7 rounded-xl">SUBMIT</button>

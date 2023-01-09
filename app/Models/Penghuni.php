@@ -11,11 +11,12 @@ class Penghuni extends Model
     use HasFactory;
 
     protected $fillable = [
+        'kode',
         'nama',
         'alamat',
         'hp',
         'tgl_registrasi',
-        'kamar',
+        'id_kamar',
         'ktp',
     ];
 

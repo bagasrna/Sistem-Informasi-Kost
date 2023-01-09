@@ -11,6 +11,7 @@ class Kamar extends Model
     use HasFactory;
 
     protected $fillable = [
+        'kode',
         'lantai',
         'kapasitas',
         'fasilitas',
@@ -19,6 +20,6 @@ class Kamar extends Model
 
     public function penghunis()
     {
-        return $this->hasMany(Penghuni::class);
+        return $this->hasMany(Penghuni::class, 'id_kamar');
     }
 }

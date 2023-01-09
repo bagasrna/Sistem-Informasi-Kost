@@ -16,7 +16,7 @@
                 @csrf
 
                 <div class="mt-[30px] flex flex-col">
-                    <label for="kode" class="font-semibold mb-2">Masukkan ID Kamar :</label>
+                    <label for="kode" class="font-semibold mb-2">Kode Kamar :</label>
                     <input 
                         type="text" 
                         name="kode"

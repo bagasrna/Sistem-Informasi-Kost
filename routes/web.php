@@ -3,7 +3,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\KamarController;
-// use App\Http\Controllers\PenghuniController;
+use App\Http\Controllers\PenghuniController;
 use App\Http\Controllers\ArtisanController;
 use Illuminate\Support\Facades\Route;
 
@@ -28,19 +28,15 @@ Route::group(['middleware' => 'auth'],function (){
     });
 
     #Penghuni
-    // Route::group(['prefix' => 'penghuni', 'name' => 'penghuni',],function (){
-    //     Route::get('/', [PenghuniController::class, 'index'])->name('index');
-    //     Route::get('/{id}', [PenghuniController::class, 'show'])->name('show');
-    //     Route::get('/create', [PenghuniController::class, 'create'])->name('create');
-    //     Route::post('/create', [PenghuniController::class, 'store'])->name('store');
-    //     Route::get('/update', [PenghuniController::class, 'edit'])->name('edit');
-    //     Route::put('/update', [PenghuniController::class, 'update'])->name('update');
-    //     Route::delete('/delete', [PenghuniController::class, 'delete'])->name('delete');
-    // });
-});
-
-Route::get('/penghuni', function () {
-    return view('main.penghuni.index');
+    Route::prefix('penghuni')->name('penghuni.')->group(function(){
+        Route::get('/', [PenghuniController::class, 'index'])->name('index');
+        Route::get('/create', [PenghuniController::class, 'create'])->name('create');
+        Route::post('/create', [PenghuniController::class, 'store'])->name('store');
+        Route::get('/update/{id}', [PenghuniController::class, 'edit'])->name('edit');
+        Route::put('/update', [PenghuniController::class, 'store'])->name('update');
+        Route::delete('/delete', [PenghuniController::class, 'delete'])->name('delete');
+        Route::get('/{id}', [PenghuniController::class, 'show'])->name('show');
+    });
 });
 
 Route::get('/tagihan', function () {
@@ -49,10 +45,6 @@ Route::get('/tagihan', function () {
 
 Route::get('/lunas', function () {
     return view('main.pembayaran.index');
-});
-
-Route::get('/createPenghuni', function () {
-    return view('main.penghuni.create');
 });
 
 # Artisan Call

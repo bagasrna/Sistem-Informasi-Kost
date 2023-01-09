@@ -3,8 +3,76 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Validator;
+use App\Models\Penghuni;
+use App\Models\Kamar;
+Use Alert;
 
 class PenghuniController extends Controller
 {
-    //
+    public function index(){
+        $penghunis = Penghuni::with(['kamar'])->latest()->paginate(7);
+        
+        return view('main.penghuni.index', [
+            'penghunis' => $penghunis
+        ]);
+    }
+
+    public function create(){
+        $kamars = Kamar::with(['penghunis'])
+            ->get();
+        
+        return view('main.penghuni.create', [
+            'kamars' => $kamars
+        ]);
+    }
+
+    public function store(Request $request){
+        $rules = [
+            'nama' => 'required',
+            'kode' => 'required|unique:penghunis',
+            'alamat' => 'required',
+            'hp' => 'required|numeric|starts_with:62',
+            'tgl_registrasi' => 'required|date',
+            'id_kamar' => 'required',
+            'ktp' => 'required|image',
+        ];
+
+        $validator = Validator::make($request->all(), $rules);
+
+        if ($validator->fails())
+            return back()->withErrors($validator)->withInput();
+
+        try {
+            if (!$request->id) {
+                $penghuni = new Penghuni;
+            } else {
+                $penghuni = Penghuni::find($request->id);
+                if (!$penghuni)
+                    Storage::delete($penghuni->ktp);
+                    return redirect(route('penghuni.edit'))->with('message', 'Penghuni tidak ditemukan!');
+            }
+            $penghuni->nama = $request->nama;
+            $penghuni->kode = $request->kode;
+            $penghuni->alamat = $request->alamat;
+            $penghuni->hp = $request->hp;
+            $penghuni->tgl_registrasi = $request->tgl_registrasi;
+            $penghuni->id_kamar = $request->id_kamar;
+            $penghuni->ktp = $request->file('ktp')->store('ktp', 'public');
+            $penghuni->save();
+
+            Alert::success('Berhasil', !$request->id ? 'Penghuni berhasil ditambahkan!' : 'Penghuni berhasil diubah!');
+            return redirect(route('penghuni.index'));
+            
+        } catch (\Exception $e) {
+            if (!$request->id){
+                Alert::error('Gagal', $e->getMessage());
+                return redirect(route('penghuni.create'))->with('message', $e->getMessage());
+            } else {
+                Alert::error('Gagal', $e->getMessage());
+                return redirect(route('penghuni.edit'))->with('message', $e->getMessage());
+            }
+        }
+    }
 }

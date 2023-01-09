@@ -13,7 +13,7 @@
         <div class="flex flex-row justify-between flex-wrap mt-[20px]">
 
             <div class="flex mb-[100px] transition shadow-xl hover:shadow-2xl hover:-translate-y-3 text-white">
-                <a href="">
+                <a href="/kamar">
                     <div class="md:w-[300px] mb-[50px] w-[250px] bg-blue-500 rounded-xl">
                         <div class=" p-5">
                             <p class="text-[24px] md:text-[30px]">6</p>
@@ -28,7 +28,7 @@
             </div>
 
             <div class="flex transition shadow-xl hover:shadow-2xl hover:-translate-y-3 mb-[100px] text-white">
-                <a href="" >
+                <a href="/penghuni" >
                     <div class="md:w-[300px] mb-[50px] w-[250px] bg-yellow-500 rounded-xl">
                         <div class="p-5">
                             <p class="text-[24px] md:text-[30px]">3</p>

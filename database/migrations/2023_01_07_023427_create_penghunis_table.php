@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('penghunis', function (Blueprint $table) {
             $table->id();
             $table->string('nama');
+            $table->string('kode')->unique();
             $table->text('alamat');
             $table->string('hp');
             $table->date('tgl_registrasi');

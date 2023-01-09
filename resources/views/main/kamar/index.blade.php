@@ -57,7 +57,7 @@
                         {{ $loop->index + 1 }}.
                     </td>
                     <td class="p-3 border-r text-md text-gray-700 border-gray-400">
-                        {{ $kamar->id }}
+                        {{ $kamar->kode }}
                     </td>
                     <td class="p-3 border-r text-md text-gray-700 border-gray-400">
                         {{ $kamar->lantai }}

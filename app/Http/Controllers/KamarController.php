@@ -21,14 +21,7 @@ class KamarController extends Controller
     }
 
     public function create(){
-        // dd(Route::currentRouteName());
-        // $kamars = Kamar::join('kamars', 'kamars.id', 'penghunis.id_kamar')
-        //     ->select('kamars.id', 'penghunis.nama')
-        //     ->get();
-        
-        return view('main.kamar.create', [
-            // 'kamars' => $kamars
-        ]);
+        return view('main.kamar.create');
     }
 
     public function edit($id){
@@ -49,6 +42,7 @@ class KamarController extends Controller
 
     public function store(Request $request){
         $rules = [
+            'kode' => 'required|unique:kamars',
             'lantai' => 'required|numeric',
             'kapasitas' => 'required|numeric',
             'fasilitas' => 'required',
@@ -69,6 +63,7 @@ class KamarController extends Controller
                     return redirect(route('kamar.edit'))->with('message', 'Kamar tidak ditemukan!');
             }
 
+            $kamar->kode = $request->kode;
             $kamar->lantai = $request->lantai;
             $kamar->kapasitas = $request->kapasitas;
             $kamar->fasilitas = $request->fasilitas;
