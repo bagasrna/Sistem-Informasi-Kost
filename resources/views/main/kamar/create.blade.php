@@ -64,9 +64,9 @@
                     <label for="diskon" class="font-semibold mb-2">Diskon :</label>
                     <select type="text" required id="diskon" name="diskon" class="w-[200px] pl-3 focus:border-blue-400 text-[14px] border-2 rounded-lg py-3 border-gray-500 outline-none ">
                         <option value="" name="lantai">Pilih Diskon</option>
-                        <option value="1" name="diskon">0%</option>
-                        <option value="2" name="diskon">3%</option>
-                        <option value="3" name="diskon">5%</option>
+                        <option value="0" name="diskon">0%</option>
+                        <option value="3" name="diskon">3%</option>
+                        <option value="5" name="diskon">5%</option>
                     </select>
                 </div>
 
