@@ -66,7 +66,7 @@
                         {{ $kamar->fasilitas }}
                     </td>
                     <td class="p-3 text-md text-gray-700">
-                        Rp {{ $kamar->tarif }}
+                        @currency($kamar->tarif)
                     </td>
                     <!-- <td class="p-3 text-md text-gray-700">
                         <span class="">Status</span>
