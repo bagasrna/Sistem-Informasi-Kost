@@ -6,6 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sistem Informasi Kos</title>
     @vite('resources/css/app.css')
+    <style>
+        tr:nth-child(even) td {
+            background: #CDD5DF;
+            border: 
+    }
+
+        tr:nth-child(odd) td {
+            background: #EEF2F6;
+    }
+    </style>
 </head>
 <body>
     <div class="md:md:ml-[150px] mx-[80px] h-screen z-40 font-Poppins">
@@ -27,7 +37,7 @@
                 </div>
 
         <table class="w-full mt-[10px]">
-            <thead class="bg-gray-600 border-b-2 border-gray-200">
+            <thead class="bg-gray-600">
                 <tr class="text-white">
                     <th class="p-3 text-lg font-semibold tracking-wide text-left">No.</th>
                     <th class="p-3 text-lg font-semibold tracking-wide text-left">ID</th>
@@ -39,19 +49,20 @@
                 </tr>
             </thead>
 
-            <tbody>
+            <tbody >
                 @forelse ($kamars as $kamar)
-                <tr class="bg-gray-200">
-                    <td class="p-3 text-md text-gray-700">
+                @php $class = $loop->index + 1 / 2 === 0 ? 'even' : 'odd'; @endphp
+                <tr class="bg-gray-200 border-b border-gray-400">
+                    <td class="p-3 border-x text-md text-gray-700 border-gray-400">
                         {{ $loop->index + 1 }}.
                     </td>
-                    <td class="p-3 text-md text-gray-700">
+                    <td class="p-3 border-r text-md text-gray-700 border-gray-400">
                         {{ $kamar->id }}
                     </td>
-                    <td class="p-3 text-md text-gray-700">
+                    <td class="p-3 border-r text-md text-gray-700 border-gray-400">
                         {{ $kamar->lantai }}
                     </td>
-                    <td class="p-3 text-md text-gray-700">
+                    <td class="p-3 border-r text-md text-gray-700 border-gray-400">
                         {{ $kamar->fasilitas }}
                     </td>
                     <td class="p-3 text-md text-gray-700">
@@ -60,7 +71,7 @@
                     <!-- <td class="p-3 text-md text-gray-700">
                         <span class="">Status</span>
                     </td> -->
-                    <td class="flex  flex-row p-3 text-md text-gray-700">
+                    <td class="flex border-x border-gray-400  flex-row p-3 text-md text-gray-700">
                         <a href="/kamar/update/{{ $kamar->id }}" class="bg-blue-500 text-white lg:px-2 px-1 py-1 lg:py-1 rounded-lg hover:border-indigo-700 focus:outline-none mr-2"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="lg:w-6 w-5 h-5 lg:h-6"><path d="M21.731 2.269a2.625 2.625 0 00-3.712 0l-1.157 1.157 3.712 3.712 1.157-1.157a2.625 2.625 0 000-3.712zM19.513 8.199l-3.712-3.712-8.4 8.4a5.25 5.25 0 00-1.32 2.214l-.8 2.685a.75.75 0 00.933.933l2.685-.8a5.25 5.25 0 002.214-1.32l8.4-8.4z" /><path d="M5.25 5.25a3 3 0 00-3 3v10.5a3 3 0 003 3h10.5a3 3 0 003-3V13.5a.75.75 0 00-1.5 0v5.25a1.5 1.5 0 01-1.5 1.5H5.25a1.5 1.5 0 01-1.5-1.5V8.25a1.5 1.5 0 011.5-1.5h5.25a.75.75 0 000-1.5H5.25z" /></svg></a>
                         <form onsubmit="return confirm('Apakah Anda Yakin Menghapus Kamar Ini?');" action="/kamar/delete" method="POST">
                             @csrf
@@ -78,9 +89,7 @@
                 @endforelse
             </tbody>
         </table>
-        <div class="mt-2">
-            {{ $kamars->links('vendor.pagination.tailwind') }}
-        </div>
+
     </div>
     @include('layout.sidebar')
     @include('sweetalert::alert')

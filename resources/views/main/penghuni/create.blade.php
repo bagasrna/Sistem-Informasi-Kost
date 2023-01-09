@@ -13,6 +13,19 @@
 
         <div class='border-2 rounded-xl mt-[30px] shadow-lg border-gray-500'>
             <form action="/edit" method="POST" class="ml-[30px]">
+
+                <div class="mt-[30px] flex flex-col">
+                    <label for="kode" class="font-semibold mb-2">Masukkan ID Penghuni :</label>
+                    <input 
+                        type="text" 
+                        name="kode"
+                        required
+                        id="kode"
+                        class="border-2 rounded-lg w-4/5 border-gray-500 pl-3 outline-none focus:border-blue-400 p-2 text-[14px]"
+                        placeholder="Contoh : P001"
+                        >
+                </div>
+
                 <div class="mt-[30px] flex flex-col">
                     <label for="nama" class="font-semibold mb-2">Masukkan Nama :</label>
                     <input 
@@ -56,6 +69,16 @@
                         <option value="2" name="kamar">Kamar 2</option>
                         <option value="3" name="kamar">Kamar 3</option>
                         <option value="4" name="kamar">Kamar 4</option>
+                    </select>
+                </div>
+
+                <div class="mt-[30px] flex flex-col">
+                    <label for="diskon" class="font-semibold mb-2">Diskon :</label>
+                    <select type="text" required id="diskon" name="diskon" class="w-[200px] pl-3 focus:border-blue-400 text-[14px] border-2 rounded-lg py-3 border-gray-500 outline-none ">
+                        <option value="" name="lantai">Pilih Diskon</option>
+                        <option value="0" name="diskon">0%</option>
+                        <option value="3" name="diskon">3%</option>
+                        <option value="5" name="diskon">5%</option>
                     </select>
                 </div>
 
