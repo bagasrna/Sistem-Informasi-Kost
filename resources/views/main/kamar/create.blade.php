@@ -14,6 +14,19 @@
         <div class='border-2 rounded-xl mt-[30px] shadow-lg border-gray-500'>
             <form action="/kamar/create" method="POST" class="ml-[30px]">
                 @csrf
+
+                <div class="mt-[30px] flex flex-col">
+                    <label for="id" class="font-semibold mb-2">Masukkan ID Kamar :</label>
+                    <input 
+                        type="text" 
+                        name=""
+                        required
+                        id="id"
+                        class="border-2 rounded-lg w-4/5 border-gray-500 pl-3 outline-none focus:border-blue-400 p-2 text-[14px]"
+                        placeholder="Contoh : K001"
+                        >
+                </div>
+
                 <div class="mt-[30px] flex flex-col">
                     <label for="lantai" class="font-semibold mb-2">Lantai :</label>
                     <select type="text" required id="lantai" name="lantai" class="w-[200px] pl-3 focus:border-blue-400 text-[14px] border-2 rounded-lg py-3 border-gray-500 outline-none ">
@@ -44,6 +57,16 @@
                         <option value="" name="lantai">Pilih Kapasitas</option>
                         <option value="1" name="kapasitas">1 Orang</option>
                         <option value="2" name="kapasitas">2 Orang</option>
+                    </select>
+                </div>
+
+                <div class="mt-[30px] flex flex-col">
+                    <label for="diskon" class="font-semibold mb-2">Diskon :</label>
+                    <select type="text" required id="diskon" name="diskon" class="w-[200px] pl-3 focus:border-blue-400 text-[14px] border-2 rounded-lg py-3 border-gray-500 outline-none ">
+                        <option value="" name="lantai">Pilih Diskon</option>
+                        <option value="1" name="diskon">0%</option>
+                        <option value="2" name="diskon">3%</option>
+                        <option value="3" name="diskon">5%</option>
                     </select>
                 </div>
 
