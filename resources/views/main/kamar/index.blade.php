@@ -89,7 +89,6 @@
                 @endforelse
             </tbody>
         </table>
-
     </div>
     @include('layout.sidebar')
     @include('sweetalert::alert')

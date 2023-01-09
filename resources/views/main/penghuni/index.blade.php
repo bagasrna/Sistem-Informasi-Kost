@@ -27,8 +27,8 @@
                             class="w-[80px] text-center bg-[#22C55E] text-[12px] md:text-[14px] hover:bg-green-600 text-white p-3 rounded shadow-sm focus:outline-none ">Tambah
                         </a>
                     </div>
-                    <div class="">
-                        <form action="" method="GET">
+                    <div>
+                        <form action="/post" method="GET">
                             <input type="text" name="search"
                             class="bg-gray-200 w-full p-2 rounded shadow-sm border border-gray-200 focus:outline-none"
                             placeholder="Cari Nama Penghuni">
@@ -41,11 +41,10 @@
                 <tr class="text-white">
                     <th class="p-3 text-lg font-semibold tracking-wide text-left">No.</th>
                     <th class="p-3 text-lg font-semibold tracking-wide text-left">Kode</th>
-                    <th class="p-3 text-lg font-semibold tracking-wide text-left">Nama</th>
-                    <th class="p-3 text-lg font-semibold tracking-wide text-left">Alamat</th>
-                    <th class="p-3 text-lg font-semibold tracking-wide text-left">Nomer HP</th>
                     <th class="p-3 text-lg font-semibold tracking-wide text-left">Kamar</th>
-                    <th class="p-3 text-lg font-semibold tracking-wide text-left">KTP</th>
+                    <th class="p-3 text-lg font-semibold tracking-wide text-left">Nama</th>
+                    <th class="p-3 text-lg font-semibold tracking-wide text-left">Nomer HP</th>
+                    <th class="p-3 text-lg font-semibold tracking-wide text-left">Durasi Kos</th>
                     <th class="p-3 text-lg font-semibold tracking-wide text-left">Aksi</th>
                 </tr>
             </thead>
@@ -61,19 +60,16 @@
                         {{ $penghuni->kode}}
                     </td>
                     <td class="p-3 border-r border-gray-400 text-md text-gray-700">
-                        {{ $penghuni->nama}}
+                        {{ $penghuni->kamar->kode}}
                     </td>
                     <td class="p-3 border-r border-gray-400 text-md text-gray-700">
-                        {{ $penghuni->alamat}}
+                        {{ $penghuni->nama}}
                     </td>
                     <td class="p-3 border-r border-gray-400 text-md text-gray-700">
                         {{ $penghuni->hp}}
                     </td>
                     <td class="p-3 border-r border-gray-400 text-md text-gray-700">
-                        {{ $penghuni->kamar->kode}}
-                    </td>
-                    <td class="p-3 border-r border-gray-400 text-md text-gray-700">
-                        <a href='{{ asset('storage/' . $penghuni->ktp) }}' target="_blank" class="bg-teal-500 text-white lg:px-2 px-1 py-1 rounded-lg">KTP</a>
+                        {{ $penghuni->durasi}}
                     </td>
                     <td class="flex border-r border-gray-400 flex-row p-3 text-md text-gray-700">
                         <a href="/penghuni/update/{{ $penghuni->id }}" class="bg-blue-500 text-white lg:px-2 px-1 py-1 lg:py-1 rounded-lg hover:border-indigo-700 focus:outline-none mr-2"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="lg:w-6 w-5 h-5 lg:h-6"><path d="M21.731 2.269a2.625 2.625 0 00-3.712 0l-1.157 1.157 3.712 3.712 1.157-1.157a2.625 2.625 0 000-3.712zM19.513 8.199l-3.712-3.712-8.4 8.4a5.25 5.25 0 00-1.32 2.214l-.8 2.685a.75.75 0 00.933.933l2.685-.8a5.25 5.25 0 002.214-1.32l8.4-8.4z" /><path d="M5.25 5.25a3 3 0 00-3 3v10.5a3 3 0 003 3h10.5a3 3 0 003-3V13.5a.75.75 0 00-1.5 0v5.25a1.5 1.5 0 01-1.5 1.5H5.25a1.5 1.5 0 01-1.5-1.5V8.25a1.5 1.5 0 011.5-1.5h5.25a.75.75 0 000-1.5H5.25z" /></svg></a>

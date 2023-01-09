@@ -61,7 +61,7 @@
                         placeholder="Contoh : 628223156729"
                         >
                         @error('hp')
-                        <div class="invalid-feedback">
+                        <div class="invalid-feedback text-red-600 text-[14px] mt-2">
                             {{ $message }}
                         </div>
                         @enderror
@@ -69,13 +69,23 @@
 
                 <div class="mt-[30px] flex flex-col">
                     <label for="kamar" class="font-semibold mb-2">Kamar :</label>
-                    <select type="text" required id="kamar" name="id_kamar" class="w-[200px] pl-3 focus:border-blue-400 text-[14px] border-2 rounded-lg py-3 border-gray-500 outline-none ">
+                    <select type="text" required id="kamar" name="id_kamar" class="w-1/2 pl-3 focus:border-blue-400 text-[14px] border-2 rounded-lg py-3 border-gray-500 outline-none ">
                         <option value="" name="id_kamar">Pilih Kamar</option>
                         @foreach ($kamars as $kamar)
                             <option value="{{ $kamar->id }}" name="id_kamar">
                                 Kamar {{ $kamar->kode }} @foreach ($kamar->penghunis as $penghuni) | {{ $penghuni->nama }} @endforeach
                             </option>
                         @endforeach
+                    </select>
+                </div>
+
+                <div class="mt-[30px] flex flex-col">
+                    <label for="durasi" class="font-semibold mb-2">Durasi :</label>
+                    <select type="text" required id="durasi" name="durasi" class="w-[200px] pl-3 focus:border-blue-400 text-[14px] border-2 rounded-lg py-3 border-gray-500 outline-none ">
+                        <option value="" name="lantai">Pilih Durasi</option>
+                        <option value="3" name="durasi">3 bulan</option>
+                        <option value="6" name="durasi">6 bulan</option>
+                        <option value="12" name="durasi">12 bulan</option>
                     </select>
                 </div>
 
