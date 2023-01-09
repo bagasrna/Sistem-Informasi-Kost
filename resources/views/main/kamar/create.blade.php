@@ -25,6 +25,11 @@
                         class="border-2 rounded-lg w-4/5 border-gray-500 pl-3 outline-none focus:border-blue-400 p-2 text-[14px]"
                         placeholder="Contoh : K001"
                         >
+                    @error('kode')
+                        <div class="invalid-feedback text-red-600 text-[14px] mt-2">
+                            {{ $message }}
+                        </div>
+                    @enderror
                 </div>
 
                 <div class="mt-[30px] flex flex-col">

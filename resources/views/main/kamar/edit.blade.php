@@ -15,6 +15,20 @@
             <form action="/kamar/update" method="POST" class="ml-[30px]">
                 @csrf
                 @method('PUT')
+
+                <div class="mt-[30px] flex flex-col">
+                    <label for="kode" class="font-semibold mb-2">Kode Kamar :</label>
+                    <input 
+                        type="text" 
+                        name="kode"
+                        required
+                        value="{{ $kamar->kode }}"
+                        id="kode"
+                        class="border-2 rounded-lg w-4/5 border-gray-500 pl-3 outline-none focus:border-blue-400 p-2 text-[14px]"
+                        placeholder="Contoh : K001"
+                        >
+                </div>
+
                 <input type="hidden" name="id" value="{{ $kamar->id }}">
                 <div class="mt-[30px] flex flex-col">
                     <label for="lantai" class="font-semibold mb-2">Lantai :</label>

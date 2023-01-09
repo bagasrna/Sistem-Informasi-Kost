@@ -9,7 +9,7 @@
 </head>
 <body>
     <div class="md:md:ml-[150px] mx-[80px] h-screen z-40 font-Poppins">
-        <h1 class='font-bold text-[30px] mt-[30px] md:mt-[90px]'>Menambahkan Penghuni</h1>
+        <h1 class='font-bold text-[30px] mt-[30px] md:mt-[90px]'>Mengubah Penghuni</h1>
 
         <div class='border-2 rounded-xl mt-[30px] shadow-lg border-gray-500'>
             <form action="/edit" method="POST" class="ml-[30px]">
@@ -21,6 +21,7 @@
                         id="nama" 
                         class="border-2 rounded-lg w-4/5 border-gray-500 pl-3 outline-none focus:border-blue-400 p-2 text-[14px]"
                         required
+                        value="{{$penghuni->nama}}"
                         placeholder="Contoh : Budi"
                         >
                 </div>
@@ -32,6 +33,7 @@
                         name="alamat"
                         required
                         id="alamat"
+                        value="{{$penghuni->alamat}}"
                         class="border-2 rounded-lg w-4/5 border-gray-500 pl-3 outline-none focus:border-blue-400 p-2 text-[14px]"
                         placeholder="Contoh : Jalan Sawojajar. . ."
                         >
@@ -44,6 +46,7 @@
                         name="hp"
                         required
                         id="hp"
+                        value="{{$penghuni->hp}}"
                         class="border-2 rounded-lg w-4/5 border-gray-500 pl-3 outline-none focus:border-blue-400 p-2 text-[14px]"
                         placeholder="Contoh : 08223156729"
                         >
@@ -52,10 +55,12 @@
                 <div class="mt-[30px] flex flex-col">
                     <label for="kamar" class="font-semibold mb-2">Masukkan Kamar :</label>
                     <select type="text" required id="kamar" name="kamar" class="w-[200px] pl-3 focus:border-blue-400 text-[14px] border-2 rounded-lg py-3 border-gray-500 outline-none ">
-                        <option value="1" name="kamar">Kamar 1</option>
-                        <option value="2" name="kamar">Kamar 2</option>
-                        <option value="3" name="kamar">Kamar 3</option>
-                        <option value="4" name="kamar">Kamar 4</option>
+                    <option value="" name="id_kamar">Pilih Kamar</option>
+                        @foreach ($kamars as $kamar)
+                            <option value="{{ $kamar->id }}" name="id_kamar">
+                                Kamar {{ $kamar->kode }} @foreach ($kamar->penghunis as $penghuni) | {{ $penghuni->nama }} @endforeach
+                            </option>
+                        @endforeach
                     </select>
                 </div>
 
@@ -63,9 +68,9 @@
                     <label for="diskon" class="font-semibold mb-2">Diskon :</label>
                     <select type="text" required id="diskon" name="diskon" class="w-[200px] pl-3 focus:border-blue-400 text-[14px] border-2 rounded-lg py-3 border-gray-500 outline-none ">
                         <option value="" name="lantai">Pilih Diskon</option>
-                        <option value="0" name="diskon" {{ $kamar->diskon == 0 ? 'selected' : '' }}>0%</option>
-                        <option value="3" name="diskon" {{ $kamar->diskon == 3 ? 'selected' : '' }}>3%</option>
-                        <option value="5" name="diskon" {{ $kamar->diskon == 5 ? 'selected' : '' }}>5%</option>
+                        <option value="0" name="diskon" {{ $penghuni->diskon == 0 ? 'selected' : '' }}>0%</option>
+                        <option value="3" name="diskon" {{ $penghuni->diskon == 3 ? 'selected' : '' }}>3%</option>
+                        <option value="5" name="diskon" {{ $penghuni->diskon == 5 ? 'selected' : '' }}>5%</option>
                     </select>
                 </div>
 
