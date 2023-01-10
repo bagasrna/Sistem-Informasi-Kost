@@ -8,7 +8,7 @@
     @vite('resources/css/app.css')
 </head>
 <body>
-    <div class="md:md:ml-[150px] mx-[80px] h-screen z-40 font-Poppins">
+    <div class="md:ml-[150px] mx-[80px] h-screen z-40 font-Poppins">
         <h1 class='font-bold text-[30px] mt-[30px] md:mt-[90px]'>Menambahkan Penghuni</h1>
 
         <div class='border-2 rounded-xl mt-[30px] shadow-lg border-gray-500'>
@@ -56,7 +56,7 @@
                 </div>
 
                 <div class="mt-[30px] flex flex-col">
-                    <label for="hp" class="font-semibold mb-2">Nomer Handphone (62):</label>
+                    <label for="hp" class="font-semibold mb-2">Nomer Handphone (62) :</label>
                     <input 
                         type="text" 
                         name="hp"

@@ -18,7 +18,7 @@
     </style>
 </head>
 <body>
-    <div class="md:md:ml-[150px] mx-[80px] h-screen z-40 font-Poppins">
+    <div class="md:ml-[150px] mx-[80px] h-screen z-40 font-Poppins">
         <h1 class='font-bold text-[30px] mt-[30px] md:mt-[90px] '>Data Kamar</h1>
 
                 <div class="flex flex-row gap-4 mt-[30px] mb-4">

@@ -8,7 +8,7 @@
     @vite('resources/css/app.css')
 </head>
 <body>
-    <div class="md:md:ml-[150px] mx-[80px] h-screen z-40 font-Poppins">
+    <div class="md:ml-[150px] mx-[80px] h-screen z-40 font-Poppins">
         <h1 class='font-bold text-[30px] mt-[30px] md:mt-[90px]'>Mengubah Penghuni</h1>
 
         <div class='border-2 rounded-xl mt-[30px] shadow-lg border-gray-500'>
@@ -40,7 +40,7 @@
                 </div>
 
                 <div class="mt-[30px] flex flex-col">
-                    <label for="hp" class="font-semibold mb-2">Masukkan Nomer Handphone :</label>
+                    <label for="hp" class="font-semibold mb-2">Masukkan Nomer Handphone (62) :</label>
                     <input 
                         type="text" 
                         name="hp"
@@ -48,19 +48,34 @@
                         id="hp"
                         value="{{$penghuni->hp}}"
                         class="border-2 rounded-lg w-4/5 border-gray-500 pl-3 outline-none focus:border-blue-400 p-2 text-[14px]"
-                        placeholder="Contoh : 08223156729"
+                        placeholder="Contoh : 628223156729"
                         >
+                        @error('hp')
+                        <div class="invalid-feedback text-red-600 text-[14px] mt-2">
+                            {{ $message }}
+                        </div>
+                        @enderror
                 </div>
 
                 <div class="mt-[30px] flex flex-col">
-                    <label for="kamar" class="font-semibold mb-2">Masukkan Kamar :</label>
-                    <select type="text" required id="kamar" name="kamar" class="w-[200px] pl-3 focus:border-blue-400 text-[14px] border-2 rounded-lg py-3 border-gray-500 outline-none ">
-                    <option value="" name="id_kamar">Pilih Kamar</option>
+                    <label for="kamar" class="font-semibold mb-2">Kamar :</label>
+                    <select type="text" required id="kamar" name="id_kamar" class="w-1/2 pl-3 focus:border-blue-400 text-[14px] border-2 rounded-lg py-3 border-gray-500 outline-none ">
+                        <option value="" name="id_kamar">Pilih Kamar</option>
                         @foreach ($kamars as $kamar)
                             <option value="{{ $kamar->id }}" name="id_kamar">
                                 Kamar {{ $kamar->kode }} @foreach ($kamar->penghunis as $penghuni) | {{ $penghuni->nama }} @endforeach
                             </option>
                         @endforeach
+                    </select>
+                </div>
+
+                <div class="mt-[30px] flex flex-col">
+                    <label for="durasi" class="font-semibold mb-2">Diskon :</label>
+                    <select type="text" required id="durasi" name="durasi" class="w-[200px] pl-3 focus:border-blue-400 text-[14px] border-2 rounded-lg py-3 border-gray-500 outline-none ">
+                        <option value="" name="lantai">Pilih Diskon</option>
+                        <option value="3" name="durasi" {{ $penghuni->durasi == 3 ? 'selected' : '' }}>3 Bulan</option>
+                        <option value="6" name="durasi" {{ $penghuni->durasi == 6 ? 'selected' : '' }}>6 Bulan</option>
+                        <option value="12" name="durasi" {{ $penghuni->durasi == 12 ? 'selected' : '' }}>12 Bulan</option>
                     </select>
                 </div>
 
@@ -80,6 +95,7 @@
                         type="date" 
                         name="tgl_registrasi"
                         required
+                        value="{{$penghuni->tgl_registrasi}}"
                         id="tgl_registrasi"
                         class="border-2 rounded-lg w-1/4 border-gray-500 pl-3 outline-none focus:border-blue-400 p-2 text-[14px]"
                         placeholder="Contoh : 300000"
@@ -92,6 +108,7 @@
                         type="file" 
                         name="ktp"
                         required
+                        value="{{ asset('storage/' . $penghuni->ktp) }}"
                         id="ktp"
                         class="w-4/5 outline-none focus:border-blue-400 py-2 text-[14px]"
                         >
