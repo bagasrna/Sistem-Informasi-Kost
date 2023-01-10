@@ -85,9 +85,14 @@ class KamarController extends Controller
     public function delete(Request $request)
     {
         try {
-            $kamar = Kamar::find($request->id);
+            $kamar = Kamar::with(['penghunis'])->find($request->id);
             if (!$kamar) {
                 Alert::error('Gagal', 'Kamar tidak ditemukan!');
+                return redirect(route('kamar.index'));
+            }
+
+            if(count($kamar->penghunis) > 0){
+                Alert::error('Gagal', 'Kamar tidak bisa dihapus karena masih ada penghuni! Hapus penghuni kamar ini dahulu');
                 return redirect(route('kamar.index'));
             }
             

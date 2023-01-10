@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Validator;
 use App\Models\Penghuni;
 use App\Models\Kamar;
 Use Alert;
+use File;
 
 class PenghuniController extends Controller
 {
@@ -50,6 +51,7 @@ class PenghuniController extends Controller
             'kode' => 'required|unique:penghunis',
             'alamat' => 'required',
             'durasi' => 'required|numeric',
+            'diskon' => 'required|numeric',
             'hp' => 'required|numeric|starts_with:62',
             'tgl_registrasi' => 'required|date',
             'id_kamar' => 'required',
@@ -73,13 +75,25 @@ class PenghuniController extends Controller
             } else {
                 $penghuni = Penghuni::find($request->id);
                 if (!$penghuni)
-                    Storage::delete($penghuni->ktp);
                     return redirect(route('penghuni.edit'))->with('message', 'Penghuni tidak ditemukan!');
+
+                File::delete('storage/' . $penghuni->ktp);
+                $kamar = Kamar::with(['penghunis'])
+                    ->find($request->id_kamar);
+
+                if($penghuni->id_kamar != $request->id_kamar) {
+                    if(count($kamar->penghunis) == $kamar->kapasitas){
+                        Alert::error('Gagal', 'Kapasitas kamar sudah penuh');
+                        return redirect(route('penghuni.create'));
+                    }
+                }
             }
+
             $penghuni->nama = $request->nama;
             $penghuni->kode = $request->kode;
             $penghuni->alamat = $request->alamat;
             $penghuni->durasi = $request->durasi;
+            $penghuni->diskon = $request->diskon;
             $penghuni->hp = $request->hp;
             $penghuni->tgl_registrasi = $request->tgl_registrasi;
             $penghuni->id_kamar = $request->id_kamar;
@@ -97,6 +111,27 @@ class PenghuniController extends Controller
                 Alert::error('Gagal', $e->getMessage());
                 return redirect(route('penghuni.edit'))->with('message', $e->getMessage());
             }
+        }
+    }
+
+    public function delete(Request $request)
+    {
+        try {
+            $penghuni = Penghuni::find($request->id);
+            if (!$penghuni) {
+                Alert::error('Gagal', 'Penghuni tidak ditemukan!');
+                return redirect(route('penghuni.index'));
+            }
+            
+            File::delete('storage/' . $penghuni->ktp);
+            $penghuni->delete();
+            
+            Alert::success('Berhasil', 'Penghuni berhasil dihapus!');
+            return redirect(route('penghuni.index'));
+
+        } catch (\Exception $e) {
+            Alert::error('Gagal', $e->getMessage());
+            return redirect(route('Penghuni.index'));
         }
     }
 }

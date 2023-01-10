@@ -4,6 +4,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\KamarController;
 use App\Http\Controllers\PenghuniController;
+use App\Http\Controllers\TagihanController;
 use App\Http\Controllers\ArtisanController;
 use Illuminate\Support\Facades\Route;
 
@@ -37,10 +38,16 @@ Route::group(['middleware' => 'auth'],function (){
         Route::delete('/delete', [PenghuniController::class, 'delete'])->name('delete');
         Route::get('/{id}', [PenghuniController::class, 'show'])->name('show');
     });
-});
 
-Route::get('/tagihan', function () {
-    return view('main.tagihan.index');
+    #Tagihan
+    Route::prefix('tagihan')->name('tagihan.')->group(function(){
+        Route::get('/', [TagihanController::class, 'index'])->name('index');
+        Route::get('/create', [TagihanController::class, 'create'])->name('create');
+        Route::post('/create', [TagihanController::class, 'store'])->name('store');
+        Route::get('/update/{id}', [TagihanController::class, 'edit'])->name('edit');
+        Route::put('/update', [TagihanController::class, 'store'])->name('update');
+        Route::delete('/delete', [TagihanController::class, 'delete'])->name('delete');
+    });
 });
 
 Route::get('/lunas', function () {
