@@ -2,17 +2,23 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Validation\Rule;
+use Illuminate\Http\Request;
 use App\Models\Penghuni;
+use App\Models\Tagihan;
 use App\Models\Kamar;
+use Carbon\Carbon;
 Use Alert;
 use File;
 
 class PenghuniController extends Controller
 {
     public function index(){
+        // $penghuni = Penghuni::with(['kamar'])->latest()->first();
+        // dd($penghuni->durasi * $penghuni->kamar->tarif) * $penghuni->diskon;
+        
         $penghunis = Penghuni::with(['kamar'])->latest()->paginate(7);
         
         return view('main.penghuni.index', [
@@ -38,25 +44,34 @@ class PenghuniController extends Controller
     }
 
     public function edit($id){
-        $penghuni = Penghuni::find($id);
+        $penghuni = Penghuni::with(['kamar'])->find($id);
+        $kamars = Kamar::with(['penghunis'])
+            ->get();
         
         return view('main.penghuni.edit', [
-            'penghuni' => $penghuni
+            'penghuni' => $penghuni,
+            'kamars' => $kamars
         ]);
     }
 
     public function store(Request $request){
         $rules = [
             'nama' => 'required',
-            'kode' => 'required|unique:penghunis',
             'alamat' => 'required',
             'durasi' => 'required|numeric',
             'diskon' => 'required|numeric',
             'hp' => 'required|numeric|starts_with:62',
             'tgl_registrasi' => 'required|date',
             'id_kamar' => 'required',
-            'ktp' => 'required|image',
         ];
+
+        if (!$request->id) {
+            $rules['kode'] = 'required|unique:penghunis';
+            $rules['ktp'] = 'required|image';
+        } else {
+            $rules['kode'] = ['required', Rule::unique('penghunis')->ignore($request->id)];
+            $rules['ktp'] = 'image';
+        }
 
         $validator = Validator::make($request->all(), $rules);
 
@@ -68,6 +83,7 @@ class PenghuniController extends Controller
                 $penghuni = new Penghuni;
                 $kamar = Kamar::with(['penghunis'])
                     ->find($request->id_kamar);
+
                 if(count($kamar->penghunis) == $kamar->kapasitas){
                     Alert::error('Gagal', 'Kapasitas kamar sudah penuh');
                     return redirect(route('penghuni.create'));
@@ -77,7 +93,9 @@ class PenghuniController extends Controller
                 if (!$penghuni)
                     return redirect(route('penghuni.edit'))->with('message', 'Penghuni tidak ditemukan!');
 
-                File::delete('storage/' . $penghuni->ktp);
+                if($request->file('ktp'))
+                    File::delete('storage/' . $penghuni->ktp);
+
                 $kamar = Kamar::with(['penghunis'])
                     ->find($request->id_kamar);
 
@@ -89,6 +107,9 @@ class PenghuniController extends Controller
                 }
             }
 
+            if($request->file('ktp'))
+                $penghuni->ktp = $request->file('ktp')->store('ktp', 'public');
+
             $penghuni->nama = $request->nama;
             $penghuni->kode = $request->kode;
             $penghuni->alamat = $request->alamat;
@@ -97,8 +118,19 @@ class PenghuniController extends Controller
             $penghuni->hp = $request->hp;
             $penghuni->tgl_registrasi = $request->tgl_registrasi;
             $penghuni->id_kamar = $request->id_kamar;
-            $penghuni->ktp = $request->file('ktp')->store('ktp', 'public');
             $penghuni->save();
+
+            if(!$request->id){
+                $tagihan = new Tagihan;
+                $penghuni = Penghuni::with(['kamar'])->latest()->first();
+                $tgl_registrasi = Carbon::parse($penghuni->tgl_registrasi);
+
+                $tagihan->id_penghuni = $penghuni->id;
+                $tagihan->tagihan = ((100 - $penghuni->diskon) / 100) * ($penghuni->durasi * $penghuni->kamar->tarif);
+                $tagihan->status = false;
+                $tagihan->deadline = $tgl_registrasi->addMonth($penghuni->durasi);
+                $tagihan->save();
+            }
 
             Alert::success('Berhasil', !$request->id ? 'Penghuni berhasil ditambahkan!' : 'Penghuni berhasil diubah!');
             return redirect(route('penghuni.index'));
@@ -124,6 +156,7 @@ class PenghuniController extends Controller
             }
             
             File::delete('storage/' . $penghuni->ktp);
+            Tagihan::where('id_penghuni', $penghuni->id)->where('status', 0)->delete();
             $penghuni->delete();
             
             Alert::success('Berhasil', 'Penghuni berhasil dihapus!');

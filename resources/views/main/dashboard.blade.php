@@ -46,7 +46,7 @@
                 <a href="">
                     <div class="md:w-[300px] mb-[50px] w-[250px] bg-red-500 rounded-xl">
                         <div class=" p-5">
-                            <p class="text-[24px] md:text-[30px]">5</p>
+                            <p class="text-[24px] md:text-[30px]">{{ $belum_bayar }}</p>
                             <h1 class="font-bold text-[16px] md:text-[20px]">Belum Bayar</h1>
                         </div>
                         <div class="md:mt-[50px] mt-[20px] text-center rounded-b-xl p-2 bg-red-800 w-full">
@@ -61,7 +61,7 @@
                 <a href="">
                     <div class="md:w-[300px] mb-[50px] w-[250px] bg-green-500 rounded-xl">
                         <div class=" p-5">
-                            <p class="text-[24px] md:text-[30px]">6</p>
+                            <p class="text-[24px] md:text-[30px]">{{ $lunas }}</p>
                             <h1 class="font-bold text-[16px] md:text-[20px]">Lunas</h1>
                         </div>
                         <div class="md:mt-[50px] mt-[20px] text-center rounded-b-xl p-2 bg-green-800 w-full">

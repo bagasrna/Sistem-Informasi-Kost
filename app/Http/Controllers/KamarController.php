@@ -2,18 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Route;
+use Illuminate\Validation\Rule;
+use Illuminate\Http\Request;
+use App\Models\Penghuni;
 use App\Models\Kamar;
 Use Alert;
-use App\Models\Penghuni;
-use Illuminate\Support\Facades\Route;
 
 class KamarController extends Controller
 {
     public function index(){
-        $kamars = Kamar::all();
+        $kamars = Kamar::latest()->paginate(7);
         
         return view('main.kamar.index', [
             'kamars' => $kamars
@@ -48,6 +49,12 @@ class KamarController extends Controller
             'fasilitas' => 'required',
             'tarif' => 'required|numeric',
         ];
+
+        if (!$request->id) {
+            $rules['kode'] = 'required|unique:kamars';
+        } else {
+            $rules['kode'] = ['required', Rule::unique('kamars')->ignore($request->id)];
+        }
 
         $validator = Validator::make($request->all(), $rules);
 

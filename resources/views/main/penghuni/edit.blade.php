@@ -12,9 +12,25 @@
         <h1 class='font-bold text-[30px] mt-[30px] md:mt-[90px]'>Mengubah Penghuni</h1>
 
         <div class='border-2 rounded-xl mt-[30px] shadow-lg border-gray-500'>
-            <form action="/edit" method="POST" class="ml-[30px]">
+            <form action="/penghuni/update" method="POST" class="ml-[30px]" enctype="multipart/form-data">
+                @csrf
+                @method('PUT')
+                <input type="hidden" value="{{ $penghuni->id }}" name="id">
                 <div class="mt-[30px] flex flex-col">
-                    <label for="nama" class="font-semibold mb-2">Masukkan Nama :</label>
+                    <label for="nama" class="font-semibold mb-2">Kode :</label>
+                    <input 
+                        type="text" 
+                        name="kode" 
+                        id="kode" 
+                        class="border-2 rounded-lg w-4/5 border-gray-500 pl-3 outline-none focus:border-blue-400 p-2 text-[14px]"
+                        required
+                        value="{{$penghuni->kode}}"
+                        placeholder="Contoh : P001"
+                        >
+                </div>
+
+                <div class="mt-[30px] flex flex-col">
+                    <label for="nama" class="font-semibold mb-2">Nama :</label>
                     <input 
                         type="text" 
                         name="nama" 
@@ -27,7 +43,7 @@
                 </div>
 
                 <div class="mt-[30px] flex flex-col">
-                    <label for="alamat" class="font-semibold mb-2">Masukkan Alamat :</label>
+                    <label for="alamat" class="font-semibold mb-2">Alamat :</label>
                     <input 
                         type="text" 
                         name="alamat"
@@ -40,7 +56,7 @@
                 </div>
 
                 <div class="mt-[30px] flex flex-col">
-                    <label for="hp" class="font-semibold mb-2">Masukkan Nomer Handphone (62) :</label>
+                    <label for="hp" class="font-semibold mb-2">Nomer Handphone (62) :</label>
                     <input 
                         type="text" 
                         name="hp"
@@ -57,7 +73,17 @@
                         @enderror
                 </div>
 
-
+                <div class="mt-[30px] flex flex-col">
+                    <label for="kamar" class="font-semibold mb-2">Kamar :</label>
+                    <select type="text" required id="kamar" name="id_kamar" class="w-1/2 pl-3 focus:border-blue-400 text-[14px] border-2 rounded-lg py-3 border-gray-500 outline-none ">
+                        <option value="" name="id_kamar">Pilih Kamar</option>
+                        @foreach ($kamars as $kamar)
+                            <option value="{{ $kamar->id }}" name="id_kamar" {{ $penghuni->kamar->id == $kamar->id ? 'selected' : '' }}>
+                                Kamar {{ $kamar->kode }} @foreach ($kamar->penghunis as $penghuni) | {{ $penghuni->nama }} @endforeach
+                            </option>
+                        @endforeach
+                    </select>
+                </div>
 
                 <div class="mt-[30px] flex flex-col">
                     <label for="durasi" class="font-semibold mb-2">Diskon :</label>
@@ -80,7 +106,7 @@
                 </div>
 
                 <div class="mt-[30px] flex flex-col">
-                    <label for="tarif" class="font-semibold mb-2">Masukkan Tanggal Registrasi :</label>
+                    <label for="tarif" class="font-semibold mb-2">Tanggal Registrasi :</label>
                     <input 
                         type="date" 
                         name="tgl_registrasi"
@@ -93,12 +119,11 @@
                 </div>
 
                 <div class="mt-[30px] flex flex-col">
-                    <label for="ktp" class="font-semibold mb-2">Upload KTP :</label>
+                    <label for="ktp" class="font-semibold mb-2">Upload KTP (Jika Ubah KTP) :</label>
                     <input 
                         type="file" 
                         name="ktp"
-                        required
-                        value="{{ asset('storage/' . $penghuni->ktp) }}"
+                        value="{{ $penghuni->ktp }}"
                         id="ktp"
                         class="w-4/5 outline-none focus:border-blue-400 py-2 text-[14px]"
                         >

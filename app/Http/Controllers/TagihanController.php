@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class TagihanController extends Controller
 {
     public function index(){
-        $tagihans = Tagihan::all();
+        $tagihans = Tagihan::with(['penghuni'])->latest()->get();
         
         return view('main.tagihan.index', [
             'tagihans' => $tagihans
