@@ -4,92 +4,88 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistem Informasi Kost</title>
+    <title>Sistem Informasi Kos</title>
+    @vite('resources/css/app.css')
+    <style>
+        tr:nth-child(even) td {
+            background: #CDD5DF;
+            border: 
+    }
+
+        tr:nth-child(odd) td {
+            background: #EEF2F6;
+    }
+    </style>
 </head>
 <body>
-    <div class="md:md:ml-[150px] mx-[80px]  flex flex-col z-40 font-Poppins">
-        <h1 class='font-bold text-[30px] mt-[30px] md:mt-[90px] '>Pembayaran Lunas</h1>
-        <div class="flex flex-col">
-            <div class="overflow-x-auto sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8">
-            <div class="inline-block min-w-full overflow-hidden align-middle border-b border-gray-200 shadow sm:rounded-lg">
-                <table class="min-w-full">
-                <thead>
-                    <tr>
-                    <th
-                        class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">
-                        ID</th>
-                    <th
-                        class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">
-                        Title</th>
-                    <th
-                        class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">
-                        Description</th>
-                    <th
-                        class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">
-                        Created_At</th>
-                    <th class="px-6 py-3 text-sm text-left text-gray-500 border-b border-gray-200 bg-gray-50" colspan="3">
-                        Action</th>
-                    </tr>
-                </thead>
+    <div class="md:ml-[150px] mx-[80px] h-screen z-40 font-Poppins">
+        <h1 class='font-bold text-[30px] mt-[30px] md:mt-[90px] '>Data Pembayaran Lunas</h1>
 
-                <tbody class="bg-white">
-                    <tr>
-                    <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
-                        <div class="flex items-center">
+                <div class="flex flex-row gap-4 mt-[30px] mb-4">
+                    <!-- <div class="flex">
+                        <a href="/tagihan/create"
+                            class="w-[80px] text-center bg-[#22C55E] text-[12px] md:text-[14px] hover:bg-green-600 text-white p-3 rounded shadow-sm focus:outline-none ">Tambah
+                        </a>
+                    </div> -->
+                    <div>
+                        <form action="/post" method="GET">
+                            <input type="text" name="search"
+                            class="bg-gray-200 w-full p-2 rounded shadow-sm border border-gray-200 focus:outline-none"
+                            placeholder="Cari ID Lunas">
+                        </form>
+                    </div>
+                </div>
+
+        <table class="w-full mt-[10px]">
+
+            <thead class="bg-gray-600 border-b-2 border-gray-200">
+                <tr class="text-white">
+                    <th class="p-3 text-lg font-semibold tracking-wide text-left">No.</th>
+                    <th class="p-3 text-lg font-semibold tracking-wide text-left">Kode</th>
+                    <th class="p-3 text-lg font-semibold tracking-wide text-left">Nama</th>
+                    <th class="p-3 text-lg font-semibold tracking-wide text-left">Status</th>
+                    <th class="p-3 text-lg font-semibold tracking-wide text-left">Tanggal Lunas</th>
+                    <!-- <th class="p-3 text-lg font-semibold tracking-wide text-left">Aksi</th> -->
+                </tr>
+            </thead>
+
+            <tbody>
+
+
+                <tr class="bg-gray-200 border-b border-gray-400">
+                    <td class="p-3 border-x border-gray-400 text-md text-gray-700">
                         1
-                        </div>
-
                     </td>
-
-                    <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
-                        <div class="text-sm leading-5 text-gray-900">Create CURD with tailwind v3
-                        </div>
+                    <td class="p-3 border-r border-gray-400 text-md text-gray-700">
+                        2
                     </td>
-
-                    <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit...</p>
+                    <td class="p-3 border-r border-gray-400 text-md text-gray-700">
+                        3
                     </td>
-
-                    <td class="px-6 py-4 text-sm leading-5 text-gray-500 whitespace-no-wrap border-b border-gray-200">
-                        <span>12/12/22</span>
+                    <td class="p-3 border-r border-gray-400 text-md text-gray-700">
+                        <span class="bg-blue-500 text-white p-2 rounded-2xl">Lunas</span>
                     </td>
-
-                    <td class="text-sm font-medium leading-5 text-center whitespace-no-wrap border-b border-gray-200 ">
-                        <a href="#" class="text-indigo-600 hover:text-indigo-900">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24"
-                            stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
-                        </svg>
-                        </a>
-
-                    <td class="text-sm font-medium leading-5 text-center whitespace-no-wrap border-b border-gray-200 ">
-                        <a href="#" class="text-gray-600 hover:text-gray-900">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24"
-                            stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                        </svg>
-                        </a>
-
+                    <td class="p-3 border-r border-gray-400 text-md text-gray-700">
+                        5
                     </td>
+                    <!-- <td class="flex border-r border-gray-400 flex-row p-3 text-md text-gray-700">
+                        <form action="" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <input type="hidden" name="id" value="">
+                            <button type="submit" class="bg-blue-500 text-white lg:px-2 px-1 py-1 lg:py-1 rounded-lg hover:border-blue-700 focus:outline-none"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="lg:w-6 w-5 h-5 lg:h-6"><path fill-rule="evenodd" d="M19.916 4.626a.75.75 0 01.208 1.04l-9 13.5a.75.75 0 01-1.154.114l-6-6a.75.75 0 011.06-1.06l5.353 5.353 8.493-12.739a.75.75 0 011.04-.208z" clip-rule="evenodd" /></svg></button>
+                        </form>
+                        <a href="https://wa.me/" target="blank" class="bg-green-500 text-white lg:px-2 px-1 py-1 lg:py-1 rounded-lg hover:border-green-700 focus:outline-none ml-2"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="lg:w-6 w-5 h-5 lg:h-6"><path fill-rule="evenodd" d="M1.5 4.5a3 3 0 013-3h1.372c.86 0 1.61.586 1.819 1.42l1.105 4.423a1.875 1.875 0 01-.694 1.955l-1.293.97c-.135.101-.164.249-.126.352a11.285 11.285 0 006.697 6.697c.103.038.25.009.352-.126l.97-1.293a1.875 1.875 0 011.955-.694l4.423 1.105c.834.209 1.42.959 1.42 1.82V19.5a3 3 0 01-3 3h-2.25C8.552 22.5 1.5 15.448 1.5 6.75V4.5z" clip-rule="evenodd" /></svg></a>
+                    </td> -->
+                </tr>
 
-                    </td>
-                    <td class="text-sm font-medium leading-5 whitespace-no-wrap border-b border-gray-200 ">
-                        <a href="#"><svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-red-600 hover:text-red-800"
-                            fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
-                        </svg></a>
-                    </td>
-                    </tr>
-                </tbody>
-                </table>
-            </div>
-            </div>
-        </div>
+                    <div class="bg-red-500 text-white p-3 rounded shadow-sm mb-3">
+                        Data Belum Tersedia!
+                    </div>
+
+            </tbody>
+        </table>
+
     </div>
     @include('layout.sidebar')
     @include('sweetalert::alert')
