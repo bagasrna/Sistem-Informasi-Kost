@@ -16,7 +16,7 @@
                 <a href="/kamar">
                     <div class="md:w-[300px] mb-[50px] w-[250px] bg-blue-500 rounded-xl">
                         <div class=" p-5">
-                            <p class="text-[24px] md:text-[30px]">6</p>
+                            <p class="text-[24px] md:text-[30px]">{{ $jumlah_kamar }}</p>
                             <h1 class="font-bold text-[16px] md:text-[20px]">Jumlah Kamar</h1>
                         </div>
                         <div class="md:mt-[50px] mt-[20px] text-center rounded-b-xl p-2 bg-blue-800 w-full">
@@ -31,7 +31,7 @@
                 <a href="/penghuni" >
                     <div class="md:w-[300px] mb-[50px] w-[250px] bg-yellow-500 rounded-xl">
                         <div class="p-5">
-                            <p class="text-[24px] md:text-[30px]">3</p>
+                            <p class="text-[24px] md:text-[30px]">{{ $jumlah_penghuni }}</p>
                             <h1 class="font-bold text-[16px] md:text-[20px]">Akun Penghuni</h1>
                         </div>
                         <div class="md:mt-[50px] mt-[20px] text-center rounded-b-xl p-2 bg-yellow-800 w-full">

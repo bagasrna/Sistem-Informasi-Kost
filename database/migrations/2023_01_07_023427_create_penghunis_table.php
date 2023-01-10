@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('nama');
             $table->string('kode')->unique();
             $table->text('alamat');
+            $table->integer('durasi');
             $table->string('hp');
             $table->date('tgl_registrasi');
             $table->foreignId('id_kamar');

@@ -7,6 +7,6 @@
     <title>Sistem Informasi Kost</title>
 </head>
 <body>
-    
+    <p>Nama : {{ $penghuni->nama }}</p>
 </body>
 </html>

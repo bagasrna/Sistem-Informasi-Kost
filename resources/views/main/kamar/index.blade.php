@@ -37,17 +37,20 @@
                 </div>
 
         <table class="w-full mt-[10px]">
+            @if(count($kamars) > 0)
             <thead class="bg-gray-600">
                 <tr class="text-white">
                     <th class="p-3 text-lg font-semibold tracking-wide text-left">No.</th>
                     <th class="p-3 text-lg font-semibold tracking-wide text-left">ID</th>
                     <th class="p-3 text-lg font-semibold tracking-wide text-left">Lantai</th>
                     <th class="p-3 text-lg font-semibold tracking-wide text-left">Fasilitas</th>
+                    <th class="p-3 text-lg font-semibold tracking-wide text-left">Kapasitas</th>
                     <th class="p-3 text-lg font-semibold tracking-wide text-left">Tarif</th>
                     <!-- <th class="p-3 text-lg font-semibold tracking-wide text-left">Status</th> -->
                     <th class="p-3 text-lg font-semibold tracking-wide text-left">Aksi</th>
                 </tr>
             </thead>
+            @endif
 
             <tbody >
                 @forelse ($kamars as $kamar)
@@ -64,6 +67,9 @@
                     </td>
                     <td class="p-3 border-r text-md text-gray-700 border-gray-400">
                         {{ $kamar->fasilitas }}
+                    </td>
+                    <td class="p-3 border-r text-md text-gray-700 border-gray-400">
+                        {{ $kamar->kapasitas }} Orang
                     </td>
                     <td class="p-3 text-md text-gray-700">
                         @currency($kamar->tarif)
