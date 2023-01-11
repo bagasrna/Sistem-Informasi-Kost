@@ -40,14 +40,14 @@
             @if(count($tagihans) > 0)
             <thead class="bg-gray-600 border-b-2 border-gray-200">
                 <tr class="text-white">
-                    <th class="p-3 text-lg border border-gray-400 font-semibold tracking-wide text-left">No.</th>
-                    <th class="p-3 text-lg border border-gray-400 font-semibold tracking-wide text-left">Nama</th>
-                    <th class="p-3 text-lg border border-gray-400 font-semibold tracking-wide text-left">Kode</th>
-                    <th class="p-3 text-lg border border-gray-400 font-semibold tracking-wide text-left">Kamar</th>
-                    <th class="p-3 text-lg border border-gray-400 font-semibold tracking-wide text-left">Tagihan</th>
-                    <th class="p-3 text-lg border border-gray-400 font-semibold tracking-wide text-left">Status</th>
-                    <th class="p-3 text-lg border border-gray-400 font-semibold tracking-wide text-left">Deadline</th>
-                    <th class="p-3 text-lg border border-gray-400 font-semibold tracking-wide text-left">Aksi</th>
+                    <th class="p-3 text-lg border border-gray-400 font-semibold tracking-wide text-center">No.</th>
+                    <th class="p-3 text-lg border border-gray-400 font-semibold tracking-wide text-center">Nama</th>
+                    <th class="p-3 text-lg border border-gray-400 font-semibold tracking-wide text-center">Kode</th>
+                    <th class="p-3 text-lg border border-gray-400 font-semibold tracking-wide text-center">Kamar</th>
+                    <th class="p-3 text-lg border border-gray-400 font-semibold tracking-wide text-center">Tagihan</th>
+                    <th class="p-3 text-lg border border-gray-400 font-semibold tracking-wide text-center">Status</th>
+                    <th class="p-3 text-lg border border-gray-400 font-semibold tracking-wide text-center">Deadline</th>
+                    <th class="p-3 text-lg border border-gray-400 font-semibold tracking-wide text-center">Aksi</th>
                 </tr>
             </thead>
             @endif

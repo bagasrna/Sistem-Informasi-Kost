@@ -88,7 +88,9 @@
                 @endforelse
             </tbody>
         </table>
-
+        <div class="mt-2">
+            {{ $tagihans->links('vendor.pagination.tailwind') }}
+        </div>
     </div>
     @include('layout.sidebar')
     @include('sweetalert::alert')
