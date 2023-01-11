@@ -22,11 +22,11 @@
         <h1 class='font-bold text-[30px] mt-[30px] md:mt-[90px] '>Data Tagihan</h1>
 
                 <div class="flex flex-row gap-4 mt-[30px] mb-4">
-                    <div class="flex">
+                    <!-- <div class="flex">
                         <a href="/tagihan/create"
                             class="w-[80px] text-center bg-[#22C55E] text-[12px] md:text-[14px] hover:bg-green-600 text-white p-3 rounded shadow-sm focus:outline-none ">Tambah
                         </a>
-                    </div>
+                    </div> -->
                     <div>
                         <form action="/post" method="GET">
                             <input type="text" name="search"
@@ -85,7 +85,9 @@
                 @endforelse
             </tbody>
         </table>
-
+        <div class="mt-2">
+            {{ $tagihans->links('vendor.pagination.tailwind') }}
+        </div>
     </div>
     @include('layout.sidebar')
     @include('sweetalert::alert')

@@ -54,6 +54,14 @@ Route::get('/lunas', function () {
     return view('main.pembayaran.index');
 });
 
+Route::get('/struk', function () {
+    return view('main.pembayaran.show');
+});
+
+Route::get('/pembukuan', function () {
+    return view('main.pembukuan.index');
+});
+
 # Artisan Call
 Route::get('/optimize', [ArtisanController::class, 'optimize']);
 Route::get('/migrate', [ArtisanController::class, 'migrate']);

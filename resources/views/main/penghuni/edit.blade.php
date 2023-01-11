@@ -129,7 +129,7 @@
                         >
                 </div>
 
-                <button type="submit" class="my-[30px] font-semibold text-white shadow-xl bg-[#22C55E] p-2 px-7 rounded-xl">SUBMIT</button>
+                <button type="submit" class="my-[30px] font-semibold text-white shadow-xl bg-[#22C55E] hover:bg-[#229a4e] p-2 px-7 rounded-xl">SUBMIT</button>
             </form>
         </div>
     </div>
