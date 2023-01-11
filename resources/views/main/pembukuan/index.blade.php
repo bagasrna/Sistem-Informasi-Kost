@@ -38,7 +38,7 @@
                     </select>
 
                     <div class="flex ml-[30px]">
-                        <button class="bg-red-500 hover:bg-red-600 text-[13px] shadow-lg text-white p-3 rounded-lg">Cek Tagihan</button>
+                        <button type="submit" class="bg-red-500 hover:bg-red-600 text-[13px] shadow-lg text-white p-3 rounded-lg">Cek Tagihan</button>
                     </div>
                 </div>
                 
