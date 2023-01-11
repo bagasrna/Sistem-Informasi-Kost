@@ -12,7 +12,7 @@
         <h1 class="flex justify-center text-[36px] font-medium">KWITANSI PEMBAYARAN KOS</h1>
         <hr class="mt-3">
         <div class="mt-[50px] flex justify-center">
-            <h1 class="text-[14px]">Pembayaran untuk tanggal <span class="font-bold">12-0-22</span> sampai tanggal <span class="font-bold">12-02-2022</span></h1>
+            <h1 class="text-[14px]">Pembayaran untuk tanggal <span class="font-bold">{{ $start->format('Y-m-d') }}</span> sampai tanggal <span class="font-bold">{{ $tagihan->deadline }}</span></h1>
         </div>
         <hr class="mt-1">
 
@@ -21,22 +21,22 @@
                 <tr>  
                     <td rowspan="6" class="w-[100px] border-r border-gray-400"></td>  
                     <td class="w-[250px] mt-[20px]" valign="top"> Kode Penghuni </td>
-                    <td> : <span class="ml-[20px] font-semibold">P001</span></td> 
+                    <td> : <span class="ml-[20px] font-semibold">{{ $tagihan->penghuni->kode }}</span></td> 
                 </tr>  
                 <tr>  
                     <td valign="top" > Kode Kamar </td>  
-                    <td valign="top" > : <span class="ml-[20px] font-semibold">K001</span></td>  
+                    <td valign="top" > : <span class="ml-[20px] font-semibold">{{ $tagihan->penghuni->kamar->kode }}</span></td>  
                 </tr>    
                 <tr>  
                     <td valign="top" > Nama </td>  
-                    <td valign="top" > : <span class="ml-[20px] font-semibold">Yanto Supriyanto</span></td>  
+                    <td valign="top" > : <span class="ml-[20px] font-semibold">{{ $tagihan->penghuni->nama }}</span></td>  
                 </tr>
                 <tr>  
                     <td valign="top" > Untuk Pembayaran </td>  
-                    <td valign="top" > : <span class="ml-[20px] font-semibold">3 Bulan</span></td>  
+                    <td valign="top" > : <span class="ml-[20px] font-semibold">{{ $tagihan->penghuni->durasi }} Bulan</span></td>  
                 </tr>  
                 <tr>  
-                    <td valign="bottom" class="h-[70px]"><p class="font-bold text-[15px]">Rp. 200.000 </p></td>
+                    <td valign="bottom" class="h-[70px]"><p class="font-bold text-[15px]">@currency($tagihan->tagihan)</p></td>
                     <td valign="top" class="h-[120px] justify-end flex mr-[30px] font-bold"> Tanda Tangan </td>
                 </tr>  
             </table>  

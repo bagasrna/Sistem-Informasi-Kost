@@ -40,22 +40,10 @@ Route::group(['middleware' => 'auth'],function (){
     });
 
     #Tagihan
-    Route::prefix('tagihan')->name('tagihan.')->group(function(){
-        Route::get('/', [TagihanController::class, 'index'])->name('index');
-        Route::get('/create', [TagihanController::class, 'create'])->name('create');
-        Route::post('/create', [TagihanController::class, 'store'])->name('store');
-        Route::get('/update/{id}', [TagihanController::class, 'edit'])->name('edit');
-        Route::put('/update', [TagihanController::class, 'store'])->name('update');
-        Route::delete('/delete', [TagihanController::class, 'delete'])->name('delete');
-    });
-});
-
-Route::get('/lunas', function () {
-    return view('main.pembayaran.index');
-});
-
-Route::get('/struk', function () {
-    return view('main.pembayaran.show');
+    Route::get('/tagihan', [TagihanController::class, 'index'])->name('tagihan.index');
+    Route::get('/pelunasan/{id}', [TagihanController::class, 'pelunasan'])->name('tagihan.pelunasan');
+    Route::get('/lunas', [TagihanController::class, 'lunas'])->name('lunas.index');
+    Route::get('/struk/{id}', [TagihanController::class, 'struk'])->name('lunas.struk');
 });
 
 Route::get('/pembukuan', function () {

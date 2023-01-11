@@ -20,6 +20,7 @@ return new class extends Migration
             $table->text('alamat');
             $table->integer('durasi');
             $table->integer('diskon');
+            $table->integer('status');
             $table->string('hp');
             $table->date('tgl_registrasi');
             $table->foreignId('id_kamar');

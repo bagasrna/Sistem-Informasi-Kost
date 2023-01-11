@@ -19,7 +19,7 @@ class PenghuniController extends Controller
         // $penghuni = Penghuni::with(['kamar'])->latest()->first();
         // dd($penghuni->durasi * $penghuni->kamar->tarif) * $penghuni->diskon;
         
-        $penghunis = Penghuni::with(['kamar'])->latest()->paginate(7);
+        $penghunis = Penghuni::with(['kamar'])->where('status', 1)->latest()->paginate(7);
         
         return view('main.penghuni.index', [
             'penghunis' => $penghunis
@@ -115,6 +115,7 @@ class PenghuniController extends Controller
             $penghuni->alamat = $request->alamat;
             $penghuni->durasi = $request->durasi;
             $penghuni->diskon = $request->diskon;
+            $penghuni->status = 1;
             $penghuni->hp = $request->hp;
             $penghuni->tgl_registrasi = $request->tgl_registrasi;
             $penghuni->id_kamar = $request->id_kamar;
@@ -130,6 +131,21 @@ class PenghuniController extends Controller
                 $tagihan->status = false;
                 $tagihan->deadline = $tgl_registrasi->addMonth($penghuni->durasi);
                 $tagihan->save();
+            } else {
+                $tagihan = Tagihan::where('id_penghuni', $penghuni->id)->where('status', 1)->latest()->first();
+                if($tagihan){
+                    $deadline = Carbon::parse($tagihan->deadline);
+                    $new_tagihan = Tagihan::where('id_penghuni', $penghuni->id)->where('status', 0)->latest()->first();
+                    $new_tagihan->tagihan = ((100 - $penghuni->diskon) / 100) * ($penghuni->durasi * $penghuni->kamar->tarif);
+                    $new_tagihan->deadline = $deadline->addMonth($penghuni->durasi);
+                    $new_tagihan->save();
+                } else {
+                    $tagihan = Tagihan::where('id_penghuni', $penghuni->id)->where('status', 0)->latest()->first();
+                    $deadline = Carbon::parse($penghuni->tgl_registrasi);
+                    $tagihan->tagihan = ((100 - $penghuni->diskon) / 100) * ($penghuni->durasi * $penghuni->kamar->tarif);
+                    $tagihan->deadline = $deadline->addMonth($penghuni->durasi);
+                    $tagihan->save();
+                }
             }
 
             Alert::success('Berhasil', !$request->id ? 'Penghuni berhasil ditambahkan!' : 'Penghuni berhasil diubah!');
@@ -157,7 +173,10 @@ class PenghuniController extends Controller
             
             File::delete('storage/' . $penghuni->ktp);
             Tagihan::where('id_penghuni', $penghuni->id)->where('status', 0)->delete();
-            $penghuni->delete();
+            // $penghuni->delete();
+            $penghuni->status = 0;
+            $penghuni->kode = rand();
+            $penghuni->save();
             
             Alert::success('Berhasil', 'Penghuni berhasil dihapus!');
             return redirect(route('penghuni.index'));

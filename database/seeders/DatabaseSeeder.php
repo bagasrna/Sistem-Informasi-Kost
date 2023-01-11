@@ -36,6 +36,7 @@ class DatabaseSeeder extends Seeder
             'alamat' => 'Jalan Panjaitan Gg.13',
             'durasi' => 3,
             'diskon' => 0,
+            'status' => 1,
             'hp' => '6282234018230',
             'tgl_registrasi' => '2023-01-26',
             'id_kamar' => 1,
