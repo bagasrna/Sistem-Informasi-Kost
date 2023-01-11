@@ -40,12 +40,12 @@
             @if(count($tagihans) > 0)
             <thead class="bg-gray-600 border-b-2 border-gray-200">
                 <tr class="text-white">
-                    <th class="p-3 text-lg font-semibold tracking-wide text-left">No.</th>
-                    <th class="p-3 text-lg font-semibold tracking-wide text-left">Kode</th>
-                    <th class="p-3 text-lg font-semibold tracking-wide text-left">Tagihan</th>
-                    <th class="p-3 text-lg font-semibold tracking-wide text-left">Status</th>
-                    <th class="p-3 text-lg font-semibold tracking-wide text-left">Deadline</th>
-                    <th class="p-3 text-lg font-semibold tracking-wide text-left">Aksi</th>
+                    <th class="p-3 text-lg border border-gray-400 font-semibold tracking-wide text-left">No.</th>
+                    <th class="p-3 text-lg border border-gray-400 font-semibold tracking-wide text-left">Kode</th>
+                    <th class="p-3 text-lg border border-gray-400 font-semibold tracking-wide text-left">Tagihan</th>
+                    <th class="p-3 text-lg border border-gray-400 font-semibold tracking-wide text-left">Status</th>
+                    <th class="p-3 text-lg border border-gray-400 font-semibold tracking-wide text-left">Deadline</th>
+                    <th class="p-3 text-lg border border-gray-400 font-semibold tracking-wide text-left">Aksi</th>
                 </tr>
             </thead>
             @endif
@@ -62,8 +62,8 @@
                     <td class="p-3 border-r border-gray-400 text-md text-gray-700">
                         {{ $tagihan->tagihan}}
                     </td>
-                    <td class="p-3 border-r border-gray-400 text-md text-gray-700">
-                        <span class="bg-red-500 text-white p-2 rounded-2xl">{{ $tagihan->status ? '' : 'Belum Lunas'}}</span>
+                    <td class="p-3 border-r border-gray-400 text-md text-center text-gray-700">
+                        <span class="bg-red-500 text-white p-2 px-5 rounded-2xl">{{ $tagihan->status ? '' : 'Belum Lunas'}}</span>
                     </td>
                     <td class="p-3 border-r border-gray-400 text-md text-gray-700">
                         {{ $tagihan->deadline }}

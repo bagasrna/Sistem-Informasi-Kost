@@ -105,7 +105,7 @@
                 </div>
 
                 <div class="mt-[30px] flex flex-col">
-                    <label for="tarif" class="font-semibold mb-2">Masukkan Tanggal Registrasi :</label>
+                    <label for="tgl_registrasi" class="font-semibold mb-2">Masukkan Tanggal Registrasi :</label>
                     <input 
                         type="date" 
                         name="tgl_registrasi"

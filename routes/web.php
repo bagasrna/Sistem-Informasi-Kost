@@ -62,6 +62,14 @@ Route::get('/pembukuan', function () {
     return view('main.pembukuan.index');
 });
 
+Route::get('/pembukuan/show', function () {
+    return view('main.pembukuan.show');
+});
+
+Route::get('/pembukuan/create', function () {
+    return view('main.pembukuan.create');
+});
+
 # Artisan Call
 Route::get('/optimize', [ArtisanController::class, 'optimize']);
 Route::get('/migrate', [ArtisanController::class, 'migrate']);

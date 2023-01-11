@@ -14,7 +14,7 @@
         <div class='border-2 rounded-xl mt-[30px] shadow-lg border-gray-500'>
             <form action="" method="" class="ml-[30px]">
                 <div class="flex mt-[30px]">
-                    <a href=""
+                    <a href="/pembukuan/create"
                         class="text-center bg-[#22C55E] text-[13px] md:text-[14px] hover:bg-green-600 text-white p-3 rounded-xl shadow-sm ">Tambah Tagihan
                     </a>
                 </div>

@@ -40,14 +40,13 @@
             @if(count($kamars) > 0)
             <thead class="bg-gray-600">
                 <tr class="text-white">
-                    <th class="p-3 text-lg font-semibold tracking-wide text-left">No.</th>
-                    <th class="p-3 text-lg font-semibold tracking-wide text-left">ID</th>
-                    <th class="p-3 text-lg font-semibold tracking-wide text-left">Lantai</th>
-                    <th class="p-3 text-lg font-semibold tracking-wide text-left">Fasilitas</th>
-                    <th class="p-3 text-lg font-semibold tracking-wide text-left">Kapasitas</th>
-                    <th class="p-3 text-lg font-semibold tracking-wide text-left">Tarif</th>
-                    <!-- <th class="p-3 text-lg font-semibold tracking-wide text-left">Status</th> -->
-                    <th class="p-3 text-lg font-semibold tracking-wide text-left">Aksi</th>
+                    <th class="p-3 text-lg border border-gray-400 font-semibold tracking-wide text-center">No.</th>
+                    <th class="p-3 text-lg border border-gray-400 font-semibold tracking-wide text-center">ID</th>
+                    <th class="p-3 text-lg border border-gray-400 font-semibold tracking-wide text-center">Lantai</th>
+                    <th class="p-3 text-lg border border-gray-400 font-semibold tracking-wide text-center">Fasilitas</th>
+                    <th class="p-3 text-lg border border-gray-400 font-semibold tracking-wide text-center">Kapasitas</th>
+                    <th class="p-3 text-lg border border-gray-400 font-semibold tracking-wide text-center">Tarif</th>
+                    <th class="p-3 text-lg border border-gray-400 font-semibold tracking-wide text-center">Aksi</th>
                 </tr>
             </thead>
             @endif
