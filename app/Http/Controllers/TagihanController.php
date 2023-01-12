@@ -1,7 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\Penghuni;
 use App\Models\Tagihan;
+use App\Models\Kamar;
 use Carbon\Carbon;
 Use Alert;
 
@@ -9,8 +11,19 @@ use Illuminate\Http\Request;
 
 class TagihanController extends Controller
 {
-    public function index(){
-        $tagihans = Tagihan::with(['penghuni.kamar'])->where('status', 0)->latest()->paginate(7);
+    public function index(Request $request){
+        $tagihans = Tagihan::with(['penghuni.kamar']);
+
+        if($request->search){
+            $kamars = Kamar::where('kode', $request->search)->get();
+            $kamars_penghunis = Penghuni::where('nama', 'like', '%' . $request->search . '%')
+                ->orWhere('kode', 'like', '%'. $request->search .'%')
+                ->orWhereIn('id_kamar', $kamars->pluck('id'))->get();
+
+            $tagihans = $tagihans->whereIn('id_penghuni', $kamars_penghunis->pluck('id'));
+        }
+
+        $tagihans = $tagihans->where('status', 0)->latest()->paginate(7);
         
         return view('main.tagihan.index', [
             'tagihans' => $tagihans
@@ -39,8 +52,19 @@ class TagihanController extends Controller
         return redirect(route('tagihan.index'));
     }
 
-    public function lunas(){
-        $tagihans = Tagihan::with(['penghuni.kamar'])->where('status', 1)->latest()->paginate(7);
+    public function lunas(Request $request){
+        $tagihans = Tagihan::with(['penghuni.kamar']);
+
+        if($request->search){
+            $kamars = Kamar::where('kode', $request->search)->get();
+            $kamars_penghunis = Penghuni::where('nama', 'like', '%' . $request->search . '%')
+                ->orWhere('kode', 'like', '%'. $request->search .'%')
+                ->orWhereIn('id_kamar', $kamars->pluck('id'))->get();
+
+            $tagihans = $tagihans->whereIn('id_penghuni', $kamars_penghunis->pluck('id'));
+        }
+
+        $tagihans = $tagihans->where('status', 0)->latest()->paginate(7);
         
         return view('main.pembayaran.index', [
             'tagihans' => $tagihans

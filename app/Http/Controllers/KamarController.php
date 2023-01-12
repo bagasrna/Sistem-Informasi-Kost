@@ -13,8 +13,14 @@ Use Alert;
 
 class KamarController extends Controller
 {
-    public function index(){
-        $kamars = Kamar::latest()->paginate(7);
+    public function index(Request $request){
+        $kamars = Kamar::latest();
+
+        if($request->search){
+            $kamars->where('kode', 'like', '%'. $request->search .'%');
+        }
+
+        $kamars = $kamars->paginate(7);
         
         return view('main.kamar.index', [
             'kamars' => $kamars

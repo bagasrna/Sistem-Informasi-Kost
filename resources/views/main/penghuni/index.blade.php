@@ -28,7 +28,7 @@
                         </a>
                     </div>
                     <div>
-                        <form action="/post" method="GET">
+                        <form action="/penghuni" method="GET">
                             <input type="text" name="search"
                             class="bg-gray-200 w-full p-2 rounded shadow-sm border border-gray-200 focus:outline-none"
                             placeholder="Cari Nama Penghuni">
@@ -87,7 +87,7 @@
                 </tr>
                 @empty
                     <div class="bg-red-500 text-white p-3 rounded shadow-sm mb-3">
-                        Data Belum Tersedia!
+                        Data Tidak Ditemukan!
                     </div>
                 @endforelse
             </tbody>
