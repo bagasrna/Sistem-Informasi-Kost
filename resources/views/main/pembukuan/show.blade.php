@@ -75,6 +75,9 @@
                 <td class="p-3 text-md border border-gray-400 font-semibold tracking-wide text-center">Rp. 0</td>
             </tfoot>
         </table>
+        <div class="mt-[60px] flex justify-end">
+            <a href="/pembukuan" class="p-2 px-5 text-white rounded-lg bg-green-500 hover:bg-green-600">Back</a>
+        </div>
     </div>
     @include('layout.sidebar')
 </body>
