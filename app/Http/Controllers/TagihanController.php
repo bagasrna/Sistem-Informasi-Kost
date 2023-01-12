@@ -64,7 +64,7 @@ class TagihanController extends Controller
             $tagihans = $tagihans->whereIn('id_penghuni', $kamars_penghunis->pluck('id'));
         }
 
-        $tagihans = $tagihans->where('status', 0)->latest()->paginate(7);
+        $tagihans = $tagihans->where('status', 1)->latest()->paginate(7);
         
         return view('main.pembayaran.index', [
             'tagihans' => $tagihans

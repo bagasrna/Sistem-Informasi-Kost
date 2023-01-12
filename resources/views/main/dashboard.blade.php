@@ -43,7 +43,7 @@
             </div>
 
             <div class="flex  mb-[100px] transition shadow-xl hover:shadow-2xl hover:-translate-y-3 text-white">
-                <a href="">
+                <a href="/tagihan">
                     <div class="md:w-[300px] mb-[50px] w-[250px] bg-red-500 hover:bg-red-600 rounded-xl">
                         <div class=" p-5">
                             <p class="text-[24px] md:text-[30px]">{{ $belum_bayar }}</p>
@@ -58,7 +58,7 @@
             </div>
 
             <div class="flex mb-[50px] transition shadow-xl hover:shadow-2xl hover:-translate-y-3 text-white">
-                <a href="">
+                <a href="/lunas">
                     <div class="md:w-[300px] mb-[50px] w-[250px] bg-green-500 hover:bg-green-600 rounded-xl">
                         <div class=" p-5">
                             <p class="text-[24px] md:text-[30px]">{{ $lunas }}</p>

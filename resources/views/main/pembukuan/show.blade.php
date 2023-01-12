@@ -66,13 +66,13 @@
 
             <tfoot>
                 <td colspan="3" class="p-3 text-md border border-gray-400 font-semibold tracking-wide text-center">Total Saldo</td>
-                <td colspan="2" class="p-3 text-md border border-gray-400 font-semibold tracking-wide text-center">Rp. 200.000</td>
+                <td colspan="2" class="p-3 text-md border border-gray-400 font-semibold tracking-wide text-center">@currency($saldo)</td>
             </tfoot>
 
             <tfoot>
                 <td colspan="3" class="p-3 text-md border border-gray-400 font-semibold tracking-wide text-center">Total Kredit / Debit</td>
-                <td class="p-3 text-md border border-gray-400 font-semibold tracking-wide text-center">Rp. 200.000</td>
-                <td class="p-3 text-md border border-gray-400 font-semibold tracking-wide text-center">Rp. 0</td>
+                <td class="p-3 text-md border border-gray-400 font-semibold tracking-wide text-center">@currency($total_debit)</td>
+                <td class="p-3 text-md border border-gray-400 font-semibold tracking-wide text-center">@currency($total_kredit)</td>
             </tfoot>
         </table>
         <div class="mt-[60px] flex justify-end">

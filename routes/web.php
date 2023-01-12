@@ -1,11 +1,12 @@
 <?php
 
-use App\Http\Controllers\AuthController;
+use App\Http\Controllers\PembukuanController;
 use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\KamarController;
 use App\Http\Controllers\PenghuniController;
 use App\Http\Controllers\TagihanController;
 use App\Http\Controllers\ArtisanController;
+use App\Http\Controllers\KamarController;
+use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 
 #Authentication
@@ -46,18 +47,14 @@ Route::group(['middleware' => 'auth'],function (){
     Route::get('/pelunasan/{id}', [TagihanController::class, 'pelunasan'])->name('tagihan.pelunasan');
     Route::get('/lunas', [TagihanController::class, 'lunas'])->name('lunas.index');
     Route::get('/struk/{id}', [TagihanController::class, 'struk'])->name('lunas.struk');
-});
 
-Route::get('/pembukuan', function () {
-    return view('main.pembukuan.index');
-});
-
-Route::get('/pembukuan/show', function () {
-    return view('main.pembukuan.show');
-});
-
-Route::get('/pembukuan/create', function () {
-    return view('main.pembukuan.create');
+    #Pembukuan
+    Route::prefix('pembukuan')->name('pembukuan.')->group(function(){
+        Route::get('/', [PembukuanController::class, 'index'])->name('index');
+        Route::get('/show', [PembukuanController::class, 'show'])->name('show');
+        Route::get('/create', [PembukuanController::class, 'create'])->name('create');
+        Route::post('/create', [PembukuanController::class, 'store'])->name('store');
+    });
 });
 
 # Artisan Call

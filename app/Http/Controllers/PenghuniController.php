@@ -20,8 +20,10 @@ class PenghuniController extends Controller
             ->where('status', 1);
 
         if($request->search){
+            $kamars = Kamar::where('kode', $request->search)->get();
             $penghunis->where('nama', 'like', '%'. $request->search .'%')
-                ->orWhere('kode', 'like', '%'. $request->search .'%');
+                ->orWhere('kode', 'like', '%'. $request->search .'%')
+                ->orWhereIn('id_kamar', $kamars->pluck('id'));
         }
 
         $penghunis = $penghunis->latest()->paginate(7);

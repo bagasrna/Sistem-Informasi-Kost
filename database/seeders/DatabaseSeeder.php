@@ -1,10 +1,11 @@
 <?php
 
 namespace Database\Seeders;
-use App\Models\User;
-use App\Models\Kamar;
+use App\Models\Pembukuan;
 use App\Models\Penghuni;
 use App\Models\Tagihan;
+use App\Models\Kamar;
+use App\Models\User;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -49,6 +50,20 @@ class DatabaseSeeder extends Seeder
             'tagihan' => 1500000,
             'status' => 0,
             'deadline' => '2023-04-26',
+        ]);
+
+        Pembukuan::create([
+            'tipe' => 0,
+            'tgl_transaksi' => '2022-01-12',
+            'nominal' => 300000,
+            'keterangan' => 'Pembayaran Bagas',
+        ]);
+
+        Pembukuan::create([
+            'tipe' => 1,
+            'tgl_transaksi' => '2022-01-13',
+            'nominal' => -25000,
+            'keterangan' => 'Beli Lampu Taman',
         ]);
     }
 }
