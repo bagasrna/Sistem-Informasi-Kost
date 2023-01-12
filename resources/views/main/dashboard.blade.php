@@ -14,7 +14,7 @@
 
             <div class="flex mb-[100px] transition shadow-xl hover:shadow-2xl hover:-translate-y-3 text-white">
                 <a href="/kamar">
-                    <div class="md:w-[300px] mb-[50px] w-[250px] bg-blue-500 rounded-xl">
+                    <div class="md:w-[300px] mb-[50px] w-[250px] bg-blue-500 hover:bg-blue-600 rounded-xl">
                         <div class=" p-5">
                             <p class="text-[24px] md:text-[30px]">{{ $jumlah_kamar }}</p>
                             <h1 class="font-bold text-[16px] md:text-[20px]">Jumlah Kamar</h1>
@@ -29,7 +29,7 @@
 
             <div class="flex transition shadow-xl hover:shadow-2xl hover:-translate-y-3 mb-[100px] text-white">
                 <a href="/penghuni" >
-                    <div class="md:w-[300px] mb-[50px] w-[250px] bg-yellow-500 rounded-xl">
+                    <div class="md:w-[300px] mb-[50px] w-[250px] bg-yellow-500 hover:bg-yellow-600 rounded-xl">
                         <div class="p-5">
                             <p class="text-[24px] md:text-[30px]">{{ $jumlah_penghuni }}</p>
                             <h1 class="font-bold text-[16px] md:text-[20px]">Akun Penghuni</h1>
@@ -44,7 +44,7 @@
 
             <div class="flex  mb-[100px] transition shadow-xl hover:shadow-2xl hover:-translate-y-3 text-white">
                 <a href="">
-                    <div class="md:w-[300px] mb-[50px] w-[250px] bg-red-500 rounded-xl">
+                    <div class="md:w-[300px] mb-[50px] w-[250px] bg-red-500 hover:bg-red-600 rounded-xl">
                         <div class=" p-5">
                             <p class="text-[24px] md:text-[30px]">{{ $belum_bayar }}</p>
                             <h1 class="font-bold text-[16px] md:text-[20px]">Belum Bayar</h1>
@@ -59,7 +59,7 @@
 
             <div class="flex mb-[50px] transition shadow-xl hover:shadow-2xl hover:-translate-y-3 text-white">
                 <a href="">
-                    <div class="md:w-[300px] mb-[50px] w-[250px] bg-green-500 rounded-xl">
+                    <div class="md:w-[300px] mb-[50px] w-[250px] bg-green-500 hover:bg-green-600 rounded-xl">
                         <div class=" p-5">
                             <p class="text-[24px] md:text-[30px]">{{ $lunas }}</p>
                             <h1 class="font-bold text-[16px] md:text-[20px]">Lunas</h1>

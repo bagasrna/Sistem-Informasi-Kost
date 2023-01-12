@@ -56,7 +56,7 @@
                 @php $class = $loop->index + 1 / 2 === 0 ? 'even' : 'odd'; @endphp
                 <tr class="bg-gray-200 border-b border-gray-400">
                     <td class="p-3 border-x border-gray-400 text-md text-gray-700">
-                        {{ $loop->index + 1 }}
+                        {{ $loop->index + 1 }}.
                     </td>
                     <td class="p-3 border-r border-gray-400 text-md text-gray-700">
                         {{ $penghuni->kode}}

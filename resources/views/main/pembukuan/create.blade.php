@@ -31,7 +31,6 @@
                         required
                         id="tgl_transaksi"
                         class="border-2 rounded-lg w-1/4 border-gray-500 pl-3 outline-none focus:border-blue-400 p-2 text-[14px]"
-                        placeholder="Contoh : 300000"
                         >
                 </div>
 

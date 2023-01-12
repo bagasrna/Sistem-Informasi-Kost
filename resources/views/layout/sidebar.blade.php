@@ -8,7 +8,7 @@
     @vite('resources/css/app.css')
 </head>
 <body class="bg-white overflow-x-hidden font-Poppins">
-    <aside class="fixed overflow-hidden left-0 top-0 z-10 h-screen w-12 md:w-20 hover:w-48  md:hover:w-[265px] bg-gray-700 hover:shadow-2xl">
+    <aside class="fixed overflow-hidden left-0 top-0 z-10 h-screen w-12 md:w-20 hover:w-48 transition  md:hover:w-[265px] bg-gray-700 hover:shadow-2xl">
         <div class="flex flex-col justify-between">
             <div>
                 <div class="h-16 flex items-center bg-gray-500">
