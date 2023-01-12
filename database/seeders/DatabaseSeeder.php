@@ -4,6 +4,7 @@ namespace Database\Seeders;
 use App\Models\User;
 use App\Models\Kamar;
 use App\Models\Penghuni;
+use App\Models\Tagihan;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -41,6 +42,13 @@ class DatabaseSeeder extends Seeder
             'tgl_registrasi' => '2023-01-26',
             'id_kamar' => 1,
             'ktp' => 'ktp/awikwok',
+        ]);
+        
+        Tagihan::create([
+            'id_penghuni' => 1,
+            'tagihan' => 1500000,
+            'status' => 0,
+            'deadline' => '2023-04-26',
         ]);
     }
 }

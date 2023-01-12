@@ -20,6 +20,7 @@ Route::group(['middleware' => 'auth'],function (){
     #Kamar
     Route::prefix('kamar')->name('kamar.')->group(function(){
         Route::get('/', [KamarController::class, 'index'])->name('index');
+        Route::get('/search', [KamarController::class, 'search'])->name('search');
         Route::get('/create', [KamarController::class, 'create'])->name('create');
         Route::post('/create', [KamarController::class, 'store'])->name('store');
         Route::get('/update/{id}', [KamarController::class, 'edit'])->name('edit');
@@ -31,6 +32,7 @@ Route::group(['middleware' => 'auth'],function (){
     #Penghuni
     Route::prefix('penghuni')->name('penghuni.')->group(function(){
         Route::get('/', [PenghuniController::class, 'index'])->name('index');
+        Route::get('/search', [PenghuniController::class, 'search'])->name('search');
         Route::get('/create', [PenghuniController::class, 'create'])->name('create');
         Route::post('/create', [PenghuniController::class, 'store'])->name('store');
         Route::get('/update/{id}', [PenghuniController::class, 'edit'])->name('edit');

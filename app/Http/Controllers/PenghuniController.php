@@ -15,11 +15,16 @@ use File;
 
 class PenghuniController extends Controller
 {
-    public function index(){
-        // $penghuni = Penghuni::with(['kamar'])->latest()->first();
-        // dd($penghuni->durasi * $penghuni->kamar->tarif) * $penghuni->diskon;
-        
-        $penghunis = Penghuni::with(['kamar'])->where('status', 1)->latest()->paginate(7);
+    public function index(Request $request){
+        $penghunis = Penghuni::with(['kamar'])
+            ->where('status', 1);
+
+        if($request->search){
+            $penghunis->where('nama', 'like', '%'. $request->search .'%')
+                ->orWhere('kode', 'like', '%'. $request->search .'%');
+        }
+
+        $penghunis = $penghunis->latest()->paginate(7);
         
         return view('main.penghuni.index', [
             'penghunis' => $penghunis

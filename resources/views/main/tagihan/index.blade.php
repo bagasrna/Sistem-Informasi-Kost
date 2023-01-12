@@ -23,10 +23,10 @@
 
                 <div class="flex flex-row gap-4 mt-[30px] mb-4">
                     <div>
-                        <form action="" method="GET">
+                        <form action="tagihan" method="GET">
                             <input type="text" name="search"
                             class="bg-gray-200 p-2 rounded shadow-sm border border-gray-200 focus:outline-none"
-                            placeholder="Cari Nama">
+                            placeholder="Cari Data Tagihan">
                             <button type="submit" class="bg-green-400 hover:bg-green-600 text-white p-3 text-[12px] md:text-[14px] rounded-lg">Search</button>
                         </form>
                     </div>
@@ -85,7 +85,7 @@
                 </tr>
                 @empty
                     <div class="bg-red-500 text-white p-3 rounded shadow-sm mb-3">
-                        Data Belum Tersedia!
+                        Data Tidak Ditemukan!
                     </div>
                 @endforelse
             </tbody>
