@@ -22,16 +22,12 @@
         <h1 class='font-bold text-[30px] mt-[30px] md:mt-[90px] '>Data Pembayaran Lunas</h1>
 
                 <div class="flex flex-row gap-4 mt-[30px] mb-4">
-                    <!-- <div class="flex">
-                        <a href="/tagihan/create"
-                            class="w-[80px] text-center bg-[#22C55E] text-[12px] md:text-[14px] hover:bg-green-600 text-white p-3 rounded shadow-sm focus:outline-none ">Tambah
-                        </a>
-                    </div> -->
                     <div>
-                        <form action="/post" method="GET">
+                        <form action="" method="GET">
                             <input type="text" name="search"
-                            class="bg-gray-200 w-full p-2 rounded shadow-sm border border-gray-200 focus:outline-none"
-                            placeholder="Cari ID Lunas">
+                            class="bg-gray-200 p-2 rounded shadow-sm border border-gray-200 focus:outline-none"
+                            placeholder="Cari Nama Penghuni">
+                            <button type="submit" class="bg-green-400 hover:bg-green-600 text-white p-3 text-[12px] md:text-[14px] rounded-lg">Search</button>
                         </form>
                     </div>
                 </div>
