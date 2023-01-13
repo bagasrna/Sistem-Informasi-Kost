@@ -135,6 +135,9 @@
                 <button type="submit" class="my-[30px] font-semibold text-white shadow-xl bg-[#22C55E] hover:bg-[#229a4e] p-2 px-7 rounded-xl">SUBMIT</button>
             </form>
         </div>
+        <div class="mt-[60px] flex justify-end">
+            <a href="/penghuni" class="p-2 px-5 text-white rounded-lg bg-blue-500 hover:bg-blue-600">Back</a>
+        </div>
     </div>
     @include('layout.sidebar')
     @include('sweetalert::alert')

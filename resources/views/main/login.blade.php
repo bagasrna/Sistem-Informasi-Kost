@@ -11,11 +11,11 @@
     <form action="/login" method="post">
         @csrf
             <div class='border-2 p-5 sm:p-10 rounded-2xl shadow-lg font-Poppins border-[#257B57] w-[300px] sm:w-[500px] my-[100px] flex-col flex items-center h-full mx-auto'>
-                <div class='my-5'>
-                    <h1 class='justify-center flex mb-[50px]font-Poppins text-[14px] sm:text-[20px] font-bold'>Sistem Informasi Kost</h1>
-                    <div class=' flex flex-col'>
+                <div class='my-5 '>
+                    <h1 class='font-Poppins text-[14px] sm:text-[20px] text-center font-bold'>Sistem Informasi Kos Sigura-gura IV Kav.7A</h1>
+                    <div class=' flex mx-[50px] flex-col'>
                         <div class='ml-[20px] sm:ml-0'>
-                            <h1 class='font-bold text-[13px] mt-[50px] sm:text-[16px]'>Username</h1>
+                            <h1 class='font-bold text-[13px] mt-[40px] sm:text-[16px]'>Username</h1>
                             <div class='mb-3 relative'>
                                 <label class='absolute  inset-y-0 left-0 flex items-center pl-3 pointer-events-none'>
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"  class='fill-[#B0B1B0] w-4 h-4 '><path fill-rule="evenodd" d="M7.5 6a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM3.751 20.105a8.25 8.25 0 0116.498 0 .75.75 0 01-.437.695A18.683 18.683 0 0112 22.5c-2.786 0-5.433-.608-7.812-1.7a.75.75 0 01-.437-.695z" clip-rule="evenodd" /></svg>

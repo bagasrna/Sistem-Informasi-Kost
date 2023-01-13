@@ -73,16 +73,19 @@
             </tbody>
 
             <tfoot>
-                <td colspan="3" class="p-3 text-md border border-gray-400 font-semibold tracking-wide text-center">Total Saldo</td>
-                <td colspan="2" class="p-3 text-md border border-gray-400 font-semibold tracking-wide text-center">@currency($saldo)</td>
+                <th colspan="3" class="p-3 text-md border bg-gray-600 text-white border-gray-400 font-semibold tracking-wide text-center">Total Saldo</th>
+                <th colspan="2" class="p-3 text-md border bg-gray-600 text-white border-gray-400 font-semibold tracking-wide text-center">@currency($saldo)</th>
             </tfoot>
 
             <tfoot>
-                <td colspan="3" class="p-3 text-md border border-gray-400 font-semibold tracking-wide text-center">Total Kredit / Debit</td>
-                <td class="p-3 text-md border border-gray-400 font-semibold tracking-wide text-center">@currency($total_debit)</td>
-                <td class="p-3 text-md border border-gray-400 font-semibold tracking-wide text-center">@currency($total_kredit)</td>
+                <th colspan="3" class="p-3 text-md border bg-gray-600 text-white border-gray-400 font-semibold tracking-wide text-center">Total Kredit / Debit</th>
+                <th class="p-3 text-md border border-gray-400 bg-gray-600 text-white font-semibold tracking-wide text-center">@currency($total_debit)</th>
+                <th class="p-3 text-md border border-gray-400 bg-gray-600 text-white font-semibold tracking-wide text-center">@currency($total_kredit)</th>
             </tfoot>
         </table>
+        <div class="mt-2">
+            {{ $pembukuans->links('vendor.pagination.tailwind') }}
+        </div>
         <div class="mt-[60px] flex justify-end">
             <a href="/pembukuan" class="p-2 px-5 text-white rounded-lg bg-green-500 hover:bg-green-600">Back</a>
         </div>
