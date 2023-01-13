@@ -20,7 +20,7 @@ class PenghuniController extends Controller
             ->where('status', 1);
 
         if($request->search){
-            $kamars = Kamar::where('kode', $request->search)->get();
+            $kamars = Kamar::where('kode', $request->search)->where('status', 1)->get();
             $penghunis->where('nama', 'like', '%'. $request->search .'%')
                 ->orWhere('kode', 'like', '%'. $request->search .'%')
                 ->orWhereIn('id_kamar', $kamars->pluck('id'));
@@ -42,7 +42,7 @@ class PenghuniController extends Controller
     }
 
     public function create(){
-        $kamars = Kamar::with(['penghunis'])
+        $kamars = Kamar::with(['penghunis'])->where('status', 1)
             ->get();
         
         return view('main.penghuni.create', [
@@ -52,7 +52,7 @@ class PenghuniController extends Controller
 
     public function edit($id){
         $penghuni = Penghuni::with(['kamar'])->find($id);
-        $kamars = Kamar::with(['penghunis'])
+        $kamars = Kamar::with(['penghunis'])->where('status', 1)
             ->get();
         
         return view('main.penghuni.edit', [
@@ -180,9 +180,10 @@ class PenghuniController extends Controller
             
             File::delete('storage/' . $penghuni->ktp);
             Tagihan::where('id_penghuni', $penghuni->id)->where('status', 0)->delete();
-            // $penghuni->delete();
+
             $penghuni->status = 0;
-            $penghuni->kode = rand();
+            $penghuni->id_kamar = 0;
+            $penghuni->kode = "TRASH-" . $penghuni->kode;
             $penghuni->save();
             
             Alert::success('Berhasil', 'Penghuni berhasil dihapus!');

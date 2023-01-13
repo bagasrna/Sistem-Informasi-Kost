@@ -11,15 +11,15 @@
         <h1 class='font-bold text-[30px] mt-[30px] md:mt-[90px]'>Menambahkan Transaksi Pembukuan</h1>
 
         <div class='border-2 rounded-xl mt-[30px] shadow-lg border-gray-500'>
-            <form action="/kamar/create" method="POST" class="ml-[30px]">
+            <form action="/pembukuan/create" method="POST" class="ml-[30px]">
                 @csrf
 
                 <div class="mt-[30px] flex flex-col">
                     <label for="transaksi" class="font-semibold mb-2">Pilihan Transaksi :</label>
-                    <select type="text" required id="transaksi" name="transaksi" class="w-[200px] pl-3 focus:border-blue-400 text-[14px] border-2 rounded-lg py-3 border-gray-500 outline-none ">
-                        <option value="" name="lantai">Pilih Transaksi</option>
-                        <option value="debit" name="transaksi">Debit</option>
-                        <option value="kredit" name="transaksi">Kredit</option>
+                    <select type="text" required id="transaksi" name="tipe" class="w-[200px] pl-3 focus:border-blue-400 text-[14px] border-2 rounded-lg py-3 border-gray-500 outline-none ">
+                        <option value="" name="tipe">Pilih Transaksi</option>
+                        <option value="0" name="tipe">Debit</option>
+                        <option value="1" name="tipe">Kredit</option>
                     </select>
                 </div>
 

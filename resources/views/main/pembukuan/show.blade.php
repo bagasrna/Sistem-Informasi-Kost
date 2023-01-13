@@ -38,30 +38,38 @@
             </thead>
 
             <tbody>
-
+                @forelse ($pembukuans as $pembukuan)
 
                 <tr class="bg-gray-200 border-b border-gray-400">
                     <td class="p-3 border-x border-gray-400 text-md text-gray-700">
-                        1
+                        {{ $loop->index + 1 }}.
                     </td>
                     <td class="p-3 border-r border-gray-400 text-md text-gray-700">
-                        2022-12-20
+                        {{ $pembukuan->tgl_transaksi }}
                     </td>
                     <td class="p-3 border-r border-gray-400 text-md text-gray-700">
-                        Membayar tagihan listrik
+                        {{ $pembukuan->keterangan }}
                     </td>
                     <td class="p-3 border-r border-gray-400 text-center text-md text-gray-700">
-                        Rp. 200.000
+                        @if($pembukuan->tipe == 0)
+                            @currency($pembukuan->nominal)
+                        @else
+                            0
+                        @endif
                     </td>
                     <td class="p-3 border-r text-center border-gray-400 text-md text-gray-700">
-                        Rp. 0
+                        @if($pembukuan->tipe == 1)
+                            @currency($pembukuan->nominal)
+                        @else
+                            0
+                        @endif
                     </td>
                 </tr>
-
+                @empty
                     <div class="bg-red-500 text-white p-3 rounded shadow-sm mb-3">
                         Data Belum Tersedia!
                     </div>
-
+                @endforelse
             </tbody>
 
             <tfoot>

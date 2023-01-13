@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Validator;
-use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Controller;
 use Illuminate\Validation\Rule;
 use Illuminate\Http\Request;
 use App\Models\Penghuni;
@@ -78,6 +78,7 @@ class KamarController extends Controller
 
             $kamar->kode = $request->kode;
             $kamar->lantai = $request->lantai;
+            $kamar->status = 1;
             $kamar->kapasitas = $request->kapasitas;
             $kamar->fasilitas = $request->fasilitas;
             $kamar->tarif = $request->tarif;
@@ -109,7 +110,9 @@ class KamarController extends Controller
                 return redirect(route('kamar.index'));
             }
             
-            $kamar->delete();
+            $kamar->status = 0;
+            $kamar->kode = "TRASH-" . $kamar->kode;
+            $kamar->save();
             
             Alert::success('Berhasil', 'Kamar berhasil dihapus!');
             return redirect(route('kamar.index'));

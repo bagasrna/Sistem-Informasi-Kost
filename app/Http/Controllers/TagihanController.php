@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\Pembukuan;
 use App\Models\Penghuni;
 use App\Models\Tagihan;
 use App\Models\Kamar;
@@ -40,6 +41,13 @@ class TagihanController extends Controller
         
         $tagihan->status = true;
         $tagihan->save();
+
+        $pembukuan = new Pembukuan;
+        $pembukuan->tipe = 0;
+        $pembukuan->tgl_transaksi = Carbon::now();
+        $pembukuan->nominal = $tagihan->tagihan;
+        $pembukuan->keterangan = "Pelunasan " . $tagihan->penghuni->nama;
+        $pembukuan->save();
 
         $new_tagihan = new Tagihan;
         $new_tagihan->id_penghuni = $tagihan->id_penghuni;

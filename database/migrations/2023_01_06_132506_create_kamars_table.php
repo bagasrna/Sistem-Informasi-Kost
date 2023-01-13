@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('kode')->unique();
             $table->integer('lantai');
+            $table->boolean('status');
             $table->integer('kapasitas');
             $table->text('fasilitas');
             $table->double('tarif');

@@ -27,6 +27,7 @@ class DatabaseSeeder extends Seeder
         Kamar::create([
             'kode' => 'K001',
             'lantai' => 1,
+            'status' => 1,
             'kapasitas' => 1,
             'fasilitas' => 'Lemari, Kasur, Bantal',
             'tarif' => 500000,
