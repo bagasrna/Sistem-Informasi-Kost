@@ -37,4 +37,10 @@ class ArtisanController extends Controller
         return response()
                 ->json('Success Call Artisan Key Generate');
     }
+
+    public function link(){
+        Artisan::call('storage:link');
+        return response()
+                ->json('Success Call Artisan Strogae Link');
+    }
 }

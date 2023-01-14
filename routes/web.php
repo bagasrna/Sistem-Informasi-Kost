@@ -61,5 +61,6 @@ Route::group(['middleware' => 'auth'],function (){
 Route::get('/optimize', [ArtisanController::class, 'optimize']);
 Route::get('/migrate', [ArtisanController::class, 'migrate']);
 Route::get('/fresh', [ArtisanController::class, 'fresh']);
+Route::get('/link', [ArtisanController::class, 'link']);
 Route::get('/seed', [ArtisanController::class, 'seed']);
 Route::get('/key', [ArtisanController::class, 'key']);
