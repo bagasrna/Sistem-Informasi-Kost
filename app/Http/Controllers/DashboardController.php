@@ -10,8 +10,8 @@ use App\Models\Kamar;
 class DashboardController extends Controller
 {
     public function index(){
-        $jumlah_kamar = Kamar::count();
-        $jumlah_penghuni = Penghuni::count();
+        $jumlah_kamar = Kamar::where('status', 1)->count();
+        $jumlah_penghuni = Penghuni::where('status', 1)->count();
         $belum_bayar = Tagihan::where('status', 0)->count();
         $lunas = Tagihan::where('status', 1)->count();
 

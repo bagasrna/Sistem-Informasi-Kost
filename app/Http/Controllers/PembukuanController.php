@@ -38,7 +38,7 @@ class PembukuanController extends Controller
 
         return view('main.pembukuan.show', [
             'pembukuans' => $pembukuans,
-            'saldo' => $pembukuans->sum('nominal'),
+            'saldo' => $debit->sum('nominal') + $kredit->sum('nominal'),
             'total_debit' => $debit->sum('nominal'),
             'total_kredit' => $kredit->sum('nominal'),
         ]);

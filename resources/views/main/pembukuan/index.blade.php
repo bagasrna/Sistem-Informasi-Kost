@@ -19,7 +19,7 @@
                     </a>
                 </div>
                 <div class="mt-[30px] flex flex-col">
-                    <select name="bulan" required id="bulan" class="w-[300px] pl-3 focus:border-blue-400 text-[14px] border-2 rounded-lg py-3 border-gray-500 outline-none ">
+                    <select name="bulan" id="bulan" class="w-[300px] pl-3 focus:border-blue-400 text-[14px] border-2 rounded-lg py-3 border-gray-500 outline-none ">
                         <option value="">Pilih Bulan</option>
                         <option id="bulan" value="1">Januari</option>
                         <option id="bulan" value="2">Februari</option>
@@ -37,7 +37,7 @@
                 </div>
 
                 <div class="my-[30px] flex flex-row">
-                    <select name="tahun" required id="bulan" class="w-[300px] pl-3 focus:border-blue-400 text-[14px] border-2 rounded-lg py-3 border-gray-500 outline-none ">
+                    <select name="tahun" id="bulan" class="w-[300px] pl-3 focus:border-blue-400 text-[14px] border-2 rounded-lg py-3 border-gray-500 outline-none ">
                         <option id="tahun" value="">Pilih Tahun</option>
                         <option id="tahun" value="2022">2022</option>
                         <option id="tahun" value="2023">2023</option>
