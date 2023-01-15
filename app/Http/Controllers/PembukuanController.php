@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use App\Models\Pembukuan;
+use Carbon\Carbon;
 use Alert;
 
 class PembukuanController extends Controller
@@ -16,31 +17,41 @@ class PembukuanController extends Controller
     public function show(Request $request){
         $pembukuans = Pembukuan::latest();
 
-        if($request->tahun && $request->bulan){
-            $pembukuans->whereMonth('tgl_transaksi', $request->bulan)
-                ->whereYear('tgl_transaksi', $request->tahun);
-        } else if($request->tahun){
-            $pembukuans->whereYear('tgl_transaksi', $request->tahun);
-        } else if($request->bulan){
-            $pembukuans->whereMonth('tgl_transaksi', $request->bulan);
-        }
+        $from = Carbon::parse($request->tahun_awal . '-' . $request->bulan_awal . '-01')->format('Y-m-d');
+        $to = Carbon::parse($request->tahun_akhir . '-' . $request->bulan_akhir . '-01')->endOfMonth()->format('Y-m-d');
 
+        $pembukuans->whereBetween('tgl_transaksi', [$from, $to]);
+        
         $kredit = clone $pembukuans;
         $debit = clone $pembukuans;
-
-        $pembukuans = $pembukuans->paginate(7);
+        
+        $pembukuans = $pembukuans->get();
 
         $debit = $debit->where('tipe', 0)->get();
         $kredit = $kredit->where('tipe', 1)->get();
 
-        // dd($debit->sum('nominal'), $kredit->sum('nominal'));
-        // dd($debit, $kredit);
+        if($request->print){
+            return view('main.pembukuan.print', [
+                'pembukuans' => $pembukuans,
+                'saldo' => $debit->sum('nominal') + $kredit->sum('nominal'),
+                'total_debit' => $debit->sum('nominal'),
+                'total_kredit' => $kredit->sum('nominal'),
+                'bulan_awal' => $request->bulan_awal,
+                'bulan_akhir' => $request->bulan_awal,
+                'tahun_awal' => $request->tahun_awal,
+                'tahun_akhir' => $request->tahun_akhir,
+            ]);
+        }
 
         return view('main.pembukuan.show', [
             'pembukuans' => $pembukuans,
             'saldo' => $debit->sum('nominal') + $kredit->sum('nominal'),
             'total_debit' => $debit->sum('nominal'),
             'total_kredit' => $kredit->sum('nominal'),
+            'bulan_awal' => $request->bulan_awal,
+            'bulan_akhir' => $request->bulan_awal,
+            'tahun_awal' => $request->tahun_awal,
+            'tahun_akhir' => $request->tahun_akhir,
         ]);
     }
 

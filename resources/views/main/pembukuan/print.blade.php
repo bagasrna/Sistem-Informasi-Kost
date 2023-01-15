@@ -9,7 +9,7 @@
 <body onload="print()">
     <div class="md:ml-[150px] mx-[80px] h-screen z-40 font-Poppins">
         <h1 class='font-bold text-[30px] mt-[30px] md:mt-[90px]'>Pembukuan</h1>
-        <h1 class='font-medium text-[20px] my-[15px]'>Pada Bulan <span class="font-bold">Maret</span> Tahun <span class="font-bold">2022</span></h1>
+        <h1 class='font-medium text-[20px] my-[15px]'>Pada Bulan <span class="font-bold">{{ $bulan_awal }}</span> Tahun <span class="font-bold">{{ $tahun_awal }}</span> Sampai Bulan <span class="font-bold">{{ $bulan_awal }}</span> Tahun <span class="font-bold">{{ $tahun_akhir }}</span></h1>
 
         <table class="w-full mt-[10px]">
 
@@ -22,8 +22,8 @@
                 </tr>
 
                 <tr class="text-white">
-                    <th class="p-3 text-lg border border-black font-semibold tracking-wide text-center">Debit</th>
-                    <th class="p-3 text-lg border border-black font-semibold tracking-wide text-center">Kredit</th>
+                    <th class="p-3 text-lg border border-black text-black font-semibold tracking-wide text-center">Debit</th>
+                    <th class="p-3 text-lg border border-black text-black font-semibold tracking-wide text-center">Kredit</th>
                 </tr>
             </thead>
 
@@ -55,7 +55,10 @@
                         @endif
                     </td>
                 </tr>
-
+                @empty
+                <div class="bg-red-500 text-white p-3 rounded shadow-sm mb-3">
+                    Data Belum Tersedia!
+                </div>
                 @endforelse
             </tbody>
 
