@@ -12,7 +12,7 @@
         <h1 class="flex justify-center text-[36px] font-medium">KWITANSI PEMBAYARAN KOS</h1>
         <hr class="mt-3">
         <div class="mt-[50px] flex justify-center">
-            <h1 class="text-[14px]">Pembayaran untuk tanggal <span class="font-bold">{{ $start->format('Y-m-d') }}</span> sampai tanggal <span class="font-bold">{{ $tagihan->deadline }}</span></h1>
+            <h1 class="text-[14px]">Pembayaran untuk tanggal <span class="font-bold">{{ $tgl_awal->format('Y-m-d') }}</span> sampai tanggal <span class="font-bold">{{ $deadline->format('Y-m-d') }}</span></h1>
         </div>
         <hr class="mt-1">
 
@@ -36,7 +36,7 @@
                 </tr>
                 <tr>  
                     <td valign="top" > Untuk Pembayaran </td>  
-                    <td valign="top" > : <span class="ml-[20px] font-semibold">{{ $tagihan->penghuni->durasi }} Bulan</span></td>  
+                    <td valign="top" > : <span class="ml-[20px] font-semibold">{{ $rentang }} Bulan</span></td>  
                 </tr>  
                 <tr>  
                     <td valign="bottom" class="h-[70px]">

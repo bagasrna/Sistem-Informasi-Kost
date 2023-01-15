@@ -53,6 +53,7 @@ class TagihanController extends Controller
         $new_tagihan->id_penghuni = $tagihan->id_penghuni;
         $new_tagihan->tagihan = $tagihan->tagihan;
         $new_tagihan->status = false;
+        $new_tagihan->tgl_awal = $tagihan->deadline;
         $new_tagihan->deadline = $deadline->addMonth($tagihan->penghuni->durasi);
         $new_tagihan->save();
 
@@ -81,12 +82,15 @@ class TagihanController extends Controller
 
     public function struk($id){
         $tagihan = Tagihan::with(['penghuni.kamar'])->find($id);
-        $start = Carbon::parse($tagihan->deadline);
-        $start->subMonths($tagihan->penghuni->durasi);
+        $tgl_awal = Carbon::parse($tagihan->tgl_awal);
+        $deadline = Carbon::parse($tagihan->deadline);
+        $rentang = $tgl_awal->diffInMonths($deadline);
         
         return view('main.pembayaran.show', [
             'tagihan' => $tagihan,
-            'start' => $start
+            'tgl_awal' => $tgl_awal,
+            'deadline' => $deadline,
+            'rentang' => $rentang
         ]);
     }
 }

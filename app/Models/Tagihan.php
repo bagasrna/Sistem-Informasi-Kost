@@ -14,6 +14,7 @@ class Tagihan extends Model
         'id_penghuni',
         'tagihan',
         'status',
+        'tgl_awal',
         'deadline',
     ];
 

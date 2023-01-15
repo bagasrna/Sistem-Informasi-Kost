@@ -50,6 +50,7 @@ class DatabaseSeeder extends Seeder
             'id_penghuni' => 1,
             'tagihan' => 1500000,
             'status' => 0,
+            'tgl_awal' => '2023-01-26',
             'deadline' => '2023-04-26',
         ]);
 

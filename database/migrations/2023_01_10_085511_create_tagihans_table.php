@@ -18,6 +18,7 @@ return new class extends Migration
             $table->foreignId('id_penghuni');
             $table->double('tagihan');
             $table->boolean('status');
+            $table->date('tgl_awal');
             $table->date('deadline');
             $table->timestamps();
         });

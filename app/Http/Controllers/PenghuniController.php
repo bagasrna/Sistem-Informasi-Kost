@@ -136,6 +136,7 @@ class PenghuniController extends Controller
                 $tagihan->id_penghuni = $penghuni->id;
                 $tagihan->tagihan = ((100 - $penghuni->diskon) / 100) * ($penghuni->durasi * $penghuni->kamar->tarif);
                 $tagihan->status = false;
+                $tagihan->tgl_awal = $tgl_registrasi;
                 $tagihan->deadline = $tgl_registrasi->addMonth($penghuni->durasi);
                 $tagihan->save();
             } else {
@@ -144,6 +145,7 @@ class PenghuniController extends Controller
                     $deadline = Carbon::parse($tagihan->deadline);
                     $new_tagihan = Tagihan::where('id_penghuni', $penghuni->id)->where('status', 0)->latest()->first();
                     $new_tagihan->tagihan = ((100 - $penghuni->diskon) / 100) * ($penghuni->durasi * $penghuni->kamar->tarif);
+                    $new_tagihan->tgl_awal = $tagihan->deadline;
                     $new_tagihan->deadline = $deadline->addMonth($penghuni->durasi);
                     $new_tagihan->save();
                 } else {
