@@ -93,17 +93,5 @@
             </div>
         </div>
     </aside>
-    <main class="w-[100px] ml-auto">
-        <div class='2xl:container mx-auto space-y-6'>
-            <div class="h-16 border-b border-white">
-
-            </div>
-            <div class="px-6 lg:px-12">
-                <div class="h-96 rounded-2xl border-b border-dashed border-white">
-                    <span class='text-white'>Content</span>
-                </div>
-            </div>
-        </div>
-    </main>
 </body>
 </html>

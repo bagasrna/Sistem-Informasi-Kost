@@ -38,6 +38,9 @@
                         <option value="" name="lantai">Pilih Lantai</option>
                         <option value="1" name="lantai">Lantai 1</option>
                         <option value="2" name="lantai">Lantai 2</option>
+                        <option value="2" name="lantai">Lantai 3</option>
+                        <option value="2" name="lantai">Lantai 4</option>
+                        <option value="2" name="lantai">Lantai 5</option>
                     </select>
                     @error('lantai')
                     <div class="invalid-feedback">{{ $errors->first('lantai') }}</div>

@@ -57,6 +57,10 @@ Route::group(['middleware' => 'auth'],function (){
     });
 });
 
+Route::get('/pembukuan/print', function () {
+    return view('main.pembukuan.print');
+});
+
 # Artisan Call
 Route::get('/optimize', [ArtisanController::class, 'optimize']);
 Route::get('/migrate', [ArtisanController::class, 'migrate']);
