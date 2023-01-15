@@ -18,10 +18,20 @@
 </head>
 <body>
     <div class="md:ml-[150px] mx-[80px] h-screen z-40 font-Poppins">
-        <h1 class='font-bold text-[30px] mt-[30px] md:mt-[90px]'>Menampilkan Pembukuan</h1>
-        <h1 class='font-medium text-[20px] my-[15px]'>Pada Bulan <span class="font-bold">Maret</span> Tahun <span class="font-bold">2022</span></h1>
+        <h1 class='font-bold text-[20px] lg:text-[30px] mt-[30px] md:mt-[90px]'>Menampilkan Pembukuan</h1>
+        <h1 class='font-medium text-[15px] lg:text-[20px] my-[15px]'>Pada Bulan <span class="font-bold">Maret</span> Tahun <span class="font-bold">2022</span></h1>
+        <div class="flex flex-row justify-end">
+            <form action="">
+                <input type="text" class="hidden" name="bulan_awal" value="">
+                <input type="text" class="hidden" name="bulan_akhir" value="">
+                <input type="text" class="hidden" name="tahun_awal"value="">
+                <input type="text" class="hidden" name="tahun_akhir"value="">
+                <button type="submit" class="flex flex-row gap-2 text-white bg-blue-500 hover:bg-blue-600 lg:p-3 p-2 text-[16px] rounded-lg">Print<span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="xl:w-6 w-5 h-5 xl:h-6">
+                    <path fill-rule="evenodd" d="M7.875 1.5C6.839 1.5 6 2.34 6 3.375v2.99c-.426.053-.851.11-1.274.174-1.454.218-2.476 1.483-2.476 2.917v6.294a3 3 0 003 3h.27l-.155 1.705A1.875 1.875 0 007.232 22.5h9.536a1.875 1.875 0 001.867-2.045l-.155-1.705h.27a3 3 0 003-3V9.456c0-1.434-1.022-2.7-2.476-2.917A48.716 48.716 0 0018 6.366V3.375c0-1.036-.84-1.875-1.875-1.875h-8.25zM16.5 6.205v-2.83A.375.375 0 0016.125 3h-8.25a.375.375 0 00-.375.375v2.83a49.353 49.353 0 019 0zm-.217 8.265c.178.018.317.16.333.337l.526 5.784a.375.375 0 01-.374.409H7.232a.375.375 0 01-.374-.409l.526-5.784a.373.373 0 01.333-.337 41.741 41.741 0 018.566 0zm.967-3.97a.75.75 0 01.75-.75h.008a.75.75 0 01.75.75v.008a.75.75 0 01-.75.75H18a.75.75 0 01-.75-.75V10.5zM15 9.75a.75.75 0 00-.75.75v.008c0 .414.336.75.75.75h.008a.75.75 0 00.75-.75V10.5a.75.75 0 00-.75-.75H15z" clip-rule="evenodd" /></svg></span></button>
+            </form>
+        </div>
 
-        <div class="relative overflow-y-scroll">
+        <div class="relative overflow-y-scroll md:overflow-hidden">
             <table class="w-full mt-[10px]">
 
                 <thead class="bg-gray-600 border-b-2 border-gray-200">

@@ -19,7 +19,7 @@
 </head>
 <body>
     <div class="md:ml-[150px] mx-[80px] h-screen z-40 font-Poppins">
-        <h1 class='font-bold text-[30px] mt-[30px] md:mt-[90px] '>Data Pembayaran Lunas</h1>
+        <h1 class='font-bold text-[20px] lg:text-[30px] mt-[30px] md:mt-[90px] '>Data Pembayaran Lunas</h1>
 
                 <div class="flex flex-row gap-4 mt-[30px] mb-4">
                     <div>
@@ -32,7 +32,7 @@
                     </div>
                 </div>
 
-        <div class="relative overflow-y-scroll">
+        <div class="relative overflow-y-scroll md:overflow-hidden">
             <table class="w-full mt-[10px]">
                 @if(count($tagihans) > 0)
                 <thead class="bg-gray-600 border-b-2 border-gray-200">
