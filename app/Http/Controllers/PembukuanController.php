@@ -37,7 +37,7 @@ class PembukuanController extends Controller
                 'total_debit' => $debit->sum('nominal'),
                 'total_kredit' => $kredit->sum('nominal'),
                 'bulan_awal' => $request->bulan_awal,
-                'bulan_akhir' => $request->bulan_awal,
+                'bulan_akhir' => $request->bulan_akhir,
                 'tahun_awal' => $request->tahun_awal,
                 'tahun_akhir' => $request->tahun_akhir,
             ]);
@@ -49,7 +49,7 @@ class PembukuanController extends Controller
             'total_debit' => $debit->sum('nominal'),
             'total_kredit' => $kredit->sum('nominal'),
             'bulan_awal' => $request->bulan_awal,
-            'bulan_akhir' => $request->bulan_awal,
+            'bulan_akhir' => $request->bulan_akhir,
             'tahun_awal' => $request->tahun_awal,
             'tahun_akhir' => $request->tahun_akhir,
         ]);

@@ -9,11 +9,11 @@
 <body onload="print()">
     <div class="md:ml-[150px] mx-[80px] h-screen z-40 font-Poppins">
         <h1 class='font-bold text-[30px] mt-[30px] md:mt-[90px]'>Pembukuan</h1>
-        <h1 class='font-medium text-[20px] my-[15px]'>Pada Bulan <span class="font-bold">{{ $bulan_awal }}</span> Tahun <span class="font-bold">{{ $tahun_awal }}</span> Sampai Bulan <span class="font-bold">{{ $bulan_awal }}</span> Tahun <span class="font-bold">{{ $tahun_akhir }}</span></h1>
+        <h1 class='font-medium text-[20px] my-[15px]'>Pada Bulan <span class="font-bold">{{ $bulan_awal }}</span> Tahun <span class="font-bold">{{ $tahun_awal }}</span> Sampai Bulan <span class="font-bold">{{ $bulan_akhir }}</span> Tahun <span class="font-bold">{{ $tahun_akhir }}</span></h1>
 
         <table class="w-full mt-[10px]">
 
-            <thead class="bg-gray-600 border-b-2 border-gray-200">
+            <thead>
                 <tr class="text-white">
                     <th rowspan="2" class="p-3 border border-black text-black text-lg font-semibold tracking-wide text-center">No.</th>
                     <th rowspan="2" class="p-3 text-lg border border-black text-black font-semibold tracking-wide text-center">Tanggal</th>
@@ -30,7 +30,7 @@
             <tbody>
                 @forelse ($pembukuans as $pembukuan)
 
-                <tr class="bg-gray-200 border-b border-black">
+                <tr class="border-b border-black">
                     <td class="p-3 border-x border-black text-md text-black">
                         {{ $loop->index + 1 }}.
                     </td>
