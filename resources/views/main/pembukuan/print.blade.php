@@ -70,9 +70,6 @@
                 <th class="p-3 text-md border border-black font-semibold tracking-wide text-center">@currency($total_kredit)</th>
             </tfoot>
         </table>
-        <div class="mt-[60px] flex justify-end">
-            <a href="/pembukuan" class="p-2 px-5 rounded-lg bg-green-500 hover:bg-green-600">Back</a>
-        </div>
     </div>
     @include('layout.sidebar')
 </body>

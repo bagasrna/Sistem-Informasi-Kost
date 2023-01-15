@@ -19,7 +19,10 @@
         <div class="mx-[30px]">
             <table class="border w-full mt-5 text-[15px] font-medium border-gray-400" cellpadding="4" cellspacing="0">  
                 <tr>  
-                    <td rowspan="6" class="w-[100px] border-r border-gray-400"></td>  
+                    <td rowspan="6" class="w-[150px] border-r border-gray-400">
+                        <p class="text-sm">Tanggal Pelunasan</p>
+                        <span class="font-bold text-sm">{{$tagihan->updated_at}}</span>
+                    </td>  
                     <td class="w-[250px] mt-[20px]" valign="top"> Kode Penghuni </td>
                     <td> : <span class="ml-[20px] font-semibold">{{ $tagihan->penghuni->kode }}</span></td> 
                 </tr>  
@@ -36,7 +39,11 @@
                     <td valign="top" > : <span class="ml-[20px] font-semibold">{{ $tagihan->penghuni->durasi }} Bulan</span></td>  
                 </tr>  
                 <tr>  
-                    <td valign="bottom" class="h-[70px]"><p class="font-bold text-[15px]">@currency($tagihan->tagihan)</p></td>
+                    <td valign="bottom" class="h-[70px]">
+                        <div class="flex flex-col">
+                            <p class="font-bold">Total</p>
+                            <p class="font-bold mt-2 text-[15px]">@currency($tagihan->tagihan)</p></td>
+                        </div>
                     <td valign="top" class="h-[120px] justify-end flex mr-[30px] font-bold"> Tanda Tangan </td>
                 </tr>  
             </table>  
