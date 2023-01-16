@@ -9,7 +9,7 @@
     @vite('resources/css/app.css')
 </head>
 <body>
-    <div class="md:ml-[150px] mx-[80px] h-screen z-40 font-Poppins">
+    <div class="md:ml-[150px] sm:mx-[80px] ml-[80px] mr-[30px] h-screen z-40 font-Poppins">
         <h1 class='font-bold text-[30px] mt-[30px] md:mt-[90px]'>Menambahkan Penghuni</h1>
 
         <div class='border-2 rounded-xl mt-[30px] shadow-lg border-gray-500'>
@@ -84,7 +84,7 @@
 
                 <div class="mt-[30px] flex flex-col">
                     <label for="kamar" class="font-semibold mb-2">Kamar :</label>
-                    <select type="text" value="{{ old('id_kamar')}}" required id="kamar" name="id_kamar" class="w-[150px] sm:w-1/2 pl-3 focus:border-blue-400 text-[14px] border-2 rounded-lg py-3 border-gray-500 outline-none ">
+                    <select type="text" value="{{ old('id_kamar')}}" required id="kamar" name="id_kamar" class="w-4/5 sm:w-1/2 pl-3 focus:border-blue-400 text-[14px] border-2 rounded-lg py-3 border-gray-500 outline-none ">
                         <option value="" name="id_kamar">Pilih Kamar</option>
                         @foreach ($kamars as $kamar)
                             <option value="{{ $kamar->id }}" {{ old('id_kamar') == $kamar->id ? 'selected' : '' }} name="id_kamar">
@@ -99,7 +99,7 @@
 
                 <div class="mt-[30px] flex flex-col">
                     <label for="durasi" class="font-semibold mb-2">Durasi :</label>
-                    <select type="text" required id="durasi" name="durasi" class="w-[150px] sm:w-[200px] pl-3 focus:border-blue-400 text-[14px] border-2 rounded-lg py-3 border-gray-500 outline-none ">
+                    <select type="text" required id="durasi" name="durasi" class="w-4/5 sm:w-[200px] pl-3 focus:border-blue-400 text-[14px] border-2 rounded-lg py-3 border-gray-500 outline-none ">
                         <option value="" name="durasi">Pilih Durasi</option>
                         <option value="3" {{ old('durasi') == "3" ? 'selected' : '' }} name="durasi">3 bulan</option>
                         <option value="6" {{ old('durasi') == "6" ? 'selected' : '' }} name="durasi">6 bulan</option>
@@ -112,7 +112,7 @@
 
                 <div class="mt-[30px] flex flex-col">
                     <label for="diskon" class="font-semibold mb-2">Diskon :</label>
-                    <select type="text" required id="diskon" name="diskon" class="w-[150px] sm:w-[200px] pl-3 focus:border-blue-400 text-[14px] border-2 rounded-lg py-3 border-gray-500 outline-none ">
+                    <select type="text" required id="diskon" name="diskon" class="w-4/5 sm:w-[200px] pl-3 focus:border-blue-400 text-[14px] border-2 rounded-lg py-3 border-gray-500 outline-none ">
                         <option value="" name="diskon">Pilih Diskon</option>
                         <option value="0" {{ old('diskon') == "0" ? 'selected' : '' }} name="diskon">0%</option>
                         <option value="3" {{ old('diskon') == "3" ? 'selected' : '' }} name="diskon">3%</option>
@@ -131,7 +131,7 @@
                         required
                         value="{{ old('tgl_registrasi')}}"
                         id="tgl_registrasi"
-                        class="border-2 rounded-lg w-[150px] sm:w-1/4 border-gray-500 pl-3 outline-none focus:border-blue-400 p-2 text-[14px]"
+                        class="border-2 rounded-lg w-4/5 sm:w-1/4 border-gray-500 pl-3 outline-none focus:border-blue-400 p-2 text-[14px]"
                         placeholder="Contoh : 300000"
                         >
                         @error('tgl_registrasi')
@@ -161,8 +161,8 @@
                 <button type="submit" class="my-[30px] font-semibold text-white shadow-xl bg-[#22C55E] hover:bg-[#229a4e] p-2 px-7 rounded-xl">SUBMIT</button>
             </form>
         </div>
-        <div class=" flex justify-end">
-            <a href="/penghuni" class="p-2 px-5 my-[60px] text-white rounded-lg bg-blue-500 hover:bg-blue-600">Back</a>
+        <div class=" flex justify-end py-[50px]">
+            <a href="/penghuni" class="p-2 px-5 text-white rounded-lg bg-blue-500 hover:bg-blue-600">Back</a>
         </div>
     </div>
     @include('layout.sidebar')

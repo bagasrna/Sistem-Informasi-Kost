@@ -19,7 +19,7 @@
     </style>
 </head>
 <body>
-    <div class="md:ml-[150px] mx-[80px] h-screen z-40 font-Poppins">
+    <div class="md:ml-[150px] ml-[80px] mr-[30px] h-screen z-40 font-Poppins">
         <h1 class='font-bold text-[20px] lg:text-[30px] mt-[30px] md:mt-[90px] '>Data Kamar</h1>
 
                 <div class="flex flex-col gap-4 mt-[30px] mb-4">
@@ -29,16 +29,16 @@
                         </a>
                     </div>
                     <div>
-                        <form action="/kamar" method="GET" class="flex flex-col vsm:flex-row gap-4">
-                            <input type="text" name="search"
-                            class="bg-gray-200 p-2 rounded shadow-sm border placeholder:text-[14px] border-gray-200 focus:outline-none"
+                        <form action="/kamar" method="GET" class="flex flex-col mt-2 vsm:flex-row gap-4">
+                            <input type="text" name="search" value="{{ old('search')}}"
+                            class="bg-gray-200 p-2 rounded shadow-sm border placeholder:text-[12px] sm:placeholder:text-[14px] border-gray-200 focus:outline-none"
                             placeholder="Cari Kamar">
-                            <button type="submit" class="bg-blue-400 hover:bg-blue-600 text-white p-3 text-[12px] md:text-[14px] rounded-lg">Search</button>
+                            <button type="submit" class="bg-blue-400 w-[80px] hover:bg-blue-600 text-white p-3 text-[12px] sm:text-[14px] rounded-lg">Search</button>
                         </form>
                     </div>
                 </div>
 
-        <div class="relative overflow-y-scroll md:overflow-hidden">
+        <div class="relative overflow-y-scroll w-full md:overflow-hidden">
             <table class="w-full mt-[10px]">
                 @if(count($kamars) > 0)
                 <thead class="bg-gray-600">
@@ -94,6 +94,9 @@
                     @endforelse
                 </tbody>
             </table>
+        </div>
+        <div class="mt-2 pb-[50px]">
+            {{ $kamars->links('vendor.pagination.tailwind') }}
         </div>
     </div>
     @include('layout.sidebar')

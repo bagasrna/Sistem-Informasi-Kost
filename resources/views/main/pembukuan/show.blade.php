@@ -18,7 +18,7 @@
     </style>
 </head>
 <body>
-    <div class="md:ml-[150px] mx-[80px] h-screen z-40 font-Poppins">
+    <div class="md:ml-[150px] ml-[80px] mr-[30px] h-screen z-40 font-Poppins">
         <h1 class='font-bold text-[20px] lg:text-[30px] mt-[30px] md:mt-[90px]'>Menampilkan Pembukuan</h1>
         <h1 class='font-medium text-[15px] lg:text-[20px] my-[15px]'>Pada Bulan <span class="font-bold">{{ $bulan_awal }}</span> Tahun <span class="font-bold">{{ $tahun_awal }}</span> Sampai Bulan <span class="font-bold">{{ $bulan_akhir }}</span> Tahun <span class="font-bold">{{ $tahun_akhir }}</span></h1>
         <div class="flex flex-row justify-end">

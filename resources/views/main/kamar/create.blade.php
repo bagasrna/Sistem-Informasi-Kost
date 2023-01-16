@@ -8,7 +8,7 @@
     @vite('resources/css/app.css')
 </head>
 <body>
-    <div class="md:ml-[150px] mx-[80px] h-screen z-40 font-Poppins">
+    <div class="md:ml-[150px] sm:mx-[80px] ml-[80px] mr-[30px] h-screen z-40 font-Poppins">
         <h1 class='font-bold text-[30px] mt-[30px] md:mt-[90px]'>Menambahkan Kamar</h1>
 
         <div class='border-2 rounded-xl mt-[30px] shadow-lg border-gray-500'>
@@ -35,7 +35,7 @@
 
                 <div class="mt-[30px] flex flex-col">
                     <label for="lantai" class="font-semibold mb-2">Lantai :</label>
-                    <select type="text" required id="lantai" name="lantai" class="w-[150px] sm:w-[200px] pl-3 focus:border-blue-400 text-[14px] border-2 rounded-lg py-3 border-gray-500 outline-none ">
+                    <select type="text" required id="lantai" name="lantai" class="w-4/5 sm:w-[200px] pl-3 focus:border-blue-400 text-[14px] border-2 rounded-lg py-3 border-gray-500 outline-none ">
                         <option value=""  name="lantai">Pilih Lantai</option>
                         <option value="1" {{ old('lantai') == "1" ? 'selected' : '' }} name="lantai">Lantai 1</option>
                         <option value="2" {{ old('lantai') == "2" ? 'selected' : '' }} name="lantai">Lantai 2</option>
@@ -68,7 +68,7 @@
 
                 <div class="mt-[30px] flex flex-col">
                     <label for="kapasitas" class="font-semibold mb-2">Kapasitas :</label>
-                    <select type="text" required id="kapasitas" name="kapasitas" class="w-[150px] sm:w-[200px] pl-3 focus:border-blue-400 text-[14px] border-2 rounded-lg py-3 border-gray-500 outline-none ">
+                    <select type="text" required id="kapasitas" name="kapasitas" class="w-4/5 sm:w-[200px] pl-3 focus:border-blue-400 text-[14px] border-2 rounded-lg py-3 border-gray-500 outline-none ">
                         <option value="" name="kapasitas">Pilih Kapasitas</option>
                         <option value="1" {{ old('kapasitas') == "1" ? 'selected' : '' }} name="kapasitas">1 Orang</option>
                         <option value="2" {{ old('kapasitas') == "2" ? 'selected' : '' }} name="kapasitas">2 Orang</option>
@@ -99,8 +99,8 @@
                 <button type="submit" class="my-[30px] font-semibold text-white shadow-xl bg-[#22C55E] hover:bg-[#229a4e] p-2 px-10 rounded-xl">SUBMIT</button>
             </form>
         </div>
-        <div class="flex justify-end">
-            <a href="/kamar" class="p-2 px-5 my-[60px] text-white rounded-lg bg-blue-500 hover:bg-blue-600">Back</a>
+        <div class="flex justify-end py-[50px]">
+            <a href="/kamar" class="p-2 px-5 text-white rounded-lg bg-blue-500 hover:bg-blue-600">Back</a>
         </div>
     </div>
     @include('layout.sidebar')

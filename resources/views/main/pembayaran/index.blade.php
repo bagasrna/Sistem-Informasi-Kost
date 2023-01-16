@@ -19,16 +19,16 @@
     </style>
 </head>
 <body>
-    <div class="md:ml-[150px] mx-[80px] h-screen z-40 font-Poppins">
+    <div class="md:ml-[150px] ml-[80px] mr-[30px] h-screen z-40 font-Poppins">
         <h1 class='font-bold text-[20px] lg:text-[30px] mt-[30px] md:mt-[90px] '>Data Pembayaran Lunas</h1>
 
                 <div class="flex flex-row gap-4 mt-[30px] mb-4">
                     <div>
                         <form action="/lunas" method="GET" class="flex flex-col vsm:flex-row gap-4">
-                            <input type="text" name="search"
-                            class="bg-gray-200 p-2 rounded shadow-sm border placeholder:text-[14px] border-gray-200 focus:outline-none"
+                            <input type="text" name="search" value="{{ old('search')}}"
+                            class="bg-gray-200 p-2 rounded shadow-sm border placeholder:text-[12px] sm:placeholder:text-[14px] border-gray-200 focus:outline-none"
                             placeholder="Cari Data Lunas">
-                            <button type="submit" class="bg-blue-400 hover:bg-blue-600 text-white p-3 text-[12px] md:text-[14px] rounded-lg">Search</button>
+                            <button type="submit" class="bg-blue-400 w-[80px] hover:bg-blue-600 text-white p-3 text-[12px] sm:text-[14px] rounded-lg">Search</button>
                         </form>
                     </div>
                 </div>
@@ -87,7 +87,7 @@
                 </tbody>
             </table>
         </div>
-        <div class="mt-2">
+        <div class="mt-2 pb-[50px]">
             {{ $tagihans->links('vendor.pagination.tailwind') }}
         </div>
     </div>
