@@ -82,6 +82,9 @@
 
             </form>
         </div>
+        <div class="flex justify-end">
+            <a href="/pembukuan" class="p-2 px-5 my-[60px] text-white rounded-lg bg-blue-500 hover:bg-blue-600">Back</a>
+        </div>
     </div>
     @include('layout.sidebar')
 </body>
