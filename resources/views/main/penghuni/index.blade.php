@@ -31,7 +31,7 @@
                     <div>
                         <form action="/penghuni" method="GET" class="flex flex-col vsm:flex-row gap-4 mt-2 ">
                             <input type="text" name="search" value="{{ old('search')}}"
-                            class="bg-gray-200 p-2 rounded shadow-sm border placeholder:text-[12px] sm:placeholder:text-[14px] border-gray-200 focus:outline-none"
+                            class="bg-gray-200 p-2 rounded shadow-sm border w-[200px] placeholder:text-[12px] sm:placeholder:text-[14px] border-gray-200 focus:outline-none"
                             placeholder="Cari Penghuni Kamar">
                             <button type="submit" class="bg-blue-400 w-[80px] hover:bg-blue-600 text-white p-2 sm:p-3 text-[12px] sm:text-[14px] rounded-lg">Search</button>
                         </form>

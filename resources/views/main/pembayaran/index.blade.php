@@ -24,9 +24,9 @@
 
                 <div class="flex flex-row gap-4 mt-[30px] mb-4">
                     <div>
-                        <form action="/lunas" method="GET" class="flex flex-col vsm:flex-row gap-4">
+                        <form action="/lunas" method="GET" class="flex flex-col mt-2 vsm:flex-row gap-4">
                             <input type="text" name="search" value="{{ old('search')}}"
-                            class="bg-gray-200 p-2 rounded shadow-sm border placeholder:text-[12px] sm:placeholder:text-[14px] border-gray-200 focus:outline-none"
+                            class="bg-gray-200 p-2 rounded shadow-sm w-[200px] border placeholder:text-[12px] sm:placeholder:text-[14px] border-gray-200 focus:outline-none"
                             placeholder="Cari Data Lunas">
                             <button type="submit" class="bg-blue-400 w-[80px] hover:bg-blue-600 text-white p-3 text-[12px] sm:text-[14px] rounded-lg">Search</button>
                         </form>
