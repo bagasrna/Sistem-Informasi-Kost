@@ -18,8 +18,8 @@
                         class="text-center bg-[#22C55E] text-[13px] md:text-[14px] hover:bg-green-600 text-white p-3 rounded-xl shadow-sm ">Tambah Tagihan
                     </a>
                 </div>
-                <div class="mt-[30px] flex flex-row">
-                    <select name="bulan_awal" required class="w-[300px] pl-3 focus:border-blue-400 text-[14px] border-2 rounded-lg py-3 border-gray-500 outline-none ">
+                <div class="mt-[30px]  flex flex-col sm:flex-row">
+                    <select name="bulan_awal" required class="w-full pl-3 focus:border-blue-400 text-[14px] border-2 rounded-lg py-3 border-gray-500 outline-none ">
                         <option value="">Pilih Bulan Awal</option>
                         <option value="01">Januari</option>
                         <option value="02">Februari</option>
@@ -35,9 +35,9 @@
                         <option value="12">Desember</option>
                     </select>
 
-                    <h1 class="flex my-auto mx-[30px]">-</h1>
+                    <h1 class="flex mx-auto sm:my-auto my-3 sm:mx-[30px]">-</h1>
 
-                    <select name="bulan_akhir" required class="w-[300px] pl-3 focus:border-blue-400 text-[14px] border-2 rounded-lg py-3 border-gray-500 outline-none ">
+                    <select name="bulan_akhir" required class="w-full pl-3 focus:border-blue-400 text-[14px] border-2 rounded-lg py-3 border-gray-500 outline-none ">
                         <option value="">Pilih Bulan Akhir</option>
                         <option value="01">Januari</option>
                         <option value="02">Februari</option>
@@ -54,8 +54,8 @@
                     </select>
                 </div>
 
-                <div class="my-[30px] flex flex-row">
-                    <select name="tahun_awal" required class="w-[300px] pl-3 focus:border-blue-400 text-[14px] border-2 rounded-lg py-3 border-gray-500 outline-none ">
+                <div class="sm:my-[30px] mt-[50px] flex flex-col sm:flex-row">
+                    <select name="tahun_awal" required class="w-full pl-3 focus:border-blue-400 text-[14px] border-2 rounded-lg py-3 border-gray-500 outline-none ">
                         <option value="">Pilih Tahun Awal</option>
                         <option value="2022">2022</option>
                         <option value="2023">2023</option>
@@ -63,9 +63,9 @@
                         <option value="2025">2025</option>
                     </select>
 
-                    <h1 class="flex my-auto mx-[30px]">-</h1>
+                    <h1 class="flex sm:my-auto mx-auto my-2 sm:mx-[30px]">-</h1>
 
-                    <select name="tahun_akhir" required class="w-[300px] pl-3 focus:border-blue-400 text-[14px] border-2 rounded-lg py-3 border-gray-500 outline-none ">
+                    <select name="tahun_akhir" required class="w-full pl-3 focus:border-blue-400 text-[14px] border-2 rounded-lg py-3 border-gray-500 outline-none ">
                         <option value="">Pilih Tahun Akhir</option>
                         <option value="2022">2022</option>
                         <option value="2023">2023</option>
@@ -73,7 +73,7 @@
                         <option value="2025">2025</option>
                     </select>
                 </div>
-                    <div class="flex justify-end mb-[30px]">
+                    <div class="flex justify-end my-[30px]">
                         <button type="submit" class="bg-red-500 hover:bg-red-600 text-[13px] shadow-lg text-white p-3 rounded-lg">Cek Tagihan</button>
                     </div>
                 
