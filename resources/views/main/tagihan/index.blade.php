@@ -60,10 +60,10 @@
                             {{ $tagihan->penghuni->nama }}
                         </td>
                         <td class="p-3 border-r border-gray-400 text-sm lg:text-md text-gray-700">
-                            {{ $tagihan->penghuni->kode }}
+                            {{ $tagihan->penghuni->status ? $tagihan->penghuni->kode : 'Penghuni Dihapus' }}
                         </td>
                         <td class="p-3 border-r border-gray-400 text-sm lg:text-md text-gray-700">
-                            {{ $tagihan->penghuni->kamar->kode }}
+                            {{  isset($tagihan->penghuni->kamar->kode) ? $tagihan->penghuni->kamar->kode : 'Penghuni Dihapus' }}
                         </td>
                         <td class="p-3 border-r border-gray-400 text-sm lg:text-md text-gray-700">
                             @currency($tagihan->tagihan)
