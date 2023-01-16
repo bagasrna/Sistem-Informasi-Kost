@@ -20,8 +20,8 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         User::create([
-            'username' => 'admin',
-            'password' => bcrypt('admin')
+            'username' => 'kossigura4',
+            'password' => bcrypt('GRyp051122')
         ]);
 
         Kamar::create([

@@ -25,11 +25,11 @@
                         <span class="font-bold text-sm">{{$tagihan->updated_at}}</span>
                     </td>  
                     <td class="w-[250px] mt-[20px]" valign="top"> Kode Penghuni </td>
-                    <td> : <span class="ml-[20px] font-semibold">{{ $tagihan->penghuni->kode }}</span></td> 
+                    <td> : <span class="ml-[20px] font-semibold">{{ $tagihan->penghuni->status ? $tagihan->penghuni->kode : 'Penghuni Dihapus' }}</span></td> 
                 </tr>  
                 <tr>  
                     <td valign="top" > Kode Kamar </td>  
-                    <td valign="top" > : <span class="ml-[20px] font-semibold">{{ $tagihan->penghuni->kamar->kode }}</span></td>  
+                    <td valign="top" > : <span class="ml-[20px] font-semibold">{{  isset($tagihan->penghuni->kamar->kode) ? $tagihan->penghuni->kamar->kode : 'Penghuni Dihapus' }}</span></td>  
                 </tr>    
                 <tr>  
                     <td valign="top" > Nama </td>  
