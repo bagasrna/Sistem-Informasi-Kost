@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="icon" href="https://i.ibb.co/vHqs58z/icons8-home-page-100.png">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sistem Informasi Kos</title>
@@ -23,11 +24,11 @@
 
                 <div class="flex flex-row gap-4 mt-[30px] mb-4">
                     <div>
-                        <form action="/lunas" method="GET">
+                        <form action="/lunas" method="GET" class="flex flex-col vsm:flex-row gap-4">
                             <input type="text" name="search"
                             class="bg-gray-200 p-2 rounded shadow-sm border placeholder:text-[14px] border-gray-200 focus:outline-none"
                             placeholder="Cari Data Lunas">
-                            <button type="submit" class="bg-green-400 hover:bg-green-600 text-white p-3 text-[12px] md:text-[14px] rounded-lg">Search</button>
+                            <button type="submit" class="bg-blue-400 hover:bg-blue-600 text-white p-3 text-[12px] md:text-[14px] rounded-lg">Search</button>
                         </form>
                     </div>
                 </div>

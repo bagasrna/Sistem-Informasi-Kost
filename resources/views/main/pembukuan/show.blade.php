@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="icon" href="https://i.ibb.co/vHqs58z/icons8-home-page-100.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sistem Informasi Kos</title>
     <style>

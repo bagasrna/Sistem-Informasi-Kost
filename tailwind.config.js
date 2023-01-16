@@ -9,6 +9,9 @@ module.exports = {
     extend: {
       fontFamily:{
         'Poppins': 'Poppins'
+      },
+      screens:{
+        'vsm' : '400px'
       }
     },
   },

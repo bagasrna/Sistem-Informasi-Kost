@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="icon" href="https://i.ibb.co/vHqs58z/icons8-home-page-100.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sistem Informasi Kos</title>
     @vite('resources/css/app.css')
@@ -28,7 +29,7 @@
                         </a>
                     </div>
                     <div>
-                        <form action="/penghuni" method="GET">
+                        <form action="/penghuni" method="GET" class="flex flex-col vsm:flex-row gap-4">
                             <input type="text" name="search"
                             class="bg-gray-200 p-2 rounded shadow-sm border placeholder:text-[14px] border-gray-200 focus:outline-none"
                             placeholder="Cari Penghuni Kamar">

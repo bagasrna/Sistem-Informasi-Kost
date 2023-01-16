@@ -21,6 +21,11 @@
                         <option value="0" name="tipe">Debit</option>
                         <option value="1" name="tipe">Kredit</option>
                     </select>
+                        @error('transaksi')
+                        <div class="invalid-feedback text-red-600 text-[14px] mt-2">
+                            {{ $message }}
+                        </div>
+                        @enderror
                 </div>
 
                 <div class="mt-[30px] flex flex-col">
@@ -32,6 +37,11 @@
                         id="tgl_transaksi"
                         class="border-2 rounded-lg w-1/4 border-gray-500 pl-3 outline-none focus:border-blue-400 p-2 text-[14px]"
                         >
+                        @error('tgl_transaksi')
+                        <div class="invalid-feedback text-red-600 text-[14px] mt-2">
+                            {{ $message }}
+                        </div>
+                        @enderror
                 </div>
 
                 <div class="mt-[30px] flex flex-col">
@@ -44,6 +54,11 @@
                         class="border-2 rounded-lg w-4/5 border-gray-500 pl-3 outline-none focus:border-blue-400 p-2 text-[14px]"
                         placeholder="Contoh : 300000"
                         >
+                        @error('nominal')
+                        <div class="invalid-feedback text-red-600 text-[14px] mt-2">
+                            {{ $message }}
+                        </div>
+                        @enderror
                 </div>
 
                 <div class="mt-[30px] flex flex-col">
@@ -56,6 +71,11 @@
                         class="border-2 rounded-lg w-4/5 border-gray-500 pl-3 outline-none focus:border-blue-400 p-2 text-[14px]"
                         placeholder="Contoh : Pengeluaran membayar listrik"
                         >
+                        @error('keterangan')
+                        <div class="invalid-feedback text-red-600 text-[14px] mt-2">
+                            {{ $message }}
+                        </div>
+                        @enderror
                 </div>
 
                 <button type="submit" class="my-[30px] font-semibold text-white shadow-xl bg-[#22C55E] hover:bg-[#229a4e] p-2 px-10 rounded-xl">SUBMIT</button>

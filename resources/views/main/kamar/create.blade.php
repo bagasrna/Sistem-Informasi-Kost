@@ -21,6 +21,7 @@
                         type="text" 
                         name="kode"
                         required
+                        value="{{ old('kode')}}"
                         id="kode"
                         class="border-2 rounded-lg w-4/5 border-gray-500 pl-3 outline-none focus:border-blue-400 p-2 text-[14px]"
                         placeholder="Contoh : K001"
@@ -34,16 +35,16 @@
 
                 <div class="mt-[30px] flex flex-col">
                     <label for="lantai" class="font-semibold mb-2">Lantai :</label>
-                    <select type="text" required id="lantai" name="lantai" class="w-[200px] pl-3 focus:border-blue-400 text-[14px] border-2 rounded-lg py-3 border-gray-500 outline-none ">
-                        <option value="" name="lantai">Pilih Lantai</option>
-                        <option value="1" name="lantai">Lantai 1</option>
-                        <option value="2" name="lantai">Lantai 2</option>
-                        <option value="2" name="lantai">Lantai 3</option>
-                        <option value="2" name="lantai">Lantai 4</option>
-                        <option value="2" name="lantai">Lantai 5</option>
+                    <select type="text" required id="lantai" name="lantai" class="w-[150px] sm:w-[200px] pl-3 focus:border-blue-400 text-[14px] border-2 rounded-lg py-3 border-gray-500 outline-none ">
+                        <option value=""  name="lantai">Pilih Lantai</option>
+                        <option value="1" {{ old('lantai') == "1" ? 'selected' : '' }} name="lantai">Lantai 1</option>
+                        <option value="2" {{ old('lantai') == "2" ? 'selected' : '' }} name="lantai">Lantai 2</option>
+                        <option value="3" {{ old('lantai') == "3" ? 'selected' : '' }} name="lantai">Lantai 3</option>
+                        <option value="4" {{ old('lantai') == "4" ? 'selected' : '' }} name="lantai">Lantai 4</option>
+                        <option value="5" {{ old('lantai') == "5" ? 'selected' : '' }} name="lantai">Lantai 5</option>
                     </select>
                     @error('lantai')
-                    <div class="invalid-feedback">{{ $errors->first('lantai') }}</div>
+                        <div class="invalid-feedback">{{ $errors->first('lantai') }}</div>
                     @enderror
                 </div>
 
@@ -53,19 +54,28 @@
                         type="text" 
                         name="fasilitas"
                         required
+                        value="{{ old('kapasitas')}}"
                         id="fasilitas"
                         class="border-2 rounded-lg w-4/5 border-gray-500 pl-3 outline-none focus:border-blue-400 p-2 text-[14px]"
                         placeholder="Contoh : Lemari dan Kasur"
                         >
+                        @error('fasilitas')
+                        <div class="invalid-feedback text-red-600 text-[14px] mt-2">
+                            {{ $message }}
+                        </div>
+                        @enderror
                 </div>
 
                 <div class="mt-[30px] flex flex-col">
                     <label for="kapasitas" class="font-semibold mb-2">Kapasitas :</label>
-                    <select type="text" required id="kapasitas" name="kapasitas" class="w-[200px] pl-3 focus:border-blue-400 text-[14px] border-2 rounded-lg py-3 border-gray-500 outline-none ">
-                        <option value="" name="lantai">Pilih Kapasitas</option>
-                        <option value="1" name="kapasitas">1 Orang</option>
-                        <option value="2" name="kapasitas">2 Orang</option>
+                    <select type="text" required id="kapasitas" name="kapasitas" class="w-[150px] sm:w-[200px] pl-3 focus:border-blue-400 text-[14px] border-2 rounded-lg py-3 border-gray-500 outline-none ">
+                        <option value="" name="kapasitas">Pilih Kapasitas</option>
+                        <option value="1" {{ old('kapasitas') == "1" ? 'selected' : '' }} name="kapasitas">1 Orang</option>
+                        <option value="2" {{ old('kapasitas') == "2" ? 'selected' : '' }} name="kapasitas">2 Orang</option>
                     </select>
+                    @error('kapasitas')
+                    <div class="invalid-feedback">{{ $errors->first('kapasitas') }}</div>
+                    @enderror
                 </div>
 
                 <div class="mt-[30px] flex flex-col">
@@ -74,10 +84,16 @@
                         type="number" 
                         name="tarif"
                         required
+                        value="{{ old('tarif')}}"
                         id="tarif"
                         class="border-2 rounded-lg w-4/5 border-gray-500 pl-3 outline-none focus:border-blue-400 p-2 text-[14px]"
                         placeholder="Contoh : 300000"
                         >
+                        @error('fasilitas')
+                        <div class="invalid-feedback text-red-600 text-[14px] mt-2">
+                            {{ $message }}
+                        </div>
+                        @enderror
                 </div>
 
                 <button type="submit" class="my-[30px] font-semibold text-white shadow-xl bg-[#22C55E] hover:bg-[#229a4e] p-2 px-10 rounded-xl">SUBMIT</button>
