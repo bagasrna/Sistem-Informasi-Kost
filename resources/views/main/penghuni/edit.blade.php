@@ -48,7 +48,6 @@
                     <input 
                         type="text" 
                         name="alamat"
-                        required
                         id="alamat"
                         value="{{$penghuni->alamat}}"
                         class="border-2 rounded-lg w-4/5 border-gray-500 pl-3 outline-none focus:border-blue-400 p-2 text-[14px]"
@@ -87,12 +86,12 @@
                 </div>
 
                 <div class="mt-[30px] flex flex-col">
-                    <label for="durasi" class="font-semibold mb-2">Diskon :</label>
+                    <label for="durasi" class="font-semibold mb-2">Durasi :</label>
                     <select type="text" required id="durasi" name="durasi" class="w-[200px] pl-3 focus:border-blue-400 text-[14px] border-2 rounded-lg py-3 border-gray-500 outline-none ">
-                        <option value="" name="lantai">Pilih Diskon</option>
-                        <option value="3" name="durasi" {{ $penghuni->durasi == 3 ? 'selected' : '' }}>3 Bulan</option>
-                        <option value="6" name="durasi" {{ $penghuni->durasi == 6 ? 'selected' : '' }}>6 Bulan</option>
-                        <option value="12" name="durasi" {{ $penghuni->durasi == 12 ? 'selected' : '' }}>12 Bulan</option>
+                        <option value="" name="durasi">Pilih Durasi</option>
+                        <option value="3" name="durasi" {{ $durasi_penghuni == 3 ? 'selected' : '' }}>3 Bulan</option>
+                        <option value="6" name="durasi" {{ $durasi_penghuni == 6 ? 'selected' : '' }}>6 Bulan</option>
+                        <option value="12" name="durasi" {{ $durasi_penghuni == 12 ? 'selected' : '' }}>12 Bulan</option>
                     </select>
                 </div>
 

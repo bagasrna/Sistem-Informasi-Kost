@@ -14,7 +14,7 @@ Use Alert;
 class KamarController extends Controller
 {
     public function index(Request $request){
-        $kamars = Kamar::latest()->where('status', 1);
+        $kamars = Kamar::orderBy('kode', 'asc')->where('status', 1);
 
         if($request->search){
             $kamars->where('kode', 'like', '%'. $request->search .'%');

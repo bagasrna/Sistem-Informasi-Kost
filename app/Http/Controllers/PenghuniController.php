@@ -26,7 +26,7 @@ class PenghuniController extends Controller
                 ->orWhereIn('id_kamar', $kamars->pluck('id'));
         }
 
-        $penghunis = $penghunis->latest()->paginate(7);
+        $penghunis = $penghunis->orderBy('kode', 'asc')->paginate(7);
         
         return view('main.penghuni.index', [
             'penghunis' => $penghunis
@@ -52,6 +52,7 @@ class PenghuniController extends Controller
 
     public function edit($id){
         $penghuni = Penghuni::with(['kamar'])->find($id);
+        $durasi_penghuni = $penghuni->durasi;
         $id_kamar_penghuni = $penghuni->kamar->id;
         $kamars = Kamar::with(['penghunis'])->where('status', 1)
             ->get();
@@ -59,27 +60,26 @@ class PenghuniController extends Controller
         return view('main.penghuni.edit', [
             'penghuni' => $penghuni,
             'kamars' => $kamars,
-            'id_kamar_penghuni' => $id_kamar_penghuni
+            'id_kamar_penghuni' => $id_kamar_penghuni,
+            'durasi_penghuni' => $durasi_penghuni,
         ]);
     }
 
     public function store(Request $request){
         $rules = [
             'nama' => 'required',
-            'alamat' => 'required',
             'durasi' => 'required|numeric',
             'diskon' => 'required|numeric',
             'hp' => 'required|numeric|starts_with:62',
             'tgl_registrasi' => 'required|date',
             'id_kamar' => 'required',
+            'ktp' => 'image',
         ];
 
         if (!$request->id) {
             $rules['kode'] = 'required|unique:penghunis';
-            $rules['ktp'] = 'required|image';
         } else {
             $rules['kode'] = ['required', Rule::unique('penghunis')->ignore($request->id)];
-            $rules['ktp'] = 'image';
         }
 
         $validator = Validator::make($request->all(), $rules);
@@ -116,12 +116,15 @@ class PenghuniController extends Controller
                 }
             }
 
-            if($request->file('ktp'))
+            if($request->file('ktp')){
                 $penghuni->ktp = $request->file('ktp')->store('ktp', 'public');
+            } else {
+                $penghuni->ktp = '-';
+            }
 
             $penghuni->nama = $request->nama;
             $penghuni->kode = $request->kode;
-            $penghuni->alamat = $request->alamat;
+            $penghuni->alamat = $request->alamat ? $request->alamat : '-';
             $penghuni->durasi = $request->durasi;
             $penghuni->diskon = $request->diskon;
             $penghuni->status = 1;

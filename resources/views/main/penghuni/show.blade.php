@@ -16,12 +16,12 @@
             <div class="ml-[30px] my-[30px]">
                 <h1>Kode Penghuni : <span class="font-bold">{{ $penghuni->kode }}</span></h1>
                 <h1 class="my-[20px]">Nama : <span class="font-bold">{{ $penghuni->nama }}</span></h1>
-                <h1 class="my-[20px]">Kamar Kos : <span class="font-bold">{{$penghuni->id_kamar}}</span></h1>
-                <h1>Alamat Penghuni : <span class="font-bold">{{$penghuni-> alamat}}</span></h1>
+                <h1 class="my-[20px]">Kamar Kos : <span class="font-bold">{{$penghuni->kamar->kode}}</span></h1>
+                <h1>Alamat Penghuni : <span class="font-bold">{{$penghuni->alamat}}</span></h1>
                 <h1 class="my-[20px]">Nomer Handphone : <span class="font-bold">{{$penghuni->hp}}</span></h1>
                 <h1>Durasi Kos : <span class="font-bold">{{$penghuni->durasi}} Bulan</span></h1>
                 <h1 class="my-[20px]">Diskon : <span class="font-bold">{{$penghuni->diskon}}%</span></h1>
-                <h1>Kamar Kos : <span class="font-bold">{{$penghuni->tgl_registrasi}}</span></h1>
+                <h1>Tanggal Registrasi : <span class="font-bold">{{$penghuni->tgl_registrasi}}</span></h1>
                 <h1 class="my-[20px]">Foto KTP : <a href="{{ asset('storage/' . $penghuni->ktp) }}" target="_blank" class="bg-teal-500 ml-[20px] text-white lg:px-5 px-1 py-2 rounded-lg">KTP</a></h1>
             </div>
         </div>

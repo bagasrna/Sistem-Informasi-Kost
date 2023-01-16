@@ -52,7 +52,6 @@
                         type="text" 
                         name="alamat"
                         value="{{ old('alamat')}}"
-                        required
                         id="alamat"
                         class="border-2 rounded-lg w-4/5 border-gray-500 pl-3 outline-none focus:border-blue-400 p-2 text-[14px]"
                         placeholder="Contoh : Jalan Sawojajar. . ."
@@ -146,7 +145,6 @@
                     <input 
                         type="file" 
                         name="ktp"
-                        required
                         value="{{ old('ktp')}}"
                         id="ktp"
                         class="w-4/5 outline-none focus:border-blue-400 py-2 text-[14px]"
