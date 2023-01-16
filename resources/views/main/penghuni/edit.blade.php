@@ -78,7 +78,7 @@
                     <select type="text" required id="kamar" name="id_kamar" class="w-1/2 pl-3 focus:border-blue-400 text-[14px] border-2 rounded-lg py-3 border-gray-500 outline-none ">
                         <option value="" name="id_kamar">Pilih Kamar</option>
                         @foreach ($kamars as $kamar)
-                            <option value="{{ $kamar->id }}" name="id_kamar" {{ $penghuni->kamar->id == $kamar->id ? 'selected' : '' }}>
+                            <option value="{{ $kamar->id }}" name="id_kamar" {{ $id_kamar_penghuni == $kamar->id ? 'selected' : '' }}>
                                 Kamar {{ $kamar->kode }} @foreach ($kamar->penghunis as $penghuni) | {{ $penghuni->nama }} @endforeach
                             </option>
                         @endforeach

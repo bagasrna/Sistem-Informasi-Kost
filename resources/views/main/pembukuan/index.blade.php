@@ -57,20 +57,18 @@
                 <div class="sm:my-[30px] mt-[50px] flex flex-col sm:flex-row">
                     <select name="tahun_awal" required class="w-full pl-3 focus:border-blue-400 text-[14px] border-2 rounded-lg py-3 border-gray-500 outline-none ">
                         <option value="">Pilih Tahun Awal</option>
-                        <option value="2022">2022</option>
-                        <option value="2023">2023</option>
-                        <option value="2023">2024</option>
-                        <option value="2025">2025</option>
+                        @foreach($years as $year)
+                            <option value="{{ $year->year }}">{{ $year->year }}</option>
+                        @endforeach
                     </select>
 
                     <h1 class="flex sm:my-auto mx-auto my-2 sm:mx-[30px]">-</h1>
 
                     <select name="tahun_akhir" required class="w-full pl-3 focus:border-blue-400 text-[14px] border-2 rounded-lg py-3 border-gray-500 outline-none ">
                         <option value="">Pilih Tahun Akhir</option>
-                        <option value="2022">2022</option>
-                        <option value="2023">2023</option>
-                        <option value="2023">2024</option>
-                        <option value="2025">2025</option>
+                        @foreach($years as $year)
+                            <option value="{{ $year->year }}">{{ $year->year }}</option>
+                        @endforeach
                     </select>
                 </div>
                     <div class="flex justify-end my-[30px]">

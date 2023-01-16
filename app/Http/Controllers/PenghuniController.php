@@ -52,12 +52,14 @@ class PenghuniController extends Controller
 
     public function edit($id){
         $penghuni = Penghuni::with(['kamar'])->find($id);
+        $id_kamar_penghuni = $penghuni->kamar->id;
         $kamars = Kamar::with(['penghunis'])->where('status', 1)
             ->get();
         
         return view('main.penghuni.edit', [
             'penghuni' => $penghuni,
-            'kamars' => $kamars
+            'kamars' => $kamars,
+            'id_kamar_penghuni' => $id_kamar_penghuni
         ]);
     }
 

@@ -11,7 +11,13 @@ use Alert;
 class PembukuanController extends Controller
 {
     public function index(){
-        return view('main.pembukuan.index');
+        $years = Pembukuan::selectRaw('year(tgl_transaksi) year')
+            ->groupBy('year')
+            ->get();
+
+        return view('main.pembukuan.index', [
+            'years' => $years
+        ]);
     }
 
     public function show(Request $request){
