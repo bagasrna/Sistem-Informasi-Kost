@@ -6,6 +6,7 @@
     <link rel="icon" href="https://i.ibb.co/vHqs58z/icons8-home-page-100.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sistem Informasi Kos</title>
+    @vite('resources/css/app.css')
 </head>
 <body onload="print()">
     <div class="md:ml-[150px] ml-[80px] mr-[30px] h-screen z-40 font-Poppins">
@@ -75,6 +76,5 @@
             </tfoot>
         </table>
     </div>
-    @include('layout.sidebar')
 </body>
 </html>
