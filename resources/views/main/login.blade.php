@@ -13,7 +13,7 @@
         @csrf
             <div class='border-2 p-5 sm:p-10 rounded-2xl shadow-lg font-Poppins border-[#257B57] w-[300px] sm:w-[500px] my-[100px] flex-col flex items-center h-full mx-auto'>
                 <div class='my-5 '>
-                    <h1 class='font-Poppins text-[12px] flex justify-center mx-auto sm:text-[20px] text-center font-bold'>Sistem Informasi Kos Sigura-gura IV Kav.7A</h1>
+                    <h1 class='font-Poppins text-[16px] flex justify-center mx-auto sm:text-[20px] text-center font-bold'>Sistem Informasi Kos</h1>
                     <div class=' flex mx-[50px] flex-col'>
                         <div class='ml-[20px] sm:ml-0'>
                             <h1 class='font-bold text-[12px] mt-[40px] sm:text-[16px]'>Username</h1>
