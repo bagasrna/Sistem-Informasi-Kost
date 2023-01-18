@@ -53,6 +53,8 @@ class PenghuniController extends Controller
     public function edit($id){
         $penghuni = Penghuni::with(['kamar'])->find($id);
         $durasi_penghuni = $penghuni->durasi;
+        $diskon_penghuni = $penghuni->diskon;
+        $tgl_registrasi_penghuni = $penghuni->tgl_registrasi;
         $id_kamar_penghuni = $penghuni->kamar->id;
         $kamars = Kamar::with(['penghunis'])->where('status', 1)
             ->get();
@@ -62,6 +64,8 @@ class PenghuniController extends Controller
             'kamars' => $kamars,
             'id_kamar_penghuni' => $id_kamar_penghuni,
             'durasi_penghuni' => $durasi_penghuni,
+            'diskon_penghuni' => $diskon_penghuni,
+            'tgl_registrasi_penghuni' => $tgl_registrasi_penghuni,
         ]);
     }
 
@@ -141,7 +145,7 @@ class PenghuniController extends Controller
                 $tagihan->id_penghuni = $penghuni->id;
                 $tagihan->tagihan = ((100 - $penghuni->diskon) / 100) * ($penghuni->durasi * $penghuni->kamar->tarif);
                 $tagihan->status = false;
-                $tagihan->tgl_awal = $tgl_registrasi;
+                $tagihan->tgl_awal = $penghuni->tgl_registrasi;
                 $tagihan->deadline = $tgl_registrasi->addMonth($penghuni->durasi);
                 $tagihan->save();
             } else {
