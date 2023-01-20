@@ -24,7 +24,7 @@ class TagihanController extends Controller
             $tagihans = $tagihans->whereIn('id_penghuni', $kamars_penghunis->pluck('id'));
         }
 
-        $tagihans = $tagihans->where('status', 0)->orderBy('deadline', 'asc')->paginate(7);
+        $tagihans = $tagihans->where('status', 0)->orderBy('tgl_awal', 'asc')->paginate(7);
         
         return view('main.tagihan.index', [
             'tagihans' => $tagihans
@@ -85,6 +85,8 @@ class TagihanController extends Controller
         $tgl_awal = Carbon::parse($tagihan->tgl_awal);
         $deadline = Carbon::parse($tagihan->deadline);
         $rentang = $tgl_awal->diffInMonths($deadline);
+
+        // dd($tgl_awal, $deadline, $rentang, $tagihan->tgl_awal, $tagihan->deadline);
         
         return view('main.pembayaran.show', [
             'tagihan' => $tagihan,
