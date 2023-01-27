@@ -85,6 +85,7 @@ class TagihanController extends Controller
         $tgl_awal = Carbon::parse($tagihan->tgl_awal);
         $deadline = Carbon::parse($tagihan->deadline);
         $rentang = $tgl_awal->diffInMonths($deadline);
+        $tgl_pelunasan = Carbon::parse($tagihan->updated_at)->format('Y-m-d');
 
         // dd($tgl_awal, $deadline, $rentang, $tagihan->tgl_awal, $tagihan->deadline);
         
@@ -92,7 +93,8 @@ class TagihanController extends Controller
             'tagihan' => $tagihan,
             'tgl_awal' => $tgl_awal,
             'deadline' => $deadline,
-            'rentang' => $rentang
+            'rentang' => $rentang,
+            'tgl_pelunasan' => $tgl_pelunasan,
         ]);
     }
 }
