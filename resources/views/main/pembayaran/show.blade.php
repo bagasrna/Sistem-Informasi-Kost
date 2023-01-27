@@ -22,7 +22,7 @@
                 <tr>  
                     <td rowspan="6" class="w-[150px] border-r border-gray-400">
                         <p class="text-sm">Tanggal Pelunasan</p>
-                        <span class="font-bold text-sm">{{$tagihan->updated_at}}</span>
+                        <span class="font-bold text-sm">{{$tgl_pelunasan}}</span>
                     </td>  
                     <td class="w-[250px] mt-[20px]" valign="top"> Kode Penghuni </td>
                     <td> : <span class="ml-[20px] font-semibold">{{ $tagihan->penghuni->status ? $tagihan->penghuni->kode : 'Penghuni Dihapus' }}</span></td> 
